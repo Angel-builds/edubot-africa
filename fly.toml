@@ -1,0 +1,28 @@
+# Johannesburg is the only Fly region on the African continent. Accra -> jnb is
+# ~5,500km, but it still beats Accra -> Frankfurt for round-trips.
+app = "edubot-africa"
+primary_region = "jnb"
+
+[build]
+
+[env]
+  EDUBOT_ENVIRONMENT = "production"
+
+[http_service]
+  internal_port = 8000
+  force_https = true
+  auto_start_machines = true
+  # A tutor that takes 30s to wake is worse than no tutor. Keep one machine warm.
+  auto_stop_machines = false
+  min_machines_running = 1
+
+  [[http_service.checks]]
+    interval = "30s"
+    timeout = "5s"
+    grace_period = "10s"
+    method = "GET"
+    path = "/health"
+
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "256mb"
