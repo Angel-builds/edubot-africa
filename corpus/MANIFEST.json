@@ -1,0 +1,22 @@
+{
+  "sources": [
+    {
+      "id": "MATHEMATICS-CCP-B7-B9",
+      "title": "Mathematics Common Core Programme Curriculum, B7-B9",
+      "publisher": "NaCCA, Ministry of Education, Ghana",
+      "edition": "2020",
+      "url": "https://nacca.gov.gh/wp-content/uploads/2022/10/MATHEMATICS-CCP-B7-B9.pdf",
+      "sha256": "220a7c1d435ecb4d81bd90bd081c44038aeab3a28a5e9f888128a4b450ef4bd2",
+      "bytes": 5590851,
+      "pages": 259,
+      "retrieved": "2026-09-20",
+      "licence": "All rights reserved",
+      "licence_note": "Free to download, not to redistribute. Only codes, short functional titles and structure are extracted; exemplar prose, figures and worked examples are discarded. The PDF itself is gitignored and must not be committed.",
+      "permission_status": "not yet requested; see docs/PHASE1.md"
+    }
+  ],
+  "outputs": {
+    "corpus/skill_graph.jsonl": "Codes, short titles and structure. Safe to commit.",
+    "corpus/rejects.jsonl": "Extractions the pipeline could not trust, with page numbers."
+  }
+}
