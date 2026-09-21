@@ -94,7 +94,7 @@ Four columns run across the page — **Strand → Sub-strand → Content Standar
 | Strands | Number; Algebra; Geometry and Measurement; Handling Data |
 | Sub-strands | Number & Numeration Systems; Number Operations; Fractions, Decimals & Percentages; Ratios & Proportion; Patterns & Relationships; Algebraic Expressions; Variables & Equations; Shapes & Space; Measurement; Position & Transformation; Data; Chance or Probability |
 | Content standards | **B7 = 21, B8 = 18, B9 = 18 — 57 total** (measured, not assumed) |
-| Indicators | **180 unique** (measured) |
+| Indicators | **178 unique** (measured) |
 
 A few hundred nodes is small. This is a data-quality problem, not a scale problem.
 
@@ -138,7 +138,9 @@ PAGE 201   standard -> B9.1.2.4     indicator -> B9.1.2.3.4
 
 The hybrid vision fallback originally proposed here is unnecessary. Dropping it removes an API key, a per-page cost and a source of nondeterminism, and keeps the whole extractor free and re-runnable inside CI.
 
-**Column boundaries are detected per page, not hardcoded.** Every content page carries the header row `CONTENT STANDARD | INDICATORS AND EXEMPLARS | CORE COMPETENCIES`; the x-position of those three header words gives the column origins for that page. A page without that header is not a content page and is skipped. Observed origins are x≈93 / 234 / 615 on an 841pt-wide page, but they are read rather than assumed.
+**Column boundaries need both signals, and neither works alone.** The table's ruled vertical lines give exact positions, but exemplar cells contain *nested tables* whose rules are indistinguishable from the real column separators — page 47 has rules at `[95, 226, 262, 539, 609, 745]`, where 262 and 539 belong to a nested table. Taking the first two interior rules there put an entire indicator title in the competency column and dropped it.
+
+The header words fix which rules matter, but cannot supply position: on page 235 `INDICATORS` sits 113pt right of its own column rule. So the header chooses the rule, the rule gives the x. A page without both the ruled table and the header row is not a content page and is skipped.
 
 ### A5. Known defects — measured
 
@@ -148,7 +150,7 @@ Counted across all 259 pages, so these are observed rather than anticipated:
 |---|---|---|
 | Duplicated maths glyphs (`𝑥𝑥` = U+1D465 twice) | **1,093** | Low — lives in exemplar prose, which is not stored |
 | Code format variants | **44 of 408 tokens (~11%)** | Normalisable; see A6 |
-| Nested tables inside exemplar cells | present on sampled pages | Low — exemplar prose is not stored |
+| Nested tables inside exemplar cells | present on sampled pages | **High** — their rules mimic column separators; see A4 |
 | Figures with no text layer | throughout | None — figures are not stored |
 | Source-document code typo | at least 1 confirmed | **High** — see below |
 
@@ -243,7 +245,8 @@ Every chunk carries `source`, `licence` (SPDX identifier), `attribution` (the ex
 Automated, wired into the existing CI job:
 
 - Graph contains exactly **57 content standards**, split **B7 = 21, B8 = 18, B9 = 18**
-- Graph contains **180 unique indicators**
+- Graph contains **178 unique indicators**
+- All 235 nodes carry a sub-strand title; 12 distinct sub-strands
 - Every code matches `^B[789](\.\d+){3,4}$` after normalisation
 - Every indicator's parent standard exists; strand and sub-strand numbers agree with the parent
 - Exactly 4 strands, each with at least one sub-strand

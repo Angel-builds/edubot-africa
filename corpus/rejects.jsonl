@@ -1,4 +1,1 @@
-{"page": 47, "reason": "no title recoverable before exemplar text", "raw": "B7.1.3.1.1", "repaired_to": null}
-{"page": 125, "reason": "no title recoverable before exemplar text", "raw": "B8.1.2.2.1", "repaired_to": null}
-{"page": 188, "reason": "no title recoverable before exemplar text", "raw": "B8.4.1.2.1", "repaired_to": null}
 {"page": 201, "reason": "printed parent B9.1.2.3 does not exist; re-parented from column context", "raw": "B9.1.2.3.4", "repaired_to": "B9.1.2.4.4"}

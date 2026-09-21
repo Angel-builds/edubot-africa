@@ -5,9 +5,8 @@ worked examples are deliberately discarded: the source PDF is marked
 all-rights-reserved and must not be reproduced.
 
 Extraction is positional. Column boundaries come from the table's ruled
-vertical lines rather than from the header text, because the header row is not
-reliably aligned with the data columns -- on page 235 the "INDICATORS" header
-sits at x=335 while the actual column rule is at x=222.
+vertical lines, with the header row choosing which rules are the real column
+separators -- see column_bounds, where neither signal is sufficient alone.
 
 Parents are repaired conservatively. An indicator's printed parent is trusted
 whenever that standard exists somewhere in the document; only genuine orphans
@@ -53,7 +52,13 @@ CODE_TOKEN = re.compile(r"B\s?\.?\s?[789][\d\.\s]{2,14}")
 EXEMPLAR = re.compile(r"E\.?\s?g\.?\s?\d", re.IGNORECASE)
 
 COMPETENCY = re.compile(r"\(([A-Z]{2})\)")
-SUB_STRAND = re.compile(r"Sub-?strand\s*(\d)\s*[:\-]?\s*([A-Za-z][A-Za-z ,&'()/-]{2,60})", re.I)
+# Title-cased words plus lowercase connectors, so the all-caps
+# "INDICATORS AND EXEMPLARS" header that follows cannot bleed into the name.
+# Inner colons are allowed: sub-strand 1.4 is printed "Number: Ratios and Proportion".
+SUB_STRAND = re.compile(
+    r"Sub-?strand\s*(\d)\s*[:\-]?\s*"
+    r"((?:[A-Z][a-z]+|and|or|of|the)(?:[\s,:]+(?:[A-Z][a-z]+|and|or|of|the))*)"
+)
 
 MIN_RULE_HEIGHT = 80
 
@@ -72,7 +77,18 @@ def normalise_code(token: str) -> str | None:
 
 
 def column_bounds(page) -> tuple[float, float] | None:
-    """Column separator x-positions, taken from the table's vertical rules."""
+    """Column separators: ruled vertical lines, disambiguated by the header row.
+
+    Neither signal works alone. Exemplar cells contain nested tables, so the
+    table's own column rules are not simply the first two interior rules --
+    page 47 has rules at [95, 226, 262, 539, 609, 745] where 262 and 539 belong
+    to a nested table, and taking rules[1:3] bucketed a whole indicator title
+    into the competency column. Header words alone are no better: on page 235
+    "INDICATORS" sits 113pt right of its own column rule.
+
+    So the headers choose which rules are the real column separators, and the
+    rules supply the exact position.
+    """
     xs = sorted(
         e["x0"] for e in page.edges
         if e["orientation"] == "v" and e.get("height", 0) > MIN_RULE_HEIGHT
@@ -83,7 +99,19 @@ def column_bounds(page) -> tuple[float, float] | None:
             merged.append(x)
     if len(merged) < 4:
         return None
-    return merged[1], merged[2]
+    interior = merged[1:-1]
+
+    header: dict[str, float] = {}
+    for w in page.extract_words():
+        token = w["text"].upper().strip(":")
+        if token in ("INDICATORS", "CORE") and token not in header:
+            header[token] = w["x0"]
+    if len(header) < 2:
+        return None
+
+    mid = min(interior, key=lambda r: abs(r - header["INDICATORS"]))
+    right = min(interior, key=lambda r: abs(r - header["CORE"]))
+    return (mid, right) if mid < right else None
 
 
 def column_text(page, mid: float, right: float) -> dict[str, str]:
@@ -159,15 +187,15 @@ def scan(pdf_path: Path) -> tuple[list[dict], dict[tuple[str, int, int], str]]:
                         }
                     )
 
-            for num, name in SUB_STRAND.findall(whole):
-                codes_here = [normalise_code(c) for c, _ in split_on_codes(whole)]
-                for c in codes_here:
-                    if c:
-                        parts = c.split(".")
-                        sub_titles.setdefault(
-                            (parts[0], int(parts[1]), int(num)), " ".join(name.split())
-                        )
-                        break
+            page_codes = [
+                c for c in (normalise_code(raw) for raw, _ in split_on_codes(whole)) if c
+            ]
+            if page_codes:
+                klass, strand_n = page_codes[0][:2], int(page_codes[0].split(".")[1])
+                for num, name in SUB_STRAND.findall(whole):
+                    sub_titles.setdefault(
+                        (klass, strand_n, int(num)), " ".join(name.split())
+                    )
 
     return records, sub_titles
 

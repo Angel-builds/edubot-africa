@@ -25,7 +25,7 @@ REJECTS = Path("corpus/rejects.jsonl")
 CANONICAL = re.compile(r"^B[789](\.\d+){3,4}$")
 
 EXPECTED_STANDARDS = {"B7": 21, "B8": 18, "B9": 18}
-EXPECTED_INDICATORS = 174
+EXPECTED_INDICATORS = 178
 MAX_TITLE_CHARS = 300
 
 
@@ -79,6 +79,16 @@ def test_four_strands_present(nodes):
     assert all(n["strand"]["title"] for n in nodes)
 
 
+def test_every_node_has_a_sub_strand_title(nodes):
+    missing = [n["code"] for n in nodes if not n["sub_strand"]["title"]]
+    assert missing == []
+
+
+def test_twelve_distinct_sub_strands(nodes):
+    pairs = {(n["strand"]["number"], n["sub_strand"]["number"]) for n in nodes}
+    assert len(pairs) == 12
+
+
 def test_strand_and_substrand_agree_with_code(nodes):
     for n in nodes:
         parts = n["code"].split(".")
@@ -114,6 +124,12 @@ def test_rejects_are_recorded_not_dropped():
     if not REJECTS.exists():
         pytest.skip("rejects file not generated")
     rejects = [json.loads(line) for line in REJECTS.read_text().splitlines() if line]
-    assert len(rejects) <= 10, "reject count grew; investigate before raising this bound"
+    assert len(rejects) <= 3, "reject count grew; investigate before raising this bound"
     for r in rejects:
         assert r["reason"] and r["raw"] and r["page"] > 0
+
+    # The one known reject is a typo in the source document: page 201 prints
+    # indicator B9.1.2.3.4 under standard B9.1.2.4, and no B9.1.2.3 exists.
+    typo = [r for r in rejects if r["raw"] == "B9.1.2.3.4"]
+    assert len(typo) == 1
+    assert typo[0]["repaired_to"] == "B9.1.2.4.4"
