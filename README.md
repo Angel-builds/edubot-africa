@@ -3,7 +3,7 @@
 An AI maths tutor grounded in the Ghanaian JHS curriculum (NaCCA Common Core
 Programme, B7–B9), built for students on shared Android phones and metered data.
 
-> **Status:** Phase 0 — foundations. No AI code yet, by design.
+> **Status:** Phase 1 — corpus and skill graph. No AI code yet, by design.
 
 ## What makes it different
 
@@ -52,7 +52,13 @@ uv run pytest                             # test
 uv run ruff check .                       # lint
 uv run uvicorn api.main:app --reload      # serve on :8000
 curl localhost:8000/health                # {"ok": true, ...}
+
+uv run python -m ingest.nacca_taxonomy    # rebuild the skill graph
 ```
+
+The extractor needs `corpus/raw/MATHEMATICS-CCP-B7-B9.pdf`, which is gitignored —
+see `corpus/MANIFEST.json` for the source URL and checksum. The generated
+`corpus/skill_graph.jsonl` is committed, so tests run without it.
 
 Copy `.env.example` to `.env` for local configuration.
 
@@ -73,7 +79,7 @@ docs/     pre-registration, eval results, safety, consent
 | Phase | |
 |---|---|
 | 0 | Foundations — FastAPI, Docker, Fly, pytest, CI ✅ |
-| 1 | Corpus and skill graph |
+| 1 | Corpus and skill graph — skill graph extracted ✅, content corpus next |
 | 2 | Supabase and hybrid retrieval |
 | 3 | The eval gate — golden set, recall@k/MRR/nDCG in CI |
 | 4 | Retrieval improvement loop |
