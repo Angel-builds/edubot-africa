@@ -54,6 +54,8 @@ uv run uvicorn api.main:app --reload      # serve on :8000
 curl localhost:8000/health                # {"ok": true, ...}
 
 uv run python -m ingest.nacca_taxonomy    # rebuild the skill graph
+uv run python -m ingest.siyavula          # fetch + chunk the CC BY corpus
+uv run python -m ingest.map_indicators    # map chunks to indicators, report gaps
 ```
 
 The extractor needs `corpus/raw/MATHEMATICS-CCP-B7-B9.pdf`, which is gitignored —
@@ -79,7 +81,7 @@ docs/     pre-registration, eval results, safety, consent
 | Phase | |
 |---|---|
 | 0 | Foundations — FastAPI, Docker, Fly, pytest, CI ✅ |
-| 1 | Corpus and skill graph — skill graph extracted ✅, content corpus next |
+| 1 | Corpus and skill graph ✅ — 57 standards, 178 indicators, 708 CC BY chunks |
 | 2 | Supabase and hybrid retrieval |
 | 3 | The eval gate — golden set, recall@k/MRR/nDCG in CI |
 | 4 | Retrieval improvement loop |

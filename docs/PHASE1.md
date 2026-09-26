@@ -187,13 +187,19 @@ This is the only step that catches *plausible but wrong* extraction, which autom
 
 The skill graph says what to teach. It deliberately contains no prose to teach with. Part B supplies that from openly licensed sources.
 
-### B1. Source
+### B1. Source — settled
+
+**Siyavula, Mathematics Grades 7-9 (South Africa), CC BY 3.0.** Licence verified on the site itself: *"All Siyavula textbook content made available on this site is released under the terms of a Creative Commons Attribution License."* Embedded videos, simulations and presentations are explicitly **excluded** from that licence, so only prose paragraphs are taken.
+
+Grades 7-9 map directly onto B7-B9, which is why this beats any US-aligned source. 197 content pages across 54 chapters, cached locally so re-runs cost nothing and do not hammer a free educational resource.
+
+### B1a. Source options considered
 
 **Siyavula, unbranded editions — CC BY.** The branded editions are CC BY-ND, which forbids adapting; the unbranded ones are CC BY and permit adaptation and commercial use. **Confirm the licence on the specific file you download** and record it in the manifest. Getting this wrong is the kind of error that is cheap now and expensive later.
 
 Secondary: **TESSA (CC BY-SA)** for teaching approaches — how to explain a concept rather than what the concept is. Useful for the tutor's hint ladder in Phase 5.
 
-Explicitly excluded: Khan Academy and most OpenStax titles are **CC BY-NC**. Non-commercial is incompatible with anything you might later charge for, and retrofitting a corpus swap is far worse than choosing correctly now.
+Explicitly excluded: Khan Academy and most OpenStax titles are **CC BY-NC**. Non-commercial is incompatible with anything you might later charge for, and retrofitting a corpus swap is far worse than choosing correctly now. `Chunk.licence` enforces this in code — a non-permissive licence raises on construction, so non-commercial material cannot enter the corpus by accident.
 
 ### B2. Chunking
 
@@ -205,12 +211,11 @@ Each chunk stores its heading path. A chunk that knows it came from *Fractions �
 
 Siyavula is written to the South African curriculum. Ghana's CCP orders and emphasises topics differently, so alignment is not one-to-one. Some indicators will have several good chunks; some will have none, and **the gaps matter more than the matches** — an indicator with no grounded content is one the tutor cannot teach, and you want that visible in a report rather than discovered by a student.
 
-A workable sequence:
+**Implemented as lexical TF-IDF cosine, hand-rolled**, because no API key exists yet and CI must stay deterministic and free. This is *not* semantic alignment and the code says so. Every mapping is a candidate requiring review before the tutor may cite it.
 
-1. Embed indicator titles and chunks, take top-k candidates per indicator
-2. Have an LLM score each candidate pair for genuine alignment, with a structured verdict
-3. Review everything above threshold by hand — the volume is a few hundred pairs, which is an afternoon
-4. Emit `coverage.json`: indicators with no chunk above threshold, by strand
+Calibration mattered more than the method. At a 0.08 threshold all 178 indicators "matched" something — false confidence, pairing *"find the back bearing"* with *"Rounding to significant figures"* and *"scalar multiplication of vectors"* with *"Adding algebraic terms"*. **A method that reports no gaps against a different country's curriculum is broken, not thorough.** At 0.25, where top hits are genuinely right (*"associative property"* → *"The associative (grouping) property"*), coverage is 124/178.
+
+Upgrading to embeddings plus an LLM judge is a phase-4 task, once a key exists and the retrieval eval set can measure whether it actually helps.
 
 Step 4 is the deliverable people skip and then regret. It tells you where to write your own explanations, and it is honest input to the Phase 3 eval set.
 
@@ -231,9 +236,9 @@ Every chunk carries `source`, `licence` (SPDX identifier), `attribution` (the ex
 | `ingest/chunk.py` | Shared semantic chunking |
 | `ingest/schemas.py` | Pydantic models for nodes and chunks |
 | `corpus/skill_graph.jsonl` | Committed — codes and short titles only |
-| `corpus/chunks.jsonl` | Committed if size permits, else generated |
+| `corpus/chunks.jsonl` | 708 chunks, 104k words, median 133 words |
 | `corpus/MANIFEST.json` | Sources, SHA-256, licences, retrieval dates |
-| `corpus/coverage.json` | Indicators lacking grounded content |
+| `corpus/coverage.json` | 54 of 178 indicators lack grounded content |
 | `corpus/rejects.jsonl` | Extraction failures with page numbers |
 | `tests/test_taxonomy.py` | Structural assertions, run in CI |
 | `docs/EXTRACTION_AUDIT.md` | The 20-indicator hand check |
