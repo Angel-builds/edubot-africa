@@ -81,3 +81,43 @@ class Reject(BaseModel):
     reason: str
     raw: str
     repaired_to: str | None = None
+
+
+class Chunk(BaseModel):
+    """A passage of openly licensed prose, mapped onto curriculum indicators.
+
+    Provenance is mandatory rather than best-effort: CC BY compliance requires
+    an attribution string, and reconstructing one retroactively across thousands
+    of chunks is miserable.
+    """
+
+    id: str
+    subject: str = "mathematics"
+    source_id: str
+    grade: int
+    heading_path: list[str]
+    text: str
+    url: str
+    licence: str
+    attribution: str
+    retrieved: date
+    chunk_index: int
+    word_count: int
+    indicators: list[str] = Field(default_factory=list)
+
+    @field_validator("text")
+    @classmethod
+    def text_is_substantial(cls, v: str) -> str:
+        v = " ".join(v.split())
+        if len(v.split()) < 20:
+            raise ValueError("chunk too short to be useful")
+        return v
+
+    @field_validator("licence")
+    @classmethod
+    def licence_is_permissive(cls, v: str) -> str:
+        """Guards the corpus against non-commercial material entering by accident."""
+        allowed = {"CC-BY-3.0", "CC-BY-4.0", "CC-BY-SA-4.0"}
+        if v not in allowed:
+            raise ValueError(f"licence {v!r} not in permitted set {sorted(allowed)}")
+        return v
