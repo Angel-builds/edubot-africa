@@ -1,0 +1,3695 @@
+{
+  "method": "lexical TF-IDF cosine; every candidate requires human review before citation. Threshold calibrated by inspecting the score distribution, not validated against labels.",
+  "threshold": 0.25,
+  "top_k": 5,
+  "indicators_total": 178,
+  "indicators_covered": 124,
+  "indicators_uncovered": 54,
+  "uncovered_by_strand": {
+    "Number": 21,
+    "Algebra": 13,
+    "Geometry and Measurement": 16,
+    "Handling Data": 4
+  },
+  "uncovered": [
+    "B7.1.1.1.1",
+    "B7.1.2.1.2",
+    "B7.1.2.1.3",
+    "B7.1.2.2.3",
+    "B7.2.1.1.1",
+    "B7.2.1.1.2",
+    "B7.2.1.1.3",
+    "B7.2.3.1.2",
+    "B7.2.3.1.3",
+    "B7.3.2.1.3",
+    "B7.3.2.3.1",
+    "B7.3.2.3.2",
+    "B7.3.2.3.3",
+    "B7.3.2.3.4",
+    "B7.3.2.3.5",
+    "B7.3.3.1.1",
+    "B7.3.3.1.4",
+    "B7.4.1.1.1",
+    "B8.1.1.1.1",
+    "B8.1.1.2.1",
+    "B8.1.2.1.2",
+    "B8.1.2.1.3",
+    "B8.1.2.2.3",
+    "B8.1.3.1.2",
+    "B8.1.3.1.3",
+    "B8.1.4.1.1",
+    "B8.1.4.1.2",
+    "B8.1.4.1.5",
+    "B8.2.1.1.1",
+    "B8.2.1.1.2",
+    "B8.2.1.1.3",
+    "B8.2.3.1.1",
+    "B8.2.3.1.3",
+    "B8.3.2.1.5",
+    "B8.3.2.2.1",
+    "B8.3.2.2.2",
+    "B8.3.3.1.1",
+    "B8.4.1.1.2",
+    "B9.1.1.1.2",
+    "B9.1.1.2.2",
+    "B9.1.2.2.1",
+    "B9.1.3.1.2",
+    "B9.1.4.1.2",
+    "B9.1.4.1.3",
+    "B9.1.4.1.4",
+    "B9.2.1.1.1",
+    "B9.2.1.1.2",
+    "B9.2.3.1.2",
+    "B9.3.1.2.1",
+    "B9.3.2.2.2",
+    "B9.3.3.1.1",
+    "B9.3.3.1.2",
+    "B9.4.1.1.1",
+    "B9.4.1.2.1"
+  ],
+  "indicators": {
+    "B7.1.1.1.1": {
+      "title": "Model number quantities more than 1,000,000,000 using graph sheets, isometric papers and multi-base blocks E.g.,1. Model number quantities up to 1,000,000,000 (one billion) using graph sheets or multi-base ten materials. For instance, with multi-base blocks one cube = 100,000, one rod = ten of the c",
+      "class": "B7",
+      "strand": "Number",
+      "sub_strand": "Number and Numeration Systems",
+      "candidates": [],
+      "covered": false
+    },
+    "B7.1.1.1.3": {
+      "title": "Round (off, up, down) whole numbers more than 1,000,000,000 to the nearest hundred-thousand, ten-thousands, thousands, hundreds and tens",
+      "class": "B7",
+      "strand": "Number",
+      "sub_strand": "Number and Numeration Systems",
+      "candidates": [
+        {
+          "chunk_id": "3cd6736f1632bdf2",
+          "score": 0.5666,
+          "heading": "Revision > Build numbers up and break numbers down"
+        },
+        {
+          "chunk_id": "0750e69b9feafccf",
+          "score": 0.4648,
+          "heading": "Ordering and comparing whole numbers > Rounding to s , s , s and s"
+        },
+        {
+          "chunk_id": "259e2647b7a87fbe",
+          "score": 0.4379,
+          "heading": "Ordering and comparing whole numbers > Rounding to s , s , s and s"
+        },
+        {
+          "chunk_id": "e70bf2e43bc62722",
+          "score": 0.3848,
+          "heading": "Chapter 1: Working with whole numbers"
+        },
+        {
+          "chunk_id": "a513726229a756c1",
+          "score": 0.3239,
+          "heading": "1.2 Ordering and comparing whole numbers > Comparing numbers"
+        }
+      ],
+      "covered": true
+    },
+    "B7.1.1.1.4": {
+      "title": "Round decimals to the nearest tenth, hundredth, thousandths, etc",
+      "class": "B7",
+      "strand": "Number",
+      "sub_strand": "Number and Numeration Systems",
+      "candidates": [
+        {
+          "chunk_id": "699e9113d9f3beec",
+          "score": 0.3499,
+          "heading": "More decimal concepts > Place value"
+        },
+        {
+          "chunk_id": "c99a4448d0d63bdf",
+          "score": 0.3403,
+          "heading": "14.3 Rounding off decimal fractions"
+        },
+        {
+          "chunk_id": "ed253627b96d32f9",
+          "score": 0.3175,
+          "heading": "Test yourself now"
+        },
+        {
+          "chunk_id": "02fb477921266798",
+          "score": 0.3161,
+          "heading": "14.2 Ordering, comparing and place value of decimal fractions > Place value"
+        },
+        {
+          "chunk_id": "718c5fd6a21db015",
+          "score": 0.3159,
+          "heading": "Other symbols for tenths and hundredths > Tenths and hundredths again..."
+        }
+      ],
+      "covered": true
+    },
+    "B7.1.1.1.5": {
+      "title": "Express decimal numerals to given significant and decimal places",
+      "class": "B7",
+      "strand": "Number",
+      "sub_strand": "Number and Numeration Systems",
+      "candidates": [
+        {
+          "chunk_id": "4c55e15cc23f4af7",
+          "score": 0.3104,
+          "heading": "Worked Example 14.5: Adding and subtracting decimals > Multiplying and dividing decimals"
+        },
+        {
+          "chunk_id": "6eb1621c2098004a",
+          "score": 0.306,
+          "heading": "Worked Example 14.7: Multiplying and dividing decimals > Divide the whole numbers (decimals without a comma)."
+        },
+        {
+          "chunk_id": "d71ec2e14d0c5d33",
+          "score": 0.2873,
+          "heading": "14.2 Ordering, comparing and place value of decimal fractions > Decimal fraction notation"
+        },
+        {
+          "chunk_id": "78268fd3f99b66a6",
+          "score": 0.2751,
+          "heading": "Worked Example 14.8: Powers and roots of decimal numbers > Equivalent forms between common fraction, decimal fraction and percentages"
+        },
+        {
+          "chunk_id": "9c8368381af2413a",
+          "score": 0.262,
+          "heading": "Test yourself now"
+        }
+      ],
+      "covered": true
+    },
+    "B7.1.2.1.1": {
+      "title": "Multiply and divide given numbers by powers of 10 including decimals and benchmark fractions",
+      "class": "B7",
+      "strand": "Number",
+      "sub_strand": "Number Operations",
+      "candidates": [
+        {
+          "chunk_id": "df7361b11f8b2c1f",
+          "score": 0.3446,
+          "heading": "Equivalent forms > Common fractions, decimal fractions and percentages"
+        },
+        {
+          "chunk_id": "d71ec2e14d0c5d33",
+          "score": 0.3344,
+          "heading": "14.2 Ordering, comparing and place value of decimal fractions > Decimal fraction notation"
+        },
+        {
+          "chunk_id": "78268fd3f99b66a6",
+          "score": 0.3255,
+          "heading": "Worked Example 14.8: Powers and roots of decimal numbers > Equivalent forms between common fraction, decimal fraction and percentages"
+        },
+        {
+          "chunk_id": "4c55e15cc23f4af7",
+          "score": 0.3252,
+          "heading": "Worked Example 14.5: Adding and subtracting decimals > Multiplying and dividing decimals"
+        },
+        {
+          "chunk_id": "444bbc069619c271",
+          "score": 0.3031,
+          "heading": "14.4 Calculations with decimal fractions"
+        }
+      ],
+      "covered": true
+    },
+    "B7.1.2.1.2": {
+      "title": "Apply mental mathematics strategies and number properties used to perform calculations",
+      "class": "B7",
+      "strand": "Number",
+      "sub_strand": "Number Operations",
+      "candidates": [],
+      "covered": false
+    },
+    "B7.1.2.1.3": {
+      "title": "Apply mental mathematics strategies to solve word problems",
+      "class": "B7",
+      "strand": "Number",
+      "sub_strand": "Number Operations",
+      "candidates": [],
+      "covered": false
+    },
+    "B7.1.2.2.1": {
+      "title": "Add and subtract up to four-digit numbers",
+      "class": "B7",
+      "strand": "Number",
+      "sub_strand": "Number Operations",
+      "candidates": [
+        {
+          "chunk_id": "444bbc069619c271",
+          "score": 0.2615,
+          "heading": "14.4 Calculations with decimal fractions"
+        },
+        {
+          "chunk_id": "14f742924273b324",
+          "score": 0.2536,
+          "heading": "Chapter 9: Equations > Solving equations using additive and multiplicative inverses"
+        }
+      ],
+      "covered": true
+    },
+    "B7.1.2.2.2": {
+      "title": "Multiply or divide multi-digit numbers by 1- and 2- digit numbers",
+      "class": "B7",
+      "strand": "Number",
+      "sub_strand": "Number Operations",
+      "candidates": [
+        {
+          "chunk_id": "cad42c696e32a379",
+          "score": 0.274,
+          "heading": "Worked Example 14.1: Finding place value in decimal numbers > Multiply each non-zero digit by the value of the column it is in."
+        },
+        {
+          "chunk_id": "c8dca18698933e8e",
+          "score": 0.2575,
+          "heading": "Worked example 3.8: Finding square roots of fractions and decimals > Check the number of digits to the right of the comma in the given decimal number. Move the comma half the number of places in the answer."
+        },
+        {
+          "chunk_id": "444bbc069619c271",
+          "score": 0.253,
+          "heading": "14.4 Calculations with decimal fractions"
+        }
+      ],
+      "covered": true
+    },
+    "B7.1.2.2.3": {
+      "title": "Create and solve story problems involving decimals on the four basic operations",
+      "class": "B7",
+      "strand": "Number",
+      "sub_strand": "Number Operations",
+      "candidates": [],
+      "covered": false
+    },
+    "B7.1.2.3.1": {
+      "title": "Illustrate with examples the meaning of repeated factors using counting objects such as bottle tops or bundle sticks. Model repeated factors using counters or bottle tops",
+      "class": "B7",
+      "strand": "Number",
+      "sub_strand": "Number Operations",
+      "candidates": [
+        {
+          "chunk_id": "79bbe0e1b548e068",
+          "score": 0.2832,
+          "heading": "Quick squares and cubes > Again and again"
+        }
+      ],
+      "covered": true
+    },
+    "B7.1.2.3.2": {
+      "title": "Express a given number as a product of a given number or numbers, as well as, in the form of a power or two such numbers as product of powers 25 32 = 2\u00d72\u00d72\u00d72\u00d72 . =",
+      "class": "B7",
+      "strand": "Number",
+      "sub_strand": "Number Operations",
+      "candidates": [
+        {
+          "chunk_id": "e1df4e7d2d0b5676",
+          "score": 0.3754,
+          "heading": "3.4 Calculations using numbers in exponential form: Laws of exponents > Power of a product"
+        },
+        {
+          "chunk_id": "b19b87ddf08d7468",
+          "score": 0.3616,
+          "heading": "3.4 Calculations using numbers in exponential form: Laws of exponents > Product of powers"
+        },
+        {
+          "chunk_id": "329a5b4c8f300d3a",
+          "score": 0.3613,
+          "heading": "The exponential notation > Repeated multiplication with the same number"
+        },
+        {
+          "chunk_id": "1acc84509e4f42cd",
+          "score": 0.3118,
+          "heading": "Factors, prime numbers and common multiples > Different ways to produce the same number"
+        },
+        {
+          "chunk_id": "a9d3a99eb7e38815",
+          "score": 0.2925,
+          "heading": "3.4 Calculations using numbers in exponential form: Laws of exponents > Raising a power to a power"
+        }
+      ],
+      "covered": true
+    },
+    "B7.1.2.3.3": {
+      "title": "Show that the value of any natural number with zero as its exponent or index is 1 and use it to solve problems",
+      "class": "B7",
+      "strand": "Number",
+      "sub_strand": "Number Operations",
+      "candidates": [
+        {
+          "chunk_id": "d1c4838be61a2dd7",
+          "score": 0.3322,
+          "heading": "Test yourself now"
+        },
+        {
+          "chunk_id": "c39bfc9ae0cb08fa",
+          "score": 0.272,
+          "heading": "3.4 Calculations using numbers in exponential form: Laws of exponents"
+        }
+      ],
+      "covered": true
+    },
+    "B7.1.2.3.4": {
+      "title": "Find the value of a number written in index form. 53",
+      "class": "B7",
+      "strand": "Number",
+      "sub_strand": "Number Operations",
+      "candidates": [
+        {
+          "chunk_id": "c39bfc9ae0cb08fa",
+          "score": 0.2803,
+          "heading": "3.4 Calculations using numbers in exponential form: Laws of exponents"
+        }
+      ],
+      "covered": true
+    },
+    "B7.1.2.3.5": {
+      "title": "Apply the concept of powers of numbers (product of prime) to find Highest Common Factor (HCF)",
+      "class": "B7",
+      "strand": "Number",
+      "sub_strand": "Number Operations",
+      "candidates": [
+        {
+          "chunk_id": "6a54237a60d57612",
+          "score": 0.4844,
+          "heading": "Worked Example 1.19: Finding factors using prime factorisation > Lowest common multiples and highest common factors"
+        },
+        {
+          "chunk_id": "cfffa9761cb0ed25",
+          "score": 0.464,
+          "heading": "Factors, prime numbers and common multiples > Highest common factor and lowest common multiple"
+        },
+        {
+          "chunk_id": "ef431ee3506f92ec",
+          "score": 0.4481,
+          "heading": "Worked Example 1.20: Finding LCM and HCF"
+        },
+        {
+          "chunk_id": "43af9fe6db147c0f",
+          "score": 0.3542,
+          "heading": "Worked Example 1.18: Finding multiples and factors > Prime factorisation"
+        },
+        {
+          "chunk_id": "c4005b9f1b0ef883",
+          "score": 0.353,
+          "heading": "Multiples and factors > Lowest common multiples and prime factorisation"
+        }
+      ],
+      "covered": true
+    },
+    "B7.1.3.1.1": {
+      "title": "Determine and recall the percentages and decimals of given benchmark fractions (i.e. tenths, fifths, fourths, thirds and halves) and use these to compare quantities",
+      "class": "B7",
+      "strand": "Number",
+      "sub_strand": "Fractions, Decimals and Percentages",
+      "candidates": [
+        {
+          "chunk_id": "78268fd3f99b66a6",
+          "score": 0.2683,
+          "heading": "Worked Example 14.8: Powers and roots of decimal numbers > Equivalent forms between common fraction, decimal fraction and percentages"
+        },
+        {
+          "chunk_id": "db55b9bc8e3223e2",
+          "score": 0.2543,
+          "heading": "Worked Example 14.8: Powers and roots of decimal numbers > Rewrite the expression as a fraction."
+        },
+        {
+          "chunk_id": "4f0254353b0cec97",
+          "score": 0.251,
+          "heading": "Chapter 8: The decimal notation for fractions"
+        }
+      ],
+      "covered": true
+    },
+    "B7.1.3.1.2": {
+      "title": "Compare and order fractions (i.e. common, percent and decimal fractions up to thousandths) limit to the benchmark fractions",
+      "class": "B7",
+      "strand": "Number",
+      "sub_strand": "Fractions, Decimals and Percentages",
+      "candidates": [
+        {
+          "chunk_id": "78268fd3f99b66a6",
+          "score": 0.4132,
+          "heading": "Worked Example 14.8: Powers and roots of decimal numbers > Equivalent forms between common fraction, decimal fraction and percentages"
+        },
+        {
+          "chunk_id": "db55b9bc8e3223e2",
+          "score": 0.3489,
+          "heading": "Worked Example 14.8: Powers and roots of decimal numbers > Rewrite the expression as a fraction."
+        },
+        {
+          "chunk_id": "d71ec2e14d0c5d33",
+          "score": 0.3341,
+          "heading": "14.2 Ordering, comparing and place value of decimal fractions > Decimal fraction notation"
+        },
+        {
+          "chunk_id": "df7361b11f8b2c1f",
+          "score": 0.295,
+          "heading": "Equivalent forms > Common fractions, decimal fractions and percentages"
+        },
+        {
+          "chunk_id": "02fb477921266798",
+          "score": 0.2871,
+          "heading": "14.2 Ordering, comparing and place value of decimal fractions > Place value"
+        }
+      ],
+      "covered": true
+    },
+    "B7.1.3.2.1": {
+      "title": "Explain the process of addition and subtraction of two or three unlike and mixed fractions",
+      "class": "B7",
+      "strand": "Number",
+      "sub_strand": "Fractions, Decimals and Percentages",
+      "candidates": [
+        {
+          "chunk_id": "78268fd3f99b66a6",
+          "score": 0.2791,
+          "heading": "Worked Example 14.8: Powers and roots of decimal numbers > Equivalent forms between common fraction, decimal fraction and percentages"
+        }
+      ],
+      "covered": true
+    },
+    "B7.1.3.2.2": {
+      "title": "Solve problems involving addition or subtraction of fractions",
+      "class": "B7",
+      "strand": "Number",
+      "sub_strand": "Fractions, Decimals and Percentages",
+      "candidates": [
+        {
+          "chunk_id": "78268fd3f99b66a6",
+          "score": 0.3089,
+          "heading": "Worked Example 14.8: Powers and roots of decimal numbers > Equivalent forms between common fraction, decimal fraction and percentages"
+        },
+        {
+          "chunk_id": "db55b9bc8e3223e2",
+          "score": 0.2868,
+          "heading": "Worked Example 14.8: Powers and roots of decimal numbers > Rewrite the expression as a fraction."
+        },
+        {
+          "chunk_id": "02eb1e32abc0ed04",
+          "score": 0.2566,
+          "heading": "Test yourself now"
+        }
+      ],
+      "covered": true
+    },
+    "B7.1.3.3.1": {
+      "title": "Explain the process of multiplying a fraction (i.e. common, percent and decimal fractions up to thousandths) by a whole number and by a fraction",
+      "class": "B7",
+      "strand": "Number",
+      "sub_strand": "Fractions, Decimals and Percentages",
+      "candidates": [
+        {
+          "chunk_id": "78268fd3f99b66a6",
+          "score": 0.4354,
+          "heading": "Worked Example 14.8: Powers and roots of decimal numbers > Equivalent forms between common fraction, decimal fraction and percentages"
+        },
+        {
+          "chunk_id": "db55b9bc8e3223e2",
+          "score": 0.3725,
+          "heading": "Worked Example 14.8: Powers and roots of decimal numbers > Rewrite the expression as a fraction."
+        },
+        {
+          "chunk_id": "df7361b11f8b2c1f",
+          "score": 0.3596,
+          "heading": "Equivalent forms > Common fractions, decimal fractions and percentages"
+        },
+        {
+          "chunk_id": "1e3ebc31cf7ae5db",
+          "score": 0.3382,
+          "heading": "Multiplication and decimal fractions > Multiplying decimals with whole numbers"
+        },
+        {
+          "chunk_id": "d71ec2e14d0c5d33",
+          "score": 0.3377,
+          "heading": "14.2 Ordering, comparing and place value of decimal fractions > Decimal fraction notation"
+        }
+      ],
+      "covered": true
+    },
+    "B7.1.3.3.2": {
+      "title": "Find a fraction of given quantity (i.e. money or given quantity of objects)",
+      "class": "B7",
+      "strand": "Number",
+      "sub_strand": "Fractions, Decimals and Percentages",
+      "candidates": [
+        {
+          "chunk_id": "02eb1e32abc0ed04",
+          "score": 0.3053,
+          "heading": "Test yourself now"
+        },
+        {
+          "chunk_id": "78268fd3f99b66a6",
+          "score": 0.2692,
+          "heading": "Worked Example 14.8: Powers and roots of decimal numbers > Equivalent forms between common fraction, decimal fraction and percentages"
+        },
+        {
+          "chunk_id": "3846eecb8a602261",
+          "score": 0.2652,
+          "heading": "Relationships between variables"
+        },
+        {
+          "chunk_id": "131fcaad4fa1ac0c",
+          "score": 0.2562,
+          "heading": "Test yourself now"
+        }
+      ],
+      "covered": true
+    },
+    "B7.1.3.3.3": {
+      "title": "Explain the process of dividing a fraction (i.e. common, percent and decimal fractions up to thousandths) by a 1-digit whole number and by a fraction",
+      "class": "B7",
+      "strand": "Number",
+      "sub_strand": "Fractions, Decimals and Percentages",
+      "candidates": [
+        {
+          "chunk_id": "78268fd3f99b66a6",
+          "score": 0.4145,
+          "heading": "Worked Example 14.8: Powers and roots of decimal numbers > Equivalent forms between common fraction, decimal fraction and percentages"
+        },
+        {
+          "chunk_id": "d71ec2e14d0c5d33",
+          "score": 0.3816,
+          "heading": "14.2 Ordering, comparing and place value of decimal fractions > Decimal fraction notation"
+        },
+        {
+          "chunk_id": "db55b9bc8e3223e2",
+          "score": 0.3546,
+          "heading": "Worked Example 14.8: Powers and roots of decimal numbers > Rewrite the expression as a fraction."
+        },
+        {
+          "chunk_id": "1e3ebc31cf7ae5db",
+          "score": 0.3529,
+          "heading": "Multiplication and decimal fractions > Multiplying decimals with whole numbers"
+        },
+        {
+          "chunk_id": "02fb477921266798",
+          "score": 0.3437,
+          "heading": "14.2 Ordering, comparing and place value of decimal fractions > Place value"
+        }
+      ],
+      "covered": true
+    },
+    "B7.1.3.3.4": {
+      "title": "Determine the result of dividing a quantity (i.e. money or objects) or a fraction by a fraction",
+      "class": "B7",
+      "strand": "Number",
+      "sub_strand": "Fractions, Decimals and Percentages",
+      "candidates": [
+        {
+          "chunk_id": "78268fd3f99b66a6",
+          "score": 0.2974,
+          "heading": "Worked Example 14.8: Powers and roots of decimal numbers > Equivalent forms between common fraction, decimal fraction and percentages"
+        },
+        {
+          "chunk_id": "db55b9bc8e3223e2",
+          "score": 0.2736,
+          "heading": "Worked Example 14.8: Powers and roots of decimal numbers > Rewrite the expression as a fraction."
+        },
+        {
+          "chunk_id": "02eb1e32abc0ed04",
+          "score": 0.26,
+          "heading": "Test yourself now"
+        }
+      ],
+      "covered": true
+    },
+    "B7.1.4.1.1": {
+      "title": "Find ratio and use ratio language to describe relationship between two quantities",
+      "class": "B7",
+      "strand": "Number",
+      "sub_strand": "Number: Ratios and Proportion",
+      "candidates": [
+        {
+          "chunk_id": "a5f9cdbb7d399060",
+          "score": 0.3489,
+          "heading": "Worked Example 1.26: Increasing a number in the given ratio > Find the number that represents \\(1\\) part."
+        },
+        {
+          "chunk_id": "344b95c569b1c595",
+          "score": 0.3008,
+          "heading": "Worked example 4.2: Find the next number in the pattern > Work out what the pattern is."
+        },
+        {
+          "chunk_id": "a12ad84d8ae3747e",
+          "score": 0.2862,
+          "heading": "Worked Example 1.24: Solving problems with rate > Ratio"
+        },
+        {
+          "chunk_id": "7144f9132c5752ae",
+          "score": 0.2592,
+          "heading": "Worked Example 1.25: Dividing amounts in the given ratio"
+        }
+      ],
+      "covered": true
+    },
+    "B7.1.4.1.2": {
+      "title": "Use the concept of a unit rate associated with a ratio a:b \ud835\udc82\ud835\udc82 with b \u2260 0, and use rate language in the context of a ratio \ud835\udc83\ud835\udc83 relationship",
+      "class": "B7",
+      "strand": "Number",
+      "sub_strand": "Number: Ratios and Proportion",
+      "candidates": [
+        {
+          "chunk_id": "a5f9cdbb7d399060",
+          "score": 0.2937,
+          "heading": "Worked Example 1.26: Increasing a number in the given ratio > Find the number that represents \\(1\\) part."
+        },
+        {
+          "chunk_id": "a12ad84d8ae3747e",
+          "score": 0.2822,
+          "heading": "Worked Example 1.24: Solving problems with rate > Ratio"
+        }
+      ],
+      "covered": true
+    },
+    "B7.1.4.1.3": {
+      "title": "Make tables of equivalent ratios (written as common fractions) relating quantities that are proportional",
+      "class": "B7",
+      "strand": "Number",
+      "sub_strand": "Number: Ratios and Proportion",
+      "candidates": [
+        {
+          "chunk_id": "a5f9cdbb7d399060",
+          "score": 0.3465,
+          "heading": "Worked Example 1.26: Increasing a number in the given ratio > Find the number that represents \\(1\\) part."
+        }
+      ],
+      "covered": true
+    },
+    "B7.1.4.1.4": {
+      "title": "Use the proportional reasoning to find missing values in the tables, and plot pairs of values on the coordinate plane",
+      "class": "B7",
+      "strand": "Number",
+      "sub_strand": "Number: Ratios and Proportion",
+      "candidates": [
+        {
+          "chunk_id": "1102fe3bf835c7b9",
+          "score": 0.3576,
+          "heading": "Worked example 24.1: Finding the coordinates of a given point > Read the coordinates from the axes."
+        },
+        {
+          "chunk_id": "2dafea52526da1d6",
+          "score": 0.2952,
+          "heading": "Worked example 23.5: Plotting a line graph from a table of ordered pairs > Plot the points on the Cartesian plane and draw the graph."
+        }
+      ],
+      "covered": true
+    },
+    "B7.1.4.1.5": {
+      "title": "Find a 6perce3nt of a quantity as a rate3 per 100 3(",
+      "class": "B7",
+      "strand": "Number",
+      "sub_strand": "Number: Ratios and Proportion",
+      "candidates": [
+        {
+          "chunk_id": "a12ad84d8ae3747e",
+          "score": 0.299,
+          "heading": "Worked Example 1.24: Solving problems with rate > Ratio"
+        }
+      ],
+      "covered": true
+    },
+    "B7.2.1.1.1": {
+      "title": "Extend a given relation presented with and without symbolic materials and explain how each element differs from the preceding one. Extend a given symbolic relation",
+      "class": "B7",
+      "strand": "Algebra",
+      "sub_strand": "Patterns and Relations",
+      "candidates": [],
+      "covered": false
+    },
+    "B7.2.1.1.2": {
+      "title": "Describe the rule for a given relation using mathematical language such as one more, one less, one more than twice, etc",
+      "class": "B7",
+      "strand": "Algebra",
+      "sub_strand": "Patterns and Relations",
+      "candidates": [],
+      "covered": false
+    },
+    "B7.2.1.1.3": {
+      "title": "Identify the relation or rule in a pattern/mapping presented numerically or symbolically and predict subsequent elements Determine the rule for a given symbolic pattern",
+      "class": "B7",
+      "strand": "Algebra",
+      "sub_strand": "Patterns and Relations",
+      "candidates": [],
+      "covered": false
+    },
+    "B7.2.1.1.4": {
+      "title": "Locate points on the number plane, draw a table of values of a given relation, draw graphs for given relations and use them to solve problems. Make a table of values for a given rule",
+      "class": "B7",
+      "strand": "Algebra",
+      "sub_strand": "Patterns and Relations",
+      "candidates": [
+        {
+          "chunk_id": "8febf44551931a36",
+          "score": 0.2561,
+          "heading": "Chapter 10: Revision and assessment > Assessment"
+        },
+        {
+          "chunk_id": "2dafea52526da1d6",
+          "score": 0.255,
+          "heading": "Worked example 23.5: Plotting a line graph from a table of ordered pairs > Plot the points on the Cartesian plane and draw the graph."
+        }
+      ],
+      "covered": true
+    },
+    "B7.2.2.1.1": {
+      "title": "Create simple algebraic expressions using simple logic to translate a set of instructions into an algebraic expression. Form algebraic expressions for given mathematical statements",
+      "class": "B7",
+      "strand": "Algebra",
+      "sub_strand": "Algebraic Expressions",
+      "candidates": [
+        {
+          "chunk_id": "da11270b0329b18b",
+          "score": 0.3058,
+          "heading": "Chapter 8: Algebraic expressions > Substitution into algebraic expressions"
+        },
+        {
+          "chunk_id": "d4bdf458943d9100",
+          "score": 0.2507,
+          "heading": "Algebraic language > Words, diagrams and expressions"
+        }
+      ],
+      "covered": true
+    },
+    "B7.2.2.1.2": {
+      "title": "Perform addition and subtraction of algebraic expressions with rational coefficients",
+      "class": "B7",
+      "strand": "Algebra",
+      "sub_strand": "Algebraic Expressions",
+      "candidates": [
+        {
+          "chunk_id": "ac8aec14cc3c7d39",
+          "score": 0.3845,
+          "heading": "6.3 Simplifying algebraic expressions"
+        },
+        {
+          "chunk_id": "d4bdf458943d9100",
+          "score": 0.3326,
+          "heading": "Algebraic language > Words, diagrams and expressions"
+        },
+        {
+          "chunk_id": "9a39bec410121435",
+          "score": 0.3222,
+          "heading": "Algebraic language > Conventions for writing algebraic expressions"
+        },
+        {
+          "chunk_id": "da11270b0329b18b",
+          "score": 0.3084,
+          "heading": "Chapter 8: Algebraic expressions > Substitution into algebraic expressions"
+        },
+        {
+          "chunk_id": "a4a47c4b4b05c73f",
+          "score": 0.3025,
+          "heading": "Worked example 6.6: Terms, coefficients and variables > Determine the value of the constant term."
+        }
+      ],
+      "covered": true
+    },
+    "B7.2.2.1.3": {
+      "title": "Perform multiplication and division of algebraic expressions with rational coefficients. Solve multiplication of algebraic expressions",
+      "class": "B7",
+      "strand": "Algebra",
+      "sub_strand": "Algebraic Expressions",
+      "candidates": [
+        {
+          "chunk_id": "d4bdf458943d9100",
+          "score": 0.3448,
+          "heading": "Algebraic language > Words, diagrams and expressions"
+        },
+        {
+          "chunk_id": "e30a018fb160b7a9",
+          "score": 0.3346,
+          "heading": "8.2 Operations with algebraic expressions"
+        },
+        {
+          "chunk_id": "ac8aec14cc3c7d39",
+          "score": 0.3308,
+          "heading": "6.3 Simplifying algebraic expressions"
+        },
+        {
+          "chunk_id": "da11270b0329b18b",
+          "score": 0.328,
+          "heading": "Chapter 8: Algebraic expressions > Substitution into algebraic expressions"
+        },
+        {
+          "chunk_id": "6d2cc7e9a7eda0c5",
+          "score": 0.3019,
+          "heading": "Multiplication of algebraic expressions > Multiply polynomials by monomials"
+        }
+      ],
+      "covered": true
+    },
+    "B7.2.2.1.4": {
+      "title": "Substitute values to evaluate algebraic expressions. Simplify the following expressions and substitute the values to",
+      "class": "B7",
+      "strand": "Algebra",
+      "sub_strand": "Algebraic Expressions",
+      "candidates": [
+        {
+          "chunk_id": "da11270b0329b18b",
+          "score": 0.4792,
+          "heading": "Chapter 8: Algebraic expressions > Substitution into algebraic expressions"
+        },
+        {
+          "chunk_id": "26ab2c3f8b32ef11",
+          "score": 0.4095,
+          "heading": "Worked example 6.11: Evaluating expressions"
+        },
+        {
+          "chunk_id": "f13e3cdfaad75f5b",
+          "score": 0.3734,
+          "heading": "Worked Example 8.14: Finding roots of a quotient > Evaluate."
+        },
+        {
+          "chunk_id": "e12c832f6272a7d7",
+          "score": 0.3669,
+          "heading": "6.4 Evaluating algebraic expressions"
+        },
+        {
+          "chunk_id": "b1e01b0b0f945226",
+          "score": 0.3537,
+          "heading": "Worked Example 8.4: Simplifying algebraic fractions > Expand the powers."
+        }
+      ],
+      "covered": true
+    },
+    "B7.2.2.1.5": {
+      "title": "Use properties of the four operations to simplify algebraic expressions with rational coefficients. Simplify algebraic expressions involving the four operations",
+      "class": "B7",
+      "strand": "Algebra",
+      "sub_strand": "Algebraic Expressions",
+      "candidates": [
+        {
+          "chunk_id": "da11270b0329b18b",
+          "score": 0.3518,
+          "heading": "Chapter 8: Algebraic expressions > Substitution into algebraic expressions"
+        },
+        {
+          "chunk_id": "93ba88eca965b1be",
+          "score": 0.3291,
+          "heading": "Worked example 6.21: Adding algebraic terms > Write and simplify the expression."
+        },
+        {
+          "chunk_id": "a4a47c4b4b05c73f",
+          "score": 0.3269,
+          "heading": "Worked example 6.6: Terms, coefficients and variables > Determine the value of the constant term."
+        },
+        {
+          "chunk_id": "e1df4e7d2d0b5676",
+          "score": 0.3094,
+          "heading": "3.4 Calculations using numbers in exponential form: Laws of exponents > Power of a product"
+        },
+        {
+          "chunk_id": "62ee4a680f9a406a",
+          "score": 0.2872,
+          "heading": "Worked Example 8.2: Dividing algebraic monomials > Rewrite the division as a fraction."
+        }
+      ],
+      "covered": true
+    },
+    "B7.2.3.1.1": {
+      "title": "Translate word problems to linear equations in one variable and vice versa",
+      "class": "B7",
+      "strand": "Algebra",
+      "sub_strand": "Variables and Equations",
+      "candidates": [
+        {
+          "chunk_id": "c5f4cf656c48008d",
+          "score": 0.3007,
+          "heading": "5.4 Using equations and tables > Input and output values with equations"
+        },
+        {
+          "chunk_id": "73d82124ea981768",
+          "score": 0.2817,
+          "heading": "Worked Example 7.16: Solving quadratic equations > Solve by inspection."
+        },
+        {
+          "chunk_id": "65501dabd7b2537b",
+          "score": 0.2647,
+          "heading": "9.5 Solving problems"
+        },
+        {
+          "chunk_id": "e5499b9173ae8179",
+          "score": 0.2526,
+          "heading": "Worked example 23.5: Plotting a line graph from a table of ordered pairs > Complete the table of ordered pairs for the linear equation \\(y = 2x\\),"
+        }
+      ],
+      "covered": true
+    },
+    "B7.2.3.1.2": {
+      "title": "Model and solve linear equations using concrete materials (e.g., counters and integer tiles) and describe the process orally and symbolically",
+      "class": "B7",
+      "strand": "Algebra",
+      "sub_strand": "Variables and Equations",
+      "candidates": [],
+      "covered": false
+    },
+    "B7.2.3.1.3": {
+      "title": "Model linear equations, then write mathematical expressions and describe the process of solving the equation using algebraic tiles",
+      "class": "B7",
+      "strand": "Algebra",
+      "sub_strand": "Variables and Equations",
+      "candidates": [],
+      "covered": false
+    },
+    "B7.2.3.1.4": {
+      "title": "Solve linear equations in one variable",
+      "class": "B7",
+      "strand": "Algebra",
+      "sub_strand": "Variables and Equations",
+      "candidates": [
+        {
+          "chunk_id": "73d82124ea981768",
+          "score": 0.4245,
+          "heading": "Worked Example 7.16: Solving quadratic equations > Solve by inspection."
+        },
+        {
+          "chunk_id": "687459c02d1cd7f6",
+          "score": 0.3338,
+          "heading": "Worked Example 7.10: Solving equations with exponents > Find the power of \\(x\\) that matches the equation."
+        },
+        {
+          "chunk_id": "966fadbfe6424468",
+          "score": 0.3313,
+          "heading": "Worked Example 7.14: Solving equations with roots > Solve for \\(n\\) by inspection."
+        },
+        {
+          "chunk_id": "3e0a55673b8c6e94",
+          "score": 0.3207,
+          "heading": "Worked Example 7.17: Solving cubic equations > Find the number that gives \\(64\\) when cubed."
+        },
+        {
+          "chunk_id": "39944435f0801195",
+          "score": 0.3099,
+          "heading": "Worked example 9.3: Solving equations with fractions > Get \\(t\\) on its own."
+        }
+      ],
+      "covered": true
+    },
+    "B7.3.1.1.1": {
+      "title": "Measure and classify angles according to their measured sizes \u2013 right, acute, obtuse and reflex",
+      "class": "B7",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Shape and Space",
+      "candidates": [
+        {
+          "chunk_id": "e476305f0914fe34",
+          "score": 0.3529,
+          "heading": "Worked Example 11.1: Finding the missing angle of a triangle > Classifying triangles according to their angles"
+        },
+        {
+          "chunk_id": "e2681150c950dd7e",
+          "score": 0.2979,
+          "heading": "Worked Example 11.2: Classifying triangles using the given information > Use the given information to classify the triangle."
+        },
+        {
+          "chunk_id": "ae30e40d021a4d7a",
+          "score": 0.2581,
+          "heading": "The degree: a unit for measuring angles > Some familiar angles in degrees"
+        }
+      ],
+      "covered": true
+    },
+    "B7.3.1.1.2": {
+      "title": "Apply the fact that (i) complementary angles are two angles that have a sum of 90\u00b0, and (ii) supplementary angles are two angles that have a sum of 180\u00b0 to solve problems",
+      "class": "B7",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Shape and Space",
+      "candidates": [
+        {
+          "chunk_id": "3162e463e9bbe81d",
+          "score": 0.4865,
+          "heading": "10.5 Constructing special angles"
+        },
+        {
+          "chunk_id": "0403598030ddf5a4",
+          "score": 0.3087,
+          "heading": "12.6 Solving more geometric problems"
+        },
+        {
+          "chunk_id": "d2bf619bf81fdee3",
+          "score": 0.2889,
+          "heading": "Angle relationships > Angles formed by parallel lines"
+        },
+        {
+          "chunk_id": "7ebc1a465126e03b",
+          "score": 0.2598,
+          "heading": "12.4 Angles formed by lines intersected by a transversal > Angles formed when parallel lines are cut by a transversal"
+        }
+      ],
+      "covered": true
+    },
+    "B7.3.1.1.3": {
+      "title": "Use adjacent, supplementary and vertically opposite angles to solve problems",
+      "class": "B7",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Shape and Space",
+      "candidates": [
+        {
+          "chunk_id": "1c1a8a103ea77cbc",
+          "score": 0.3038,
+          "heading": "12.3 Vertically opposite angles"
+        }
+      ],
+      "covered": true
+    },
+    "B7.3.1.2.1": {
+      "title": "Construct a line segment perpendicular to another line segment",
+      "class": "B7",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Shape and Space",
+      "candidates": [
+        {
+          "chunk_id": "40c8eab5a5a7431e",
+          "score": 0.3852,
+          "heading": "Test yourself now"
+        },
+        {
+          "chunk_id": "ce850fac02eff5e7",
+          "score": 0.3709,
+          "heading": "Worked Example 10.14: Constructing a square > Draw line segments \\(BC\\) and \\(CD\\)."
+        },
+        {
+          "chunk_id": "d36f35f0b56bcd0a",
+          "score": 0.3632,
+          "heading": "Test yourself now"
+        },
+        {
+          "chunk_id": "9ba3d7093495d80c",
+          "score": 0.3585,
+          "heading": "Worked Example 10.3: Constructing a perpendicular line from a given point above the line > Draw line \\(PQ\\) perpendicular to line \\(AB\\)."
+        },
+        {
+          "chunk_id": "36189136cf289438",
+          "score": 0.3303,
+          "heading": "Worked Example 10.7: Constructing a \\(60^{\\circ}\\) angle > Draw line segment \\(BA\\)."
+        }
+      ],
+      "covered": true
+    },
+    "B7.3.1.2.2": {
+      "title": "Construct the perpendicular bisector of a line segment",
+      "class": "B7",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Shape and Space",
+      "candidates": [
+        {
+          "chunk_id": "d36f35f0b56bcd0a",
+          "score": 0.3893,
+          "heading": "Test yourself now"
+        },
+        {
+          "chunk_id": "9ba3d7093495d80c",
+          "score": 0.3377,
+          "heading": "Worked Example 10.3: Constructing a perpendicular line from a given point above the line > Draw line \\(PQ\\) perpendicular to line \\(AB\\)."
+        },
+        {
+          "chunk_id": "40c8eab5a5a7431e",
+          "score": 0.3121,
+          "heading": "Test yourself now"
+        },
+        {
+          "chunk_id": "3f038fb1a5b854a3",
+          "score": 0.3027,
+          "heading": "Chapter 11: Construction of geometric figures"
+        },
+        {
+          "chunk_id": "ce850fac02eff5e7",
+          "score": 0.3007,
+          "heading": "Worked Example 10.14: Constructing a square > Draw line segments \\(BC\\) and \\(CD\\)."
+        }
+      ],
+      "covered": true
+    },
+    "B7.3.1.2.3": {
+      "title": "Copy and bisect angles",
+      "class": "B7",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Shape and Space",
+      "candidates": [
+        {
+          "chunk_id": "3ea25e4fcbf4eff3",
+          "score": 0.2719,
+          "heading": "Worked Example 10.4: Bisecting a given angle > Bisecting angles"
+        }
+      ],
+      "covered": true
+    },
+    "B7.3.1.2.7": {
+      "title": "Describe examples of perpendicular line segments, \u2220\ud835\udc43\ud835\udc43\ud835\udc43\ud835\udc43\ud835\udc43\ud835\udc43 = 75\u02da perpendicular bisectors and angle bisectors in the environment",
+      "class": "B7",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Shape and Space",
+      "candidates": [
+        {
+          "chunk_id": "d36f35f0b56bcd0a",
+          "score": 0.3876,
+          "heading": "Test yourself now"
+        },
+        {
+          "chunk_id": "3f038fb1a5b854a3",
+          "score": 0.3082,
+          "heading": "Chapter 11: Construction of geometric figures"
+        },
+        {
+          "chunk_id": "0c68874b83708de4",
+          "score": 0.2621,
+          "heading": "Test yourself now > 10.3 Constructing perpendicular lines"
+        },
+        {
+          "chunk_id": "f1ec3d64069024b0",
+          "score": 0.2579,
+          "heading": "Parallel and perpendicular lines > Parallel lines"
+        },
+        {
+          "chunk_id": "9ba3d7093495d80c",
+          "score": 0.2505,
+          "heading": "Worked Example 10.3: Constructing a perpendicular line from a given point above the line > Draw line \\(PQ\\) perpendicular to line \\(AB\\)."
+        }
+      ],
+      "covered": true
+    },
+    "B7.3.2.1.1": {
+      "title": "Calculate the perimeter of given shapes whose dimensions are in two units (i.e. cm and mm, m and cm, or km and m)",
+      "class": "B7",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Measurement",
+      "candidates": [
+        {
+          "chunk_id": "fd7192bfc2df4714",
+          "score": 0.2744,
+          "heading": "Perimeter formulae > Applying perimeter formulae"
+        },
+        {
+          "chunk_id": "8562999f41d22dec",
+          "score": 0.2655,
+          "heading": "Chapter 10: Perimeter and area of shapes"
+        },
+        {
+          "chunk_id": "c5c35b6e165200b7",
+          "score": 0.2636,
+          "heading": "Area of triangles > Applying the area formula"
+        },
+        {
+          "chunk_id": "25021b340280833c",
+          "score": 0.253,
+          "heading": "Perimeter of polygons > Measuring perimeters"
+        }
+      ],
+      "covered": true
+    },
+    "B7.3.2.1.2": {
+      "title": "Use the relationships between the diameter and the circumference to deduce the formula for finding the circumference of a circle and use it to solve problems",
+      "class": "B7",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Measurement",
+      "candidates": [
+        {
+          "chunk_id": "c30ca283a1c49831",
+          "score": 0.549,
+          "heading": "Worked Example 21.5: Working with the area of a circle formula > Use the radius to determine the circumference of the circle."
+        },
+        {
+          "chunk_id": "42ed850d940c8e07",
+          "score": 0.5401,
+          "heading": "Worked example 16.13: Calculating the circumference of a circle > Substitute the known values into the formula for circumference."
+        },
+        {
+          "chunk_id": "5452eab4e9a2f923",
+          "score": 0.4764,
+          "heading": "16.6 Area and perimeter of circles > Question 2"
+        },
+        {
+          "chunk_id": "a81146630b427b71",
+          "score": 0.3947,
+          "heading": "Worked Example 21.4: Working with area of rectangle formula > Use the area and the length to find the width."
+        },
+        {
+          "chunk_id": "bc618c40c360a3a0",
+          "score": 0.363,
+          "heading": "16.6 Area and perimeter of circles > The relationship between the circumference and the diameter of a circle"
+        }
+      ],
+      "covered": true
+    },
+    "B7.3.2.1.3": {
+      "title": "Draw in a square grid rectangles and triangles with given dimensions",
+      "class": "B7",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Measurement",
+      "candidates": [],
+      "covered": false
+    },
+    "B7.3.2.2.1": {
+      "title": "Use the relationships between a triangle and a rectangle (or parallelogram) to deduce the formula for determining the area of a triangle",
+      "class": "B7",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Measurement",
+      "candidates": [
+        {
+          "chunk_id": "4dca23028b2aa391",
+          "score": 0.3335,
+          "heading": "21.3 Using formulas"
+        },
+        {
+          "chunk_id": "a18454ef2857103a",
+          "score": 0.2979,
+          "heading": "Area of triangles > Formula: area of a triangle"
+        },
+        {
+          "chunk_id": "e44c7981e2d4f7b5",
+          "score": 0.2817,
+          "heading": "Worked Example 21.7: Working with measurements and patterns"
+        },
+        {
+          "chunk_id": "0ae8ac4fe0fa781a",
+          "score": 0.2576,
+          "heading": "11.3 Classifying quadrilaterals > Properties of quadrilaterals"
+        }
+      ],
+      "covered": true
+    },
+    "B7.3.2.2.2": {
+      "title": "Determine the area of a triangle",
+      "class": "B7",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Measurement",
+      "candidates": [
+        {
+          "chunk_id": "4dca23028b2aa391",
+          "score": 0.3111,
+          "heading": "21.3 Using formulas"
+        },
+        {
+          "chunk_id": "cde5ae6a01e3b083",
+          "score": 0.3043,
+          "heading": "Area of triangles > Heights and bases of a triangle"
+        },
+        {
+          "chunk_id": "b1694c30d21ea61d",
+          "score": 0.3004,
+          "heading": "Worked example 16.19: Solving problems involving areas of circles"
+        },
+        {
+          "chunk_id": "a8674636e0f93107",
+          "score": 0.2991,
+          "heading": "Worked example 16.11: Calculating the area of a triangle by extending the base > Convert the lengths to the same unit."
+        },
+        {
+          "chunk_id": "2e6e101372ee8069",
+          "score": 0.2845,
+          "heading": "Worked example 16.18: Calculating the area of a polygon > Calculate the area of \\(\\triangle WXY\\)."
+        }
+      ],
+      "covered": true
+    },
+    "B7.3.2.3.1": {
+      "title": "Describe the bearing of a point from another point",
+      "class": "B7",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Measurement",
+      "candidates": [],
+      "covered": false
+    },
+    "B7.3.2.3.2": {
+      "title": "Explain how to find the back bearing when the direction of travel has a bearing which is less than 180\u02da and/ or greater than 180\u02da",
+      "class": "B7",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Measurement",
+      "candidates": [],
+      "covered": false
+    },
+    "B7.3.2.3.3": {
+      "title": "Distinguish between scalar and vector quantities",
+      "class": "B7",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Measurement",
+      "candidates": [],
+      "covered": false
+    },
+    "B7.3.2.3.4": {
+      "title": "Represent vector in the column (component) form and \ud835\udc99\ud835\udc99 determine its magnitude and direction. \ufffd\ud835\udc9a\ud835\udc9a\ufffd",
+      "class": "B7",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Measurement",
+      "candidates": [],
+      "covered": false
+    },
+    "B7.3.2.3.5": {
+      "title": "Convert vectors in the column (component) form to the \ud835\udc99\ud835\udc99 Magnitude\u2013Bearing form and vice versa \ufffd\ud835\udc9a\ud835\udc9a\ufffd (\ud835\udc8c\ud835\udc8c,\ud835\udf3d\ud835\udf3d)",
+      "class": "B7",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Measurement",
+      "candidates": [],
+      "covered": false
+    },
+    "B7.3.3.1.1": {
+      "title": "Determine shapes in real life that have reflectional (or fold) symmetries",
+      "class": "B7",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Position and Transformation",
+      "candidates": [],
+      "covered": false
+    },
+    "B7.3.3.1.2": {
+      "title": "Plot points and shapes (i.e. plane figures) on a coordinate plane and draw their images under reflection in given lines",
+      "class": "B7",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Position and Transformation",
+      "candidates": [
+        {
+          "chunk_id": "1102fe3bf835c7b9",
+          "score": 0.4358,
+          "heading": "Worked example 24.1: Finding the coordinates of a given point > Read the coordinates from the axes."
+        },
+        {
+          "chunk_id": "7f2db2d6ded580fc",
+          "score": 0.3863,
+          "heading": "24.5 Reflection transformations > Reflecting a point on the Cartesian plane"
+        },
+        {
+          "chunk_id": "9d2af016e9b986d3",
+          "score": 0.3727,
+          "heading": "Worked example 24.4: Reflecting a point on the Cartesian plane > Plot image \\(C'\\) on the Cartesian plane."
+        },
+        {
+          "chunk_id": "2dafea52526da1d6",
+          "score": 0.3715,
+          "heading": "Worked example 23.5: Plotting a line graph from a table of ordered pairs > Plot the points on the Cartesian plane and draw the graph."
+        },
+        {
+          "chunk_id": "3402c2390be07438",
+          "score": 0.3632,
+          "heading": "Worked example 24.4: Reflecting a point on the Cartesian plane > Reflecting a shape on the Cartesian plane"
+        }
+      ],
+      "covered": true
+    },
+    "B7.3.3.1.3": {
+      "title": "Plot points and shapes (i.e. plane figures) on a coordinate plane and draw their images under translation by a given vector",
+      "class": "B7",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Position and Transformation",
+      "candidates": [
+        {
+          "chunk_id": "1102fe3bf835c7b9",
+          "score": 0.4366,
+          "heading": "Worked example 24.1: Finding the coordinates of a given point > Read the coordinates from the axes."
+        },
+        {
+          "chunk_id": "0ecd594a8a9c3d26",
+          "score": 0.392,
+          "heading": "24.4 Translation transformations > Translating a point on the Cartesian plane"
+        },
+        {
+          "chunk_id": "6084caf8572fd6a3",
+          "score": 0.3548,
+          "heading": "Worked example 23.3: Reading the coordinates of points on the Cartesian plane"
+        },
+        {
+          "chunk_id": "2dafea52526da1d6",
+          "score": 0.3411,
+          "heading": "Worked example 23.5: Plotting a line graph from a table of ordered pairs > Plot the points on the Cartesian plane and draw the graph."
+        },
+        {
+          "chunk_id": "44a3c0caa9cc5c6d",
+          "score": 0.3276,
+          "heading": "24.2 The Cartesian plane"
+        }
+      ],
+      "covered": true
+    },
+    "B7.3.3.1.4": {
+      "title": "Verify the concept of congruent and similar shapes in coordinate plane using properties of both the object(s) and image(s); and in real life situations (carpet designs, fabric pattern)",
+      "class": "B7",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Position and Transformation",
+      "candidates": [],
+      "covered": false
+    },
+    "B7.4.1.1.1": {
+      "title": "- Select and justify a method to collect data (quantitative and qualitative) to answer a given question",
+      "class": "B7",
+      "strand": "Handling Data",
+      "sub_strand": "Data",
+      "candidates": [],
+      "covered": false
+    },
+    "B7.4.1.1.2": {
+      "title": "- Design and administer a questionnaire for collecting data to answer questions and record the results",
+      "class": "B7",
+      "strand": "Handling Data",
+      "sub_strand": "Data",
+      "candidates": [
+        {
+          "chunk_id": "0409ff1be45ee433",
+          "score": 0.2732,
+          "heading": "18.2 Collect data > Different ways of collecting data"
+        },
+        {
+          "chunk_id": "be507108b18dbdba",
+          "score": 0.2525,
+          "heading": "18.2 Collect data"
+        }
+      ],
+      "covered": true
+    },
+    "B7.4.1.1.3": {
+      "title": "- Organise and present data from a survey into a table and/or chart, and analyse it to solve and/or pose problems",
+      "class": "B7",
+      "strand": "Handling Data",
+      "sub_strand": "Data",
+      "candidates": [
+        {
+          "chunk_id": "85a8f7a7e9d013c6",
+          "score": 0.2735,
+          "heading": "Test yourself now"
+        },
+        {
+          "chunk_id": "d3321da7e1250066",
+          "score": 0.2643,
+          "heading": "Test yourself now"
+        },
+        {
+          "chunk_id": "2c679fab6a331714",
+          "score": 0.2565,
+          "heading": "Worked Example 19.4: Drawing a pie chart from a table of values > Add a title to the pie chart and check data values."
+        }
+      ],
+      "covered": true
+    },
+    "B7.4.1.2.1": {
+      "title": "Calculate the mean for a given ungrouped data and use it to solve problems",
+      "class": "B7",
+      "strand": "Handling Data",
+      "sub_strand": "Data",
+      "candidates": [
+        {
+          "chunk_id": "8ef381c4f52f2a88",
+          "score": 0.302,
+          "heading": "18.4 Summarise data > Measures of central tendency"
+        },
+        {
+          "chunk_id": "b62619c41cad6b6c",
+          "score": 0.2953,
+          "heading": "Worked Example 18.4: Grouping data into intervals > Mark a tally for each data point and determine the frequency."
+        },
+        {
+          "chunk_id": "d3321da7e1250066",
+          "score": 0.28,
+          "heading": "Test yourself now"
+        },
+        {
+          "chunk_id": "c47aa52014ba43ab",
+          "score": 0.279,
+          "heading": "Worked Example 22.9: Calculating with data bundles > Set up the equation."
+        },
+        {
+          "chunk_id": "52432d2033419617",
+          "score": 0.2768,
+          "heading": "Worked Example 18.6: Finding the median of a data set with an odd number of values > Find the median."
+        }
+      ],
+      "covered": true
+    },
+    "B7.4.1.2.2": {
+      "title": "Calculate the median for a given ungrouped data and use it to solve problems",
+      "class": "B7",
+      "strand": "Handling Data",
+      "sub_strand": "Data",
+      "candidates": [
+        {
+          "chunk_id": "52432d2033419617",
+          "score": 0.4518,
+          "heading": "Worked Example 18.6: Finding the median of a data set with an odd number of values > Find the median."
+        },
+        {
+          "chunk_id": "bdba4456d3f5998f",
+          "score": 0.4276,
+          "heading": "Worked Example 20.4: Analysing the effects of outliers on the mean and median of a data set > Find the median height of the \\(10\\) learners."
+        },
+        {
+          "chunk_id": "8ef381c4f52f2a88",
+          "score": 0.3928,
+          "heading": "18.4 Summarise data > Measures of central tendency"
+        },
+        {
+          "chunk_id": "4b29de7ed13cc15e",
+          "score": 0.3779,
+          "heading": "Worked Example 18.7: Finding the median of a data set with an even number of values > Find the median."
+        },
+        {
+          "chunk_id": "b62619c41cad6b6c",
+          "score": 0.2549,
+          "heading": "Worked Example 18.4: Grouping data into intervals > Mark a tally for each data point and determine the frequency."
+        }
+      ],
+      "covered": true
+    },
+    "B7.4.2.1.1": {
+      "title": "Demonstrate understanding of likelihood of a single outcome occurring by providing examples of events that are impossible, possible, or certain from personal contexts",
+      "class": "B7",
+      "strand": "Handling Data",
+      "sub_strand": "Chance or Probability",
+      "candidates": [
+        {
+          "chunk_id": "35bb468bebc955c7",
+          "score": 0.265,
+          "heading": "Worked example 26.1: Calculating simple probabilities > Calculating the probability of an event"
+        },
+        {
+          "chunk_id": "7c8351875f35a7f4",
+          "score": 0.2588,
+          "heading": "26.3 Theoretical probabilities"
+        }
+      ],
+      "covered": true
+    },
+    "B7.4.2.1.2": {
+      "title": "Classify the likelihood of a single outcome occurring in a probability experiment as impossible, possible, or certain",
+      "class": "B7",
+      "strand": "Handling Data",
+      "sub_strand": "Chance or Probability",
+      "candidates": [
+        {
+          "chunk_id": "35bb468bebc955c7",
+          "score": 0.2834,
+          "heading": "Worked example 26.1: Calculating simple probabilities > Calculating the probability of an event"
+        },
+        {
+          "chunk_id": "73898381f78aade3",
+          "score": 0.2514,
+          "heading": "26.2 Probability terminology > Examples of experiments"
+        }
+      ],
+      "covered": true
+    },
+    "B7.4.2.1.3": {
+      "title": "Calculate the probability of the event and express the probability as fractions, decimals, percentages and/or ratios",
+      "class": "B7",
+      "strand": "Handling Data",
+      "sub_strand": "Chance or Probability",
+      "candidates": [
+        {
+          "chunk_id": "cf7d4b3165f5c6e3",
+          "score": 0.3342,
+          "heading": "Worked example 26.1: Calculating simple probabilities > Calculate the probability of getting a red button."
+        },
+        {
+          "chunk_id": "35bb468bebc955c7",
+          "score": 0.3211,
+          "heading": "Worked example 26.1: Calculating simple probabilities > Calculating the probability of an event"
+        },
+        {
+          "chunk_id": "0068f2e64911bd64",
+          "score": 0.2767,
+          "heading": "Test yourself now"
+        },
+        {
+          "chunk_id": "7c8351875f35a7f4",
+          "score": 0.2739,
+          "heading": "26.3 Theoretical probabilities"
+        }
+      ],
+      "covered": true
+    },
+    "B8.1.1.1.1": {
+      "title": "Apply the understanding of place value to read and write in number quantities over 1,000,000,000",
+      "class": "B8",
+      "strand": "Number",
+      "sub_strand": "Number and Numeration Systems",
+      "candidates": [],
+      "covered": false
+    },
+    "B8.1.1.1.2": {
+      "title": "Skip count forwards and backwards in 10,000s, 100,000s, 500,000s, etc",
+      "class": "B8",
+      "strand": "Number",
+      "sub_strand": "Number and Numeration Systems",
+      "candidates": [
+        {
+          "chunk_id": "071ad7902f9b2c87",
+          "score": 0.3648,
+          "heading": "Worked example 2.15: Finding the number on the number line > Counting and ordering integers"
+        }
+      ],
+      "covered": true
+    },
+    "B8.1.1.1.3": {
+      "title": "Compare and order whole numbers using \u201c>, <, and =\u201d",
+      "class": "B8",
+      "strand": "Number",
+      "sub_strand": "Number and Numeration Systems",
+      "candidates": [
+        {
+          "chunk_id": "33a1042692ac1a91",
+          "score": 0.2518,
+          "heading": "Properties of numbers > Different types of numbers"
+        }
+      ],
+      "covered": true
+    },
+    "B8.1.1.1.4": {
+      "title": "Express integers of any size into standard form",
+      "class": "B8",
+      "strand": "Number",
+      "sub_strand": "Number and Numeration Systems",
+      "candidates": [
+        {
+          "chunk_id": "da4c9be4a5c13362",
+          "score": 0.2926,
+          "heading": "Properties of numbers > Different types of numbers"
+        }
+      ],
+      "covered": true
+    },
+    "B8.1.1.1.5": {
+      "title": "Express integers in a given number of significant and decimal places",
+      "class": "B8",
+      "strand": "Number",
+      "sub_strand": "Number and Numeration Systems",
+      "candidates": [
+        {
+          "chunk_id": "da4c9be4a5c13362",
+          "score": 0.3105,
+          "heading": "Properties of numbers > Different types of numbers"
+        },
+        {
+          "chunk_id": "6eb1621c2098004a",
+          "score": 0.2911,
+          "heading": "Worked Example 14.7: Multiplying and dividing decimals > Divide the whole numbers (decimals without a comma)."
+        },
+        {
+          "chunk_id": "4c55e15cc23f4af7",
+          "score": 0.2591,
+          "heading": "Worked Example 14.5: Adding and subtracting decimals > Multiplying and dividing decimals"
+        },
+        {
+          "chunk_id": "696fe39794eb8fba",
+          "score": 0.2516,
+          "heading": "Chapter 5: Exponents > Scientific notation"
+        }
+      ],
+      "covered": true
+    },
+    "B8.1.1.1.6": {
+      "title": "Create and solve word or real-life problems on place values",
+      "class": "B8",
+      "strand": "Number",
+      "sub_strand": "Number and Numeration Systems",
+      "candidates": [
+        {
+          "chunk_id": "d1c4838be61a2dd7",
+          "score": 0.282,
+          "heading": "Test yourself now"
+        }
+      ],
+      "covered": true
+    },
+    "B8.1.1.2.1": {
+      "title": "Use the concept of sets to identify perfect squares and determine the square roots. Use the knowledge on sets and sets of factors of numbers to solve problems",
+      "class": "B8",
+      "strand": "Number",
+      "sub_strand": "Number and Numeration Systems",
+      "candidates": [],
+      "covered": false
+    },
+    "B8.1.1.2.2": {
+      "title": "Use the knowledge on sets and sets of factors of numbers to solve real life problems involving union and intersection",
+      "class": "B8",
+      "strand": "Number",
+      "sub_strand": "Number and Numeration Systems",
+      "candidates": [
+        {
+          "chunk_id": "d1c4838be61a2dd7",
+          "score": 0.2549,
+          "heading": "Test yourself now"
+        }
+      ],
+      "covered": true
+    },
+    "B8.1.2.1.1": {
+      "title": "Multiply and divide by power of 10 including decimals and the benchmark fractions",
+      "class": "B8",
+      "strand": "Number",
+      "sub_strand": "Number Operations",
+      "candidates": [
+        {
+          "chunk_id": "df7361b11f8b2c1f",
+          "score": 0.341,
+          "heading": "Equivalent forms > Common fractions, decimal fractions and percentages"
+        },
+        {
+          "chunk_id": "d71ec2e14d0c5d33",
+          "score": 0.3313,
+          "heading": "14.2 Ordering, comparing and place value of decimal fractions > Decimal fraction notation"
+        },
+        {
+          "chunk_id": "78268fd3f99b66a6",
+          "score": 0.3268,
+          "heading": "Worked Example 14.8: Powers and roots of decimal numbers > Equivalent forms between common fraction, decimal fraction and percentages"
+        },
+        {
+          "chunk_id": "4c55e15cc23f4af7",
+          "score": 0.315,
+          "heading": "Worked Example 14.5: Adding and subtracting decimals > Multiplying and dividing decimals"
+        },
+        {
+          "chunk_id": "444bbc069619c271",
+          "score": 0.2899,
+          "heading": "14.4 Calculations with decimal fractions"
+        }
+      ],
+      "covered": true
+    },
+    "B8.1.2.1.2": {
+      "title": "Apply mental mathematics strategies and number properties to do calculation",
+      "class": "B8",
+      "strand": "Number",
+      "sub_strand": "Number Operations",
+      "candidates": [],
+      "covered": false
+    },
+    "B8.1.2.1.3": {
+      "title": "Apply mental mathematics strategies to solve word problems",
+      "class": "B8",
+      "strand": "Number",
+      "sub_strand": "Number Operations",
+      "candidates": [],
+      "covered": false
+    },
+    "B8.1.2.2.1": {
+      "title": "Add and subtract more than four-digit numbers",
+      "class": "B8",
+      "strand": "Number",
+      "sub_strand": "Number Operations",
+      "candidates": [
+        {
+          "chunk_id": "444bbc069619c271",
+          "score": 0.2615,
+          "heading": "14.4 Calculations with decimal fractions"
+        },
+        {
+          "chunk_id": "14f742924273b324",
+          "score": 0.2536,
+          "heading": "Chapter 9: Equations > Solving equations using additive and multiplicative inverses"
+        }
+      ],
+      "covered": true
+    },
+    "B8.1.2.2.2": {
+      "title": "Multiply or divide multi-digit numbers by 2- and 3-digit numbers",
+      "class": "B8",
+      "strand": "Number",
+      "sub_strand": "Number Operations",
+      "candidates": [
+        {
+          "chunk_id": "cad42c696e32a379",
+          "score": 0.274,
+          "heading": "Worked Example 14.1: Finding place value in decimal numbers > Multiply each non-zero digit by the value of the column it is in."
+        },
+        {
+          "chunk_id": "c8dca18698933e8e",
+          "score": 0.2575,
+          "heading": "Worked example 3.8: Finding square roots of fractions and decimals > Check the number of digits to the right of the comma in the given decimal number. Move the comma half the number of places in the answer."
+        },
+        {
+          "chunk_id": "444bbc069619c271",
+          "score": 0.253,
+          "heading": "14.4 Calculations with decimal fractions"
+        }
+      ],
+      "covered": true
+    },
+    "B8.1.2.2.3": {
+      "title": "Create and solve story problems involving decimals on the four basic operations",
+      "class": "B8",
+      "strand": "Number",
+      "sub_strand": "Number Operations",
+      "candidates": [],
+      "covered": false
+    },
+    "B8.1.2.3.1": {
+      "title": "Identify and explain the laws of indices",
+      "class": "B8",
+      "strand": "Number",
+      "sub_strand": "Number Operations",
+      "candidates": [
+        {
+          "chunk_id": "a65899b6e3bc95f3",
+          "score": 0.3205,
+          "heading": "Worked example 9.14: Using laws of exponents > Use the inverse operation."
+        }
+      ],
+      "covered": true
+    },
+    "B8.1.2.3.2": {
+      "title": "Apply the laws of indices to simplify and evaluate numbers involving powers of numbers. (PEDMAS)",
+      "class": "B8",
+      "strand": "Number",
+      "sub_strand": "Number Operations",
+      "candidates": [
+        {
+          "chunk_id": "62ee4a680f9a406a",
+          "score": 0.3117,
+          "heading": "Worked Example 8.2: Dividing algebraic monomials > Rewrite the division as a fraction."
+        },
+        {
+          "chunk_id": "e1df4e7d2d0b5676",
+          "score": 0.2812,
+          "heading": "3.4 Calculations using numbers in exponential form: Laws of exponents > Power of a product"
+        },
+        {
+          "chunk_id": "b19b87ddf08d7468",
+          "score": 0.2543,
+          "heading": "3.4 Calculations using numbers in exponential form: Laws of exponents > Product of powers"
+        }
+      ],
+      "covered": true
+    },
+    "B8.1.2.3.3": {
+      "title": "Solve exponential equations",
+      "class": "B8",
+      "strand": "Number",
+      "sub_strand": "Number Operations",
+      "candidates": [
+        {
+          "chunk_id": "55c0fe56b2f8aed9",
+          "score": 0.3475,
+          "heading": "Chapter 5: Exponents > Solving simple exponential equations"
+        },
+        {
+          "chunk_id": "f4f92e585556b9cb",
+          "score": 0.3309,
+          "heading": "Setting up equations > Constructing equations"
+        },
+        {
+          "chunk_id": "bc97c2566b292dc8",
+          "score": 0.3205,
+          "heading": "Worked Example 7.19: Working with equations and a flow diagram > Find all the solutions from the flow diagram."
+        },
+        {
+          "chunk_id": "687459c02d1cd7f6",
+          "score": 0.2941,
+          "heading": "Worked Example 7.10: Solving equations with exponents > Find the power of \\(x\\) that matches the equation."
+        },
+        {
+          "chunk_id": "3e0a55673b8c6e94",
+          "score": 0.2907,
+          "heading": "Worked Example 7.17: Solving cubic equations > Find the number that gives \\(64\\) when cubed."
+        }
+      ],
+      "covered": true
+    },
+    "B8.1.2.3.4": {
+      "title": "Solve real life problems involving powers of natural numbers",
+      "class": "B8",
+      "strand": "Number",
+      "sub_strand": "Number Operations",
+      "candidates": [
+        {
+          "chunk_id": "d1c4838be61a2dd7",
+          "score": 0.5095,
+          "heading": "Test yourself now"
+        },
+        {
+          "chunk_id": "df6718b7aa08e5cd",
+          "score": 0.2821,
+          "heading": "Test yourself now"
+        },
+        {
+          "chunk_id": "2ad8f72166ce4057",
+          "score": 0.252,
+          "heading": "Worked example 6.15: Algebraic expressions with square roots > Evaluate the square root."
+        }
+      ],
+      "covered": true
+    },
+    "B8.1.3.1.1": {
+      "title": "Review fractions and solve problems involving basic operations on fractions",
+      "class": "B8",
+      "strand": "Number",
+      "sub_strand": "Fractions, Decimals and Percentages",
+      "candidates": [
+        {
+          "chunk_id": "78268fd3f99b66a6",
+          "score": 0.3173,
+          "heading": "Worked Example 14.8: Powers and roots of decimal numbers > Equivalent forms between common fraction, decimal fraction and percentages"
+        },
+        {
+          "chunk_id": "db55b9bc8e3223e2",
+          "score": 0.2919,
+          "heading": "Worked Example 14.8: Powers and roots of decimal numbers > Rewrite the expression as a fraction."
+        },
+        {
+          "chunk_id": "02eb1e32abc0ed04",
+          "score": 0.2582,
+          "heading": "Test yourself now"
+        }
+      ],
+      "covered": true
+    },
+    "B8.1.3.1.2": {
+      "title": "Add and/or subtract, multiply and/or divide given fractions, by using the principle of the order of operations (the rule of BODMAS or PEMDAS), and apply the understanding to solve problems",
+      "class": "B8",
+      "strand": "Number",
+      "sub_strand": "Fractions, Decimals and Percentages",
+      "candidates": [],
+      "covered": false
+    },
+    "B8.1.3.1.3": {
+      "title": "Review word problems involving basic operations on fractions and related concepts",
+      "class": "B8",
+      "strand": "Number",
+      "sub_strand": "Fractions, Decimals and Percentages",
+      "candidates": [],
+      "covered": false
+    },
+    "B8.1.4.1.1": {
+      "title": "Use ratio reasoning to convert measurement units; manipulate and transform units appropriately when multiplying or dividing quantities. Convert (cm to m; km to m; ml to cm; etc.) one unit of measure to",
+      "class": "B8",
+      "strand": "Number",
+      "sub_strand": "Number: Ratios and Proportion",
+      "candidates": [],
+      "covered": false
+    },
+    "B8.1.4.1.2": {
+      "title": "Solve unit rate problems including those involving unit pricing and constant speed; and speed translation. If it took 7 hours to mow 4 lawns, then at that rate, how many lawns",
+      "class": "B8",
+      "strand": "Number",
+      "sub_strand": "Number: Ratios and Proportion",
+      "candidates": [],
+      "covered": false
+    },
+    "B8.1.4.1.3": {
+      "title": "Apply the knowledge of speed to draw and interpret travel graphs or distance-time graphs",
+      "class": "B8",
+      "strand": "Number",
+      "sub_strand": "Number: Ratios and Proportion",
+      "candidates": [
+        {
+          "chunk_id": "0a5c0dbe37d31258",
+          "score": 0.3048,
+          "heading": "Solving problems about ratio, rate and proportion > Ratio and rate problems"
+        }
+      ],
+      "covered": true
+    },
+    "B8.1.4.1.4": {
+      "title": "Recognise and represent proportional relationships between quantities by deciding whether two quantities are in a proportional relationship. (e.g. by testing for equivalent ratios in a table or graphing on a coordinate plane and observing whether the graph is a straight line through the origin)",
+      "class": "B8",
+      "strand": "Number",
+      "sub_strand": "Number: Ratios and Proportion",
+      "candidates": [
+        {
+          "chunk_id": "2dafea52526da1d6",
+          "score": 0.2759,
+          "heading": "Worked example 23.5: Plotting a line graph from a table of ordered pairs > Plot the points on the Cartesian plane and draw the graph."
+        }
+      ],
+      "covered": true
+    },
+    "B8.1.4.1.5": {
+      "title": "Identify the constant of proportionality (unit rate) in tables, graphs, equations, diagrams, and verbal descriptions of proportional relationships",
+      "class": "B8",
+      "strand": "Number",
+      "sub_strand": "Number: Ratios and Proportion",
+      "candidates": [],
+      "covered": false
+    },
+    "B8.2.1.1.1": {
+      "title": "Calculate the gradient of a line and use it to write equation of a line of the form y = mx + c",
+      "class": "B8",
+      "strand": "Algebra",
+      "sub_strand": "Patterns and Relations",
+      "candidates": [],
+      "covered": false
+    },
+    "B8.2.1.1.2": {
+      "title": "Use graph of a linear relation to determine subsequent missing elements in the ordered pairs of the relation",
+      "class": "B8",
+      "strand": "Algebra",
+      "sub_strand": "Patterns and Relations",
+      "candidates": [],
+      "covered": false
+    },
+    "B8.2.1.1.3": {
+      "title": "Use graphs of linear relations to solve real life problems. Draw graphs for real life problems",
+      "class": "B8",
+      "strand": "Algebra",
+      "sub_strand": "Patterns and Relations",
+      "candidates": [],
+      "covered": false
+    },
+    "B8.2.2.1.1": {
+      "title": "Use the distributive property to remove brackets and solve multiplication of binomial expression",
+      "class": "B8",
+      "strand": "Algebra",
+      "sub_strand": "Algebraic Expressions",
+      "candidates": [
+        {
+          "chunk_id": "d78cb91a493b23fe",
+          "score": 0.385,
+          "heading": "Chapter 8: Algebraic expressions > Products and squares of binomials"
+        },
+        {
+          "chunk_id": "d4bdf458943d9100",
+          "score": 0.3711,
+          "heading": "Algebraic language > Words, diagrams and expressions"
+        },
+        {
+          "chunk_id": "c0214c97770adf5b",
+          "score": 0.3623,
+          "heading": "1.3 Properties of whole numbers > The distributive property of multiplication over addition and subtraction"
+        },
+        {
+          "chunk_id": "4cc85f6e013f8bfd",
+          "score": 0.2958,
+          "heading": "Worked Example 8.15: Using the distributive law to simplify algebraic expressions > Apply the distributive property."
+        },
+        {
+          "chunk_id": "c5215b1bbba9927d",
+          "score": 0.2864,
+          "heading": "Chapter 8: Algebraic expressions > Properties of operations"
+        }
+      ],
+      "covered": true
+    },
+    "B8.2.2.1.3": {
+      "title": "Substitute values to evaluate algebraic expressions including fractions and use these to solve problems. simplify, then substitute in the value to evaluate the following expressions: \ud835\udc56\ud835\udc56\ud835\udc5c\ud835\udc5c \ud835\udc65\ud835\udc65 = 2,\ud835\udc66\ud835\udc66 = \u22122,\ud835\udc67\ud835\udc67 = 3,\ud835\udc4e\ud835\udc4e = 1 \ud835\udc4e\ud835\udc4e\ud835\udc5a\ud835\udc5a\ud835\udc4e\ud835\udc4e \ud835\udc4e\ud835\udc4e = \u22121, i. 3 2 3\ud835\udc4e\ud835\udc4e\ud835\udc4e\ud835\udc4e 10\ud835\udc51\ud835\udc51 2 2 2 \ud835\udc65\ud835\udc65+1\u2212\ud835\udc65\ud835\udc65\u22121\ud835\udc56\ud835\udc56\ud835\udc63\ud835\udc63.15\ud835\udc4e\ud835\udc4e \u00d79\ud835\udc4e\ud835\udc4e \ud835\udc51\ud835\udc51 ii. 2 2 1 2 6\ud835\udc65\ud835\udc65",
+      "class": "B8",
+      "strand": "Algebra",
+      "sub_strand": "Algebraic Expressions",
+      "candidates": [
+        {
+          "chunk_id": "26ab2c3f8b32ef11",
+          "score": 0.4681,
+          "heading": "Worked example 6.11: Evaluating expressions"
+        },
+        {
+          "chunk_id": "da11270b0329b18b",
+          "score": 0.3677,
+          "heading": "Chapter 8: Algebraic expressions > Substitution into algebraic expressions"
+        },
+        {
+          "chunk_id": "f13e3cdfaad75f5b",
+          "score": 0.3586,
+          "heading": "Worked Example 8.14: Finding roots of a quotient > Evaluate."
+        },
+        {
+          "chunk_id": "e12c832f6272a7d7",
+          "score": 0.3567,
+          "heading": "6.4 Evaluating algebraic expressions"
+        },
+        {
+          "chunk_id": "b1e01b0b0f945226",
+          "score": 0.3408,
+          "heading": "Worked Example 8.4: Simplifying algebraic fractions > Expand the powers."
+        }
+      ],
+      "covered": true
+    },
+    "B8.2.2.1.4": {
+      "title": "Factorise given expressions involving the four operations and use the experiences gained to solve problems. Factorise the following expressions",
+      "class": "B8",
+      "strand": "Algebra",
+      "sub_strand": "Algebraic Expressions",
+      "candidates": [
+        {
+          "chunk_id": "da11270b0329b18b",
+          "score": 0.3438,
+          "heading": "Chapter 8: Algebraic expressions > Substitution into algebraic expressions"
+        },
+        {
+          "chunk_id": "1b7567db63eb5d73",
+          "score": 0.2939,
+          "heading": "Test yourself now"
+        },
+        {
+          "chunk_id": "a2c67b5070e05da6",
+          "score": 0.2842,
+          "heading": "Worked Example 8.22: Solving critical thinking problems with algebraic expressions > Work out the answer."
+        },
+        {
+          "chunk_id": "d4bdf458943d9100",
+          "score": 0.2763,
+          "heading": "Algebraic language > Words, diagrams and expressions"
+        },
+        {
+          "chunk_id": "11f88ecc4a210fba",
+          "score": 0.2662,
+          "heading": "Worked example 6.8: Simplifying algebraic expressions > Identify all the terms in the expression."
+        }
+      ],
+      "covered": true
+    },
+    "B8.2.3.1.1": {
+      "title": "Translate word problems into linear inequalities in one variable and vice versa",
+      "class": "B8",
+      "strand": "Algebra",
+      "sub_strand": "Variables and Equations",
+      "candidates": [],
+      "covered": false
+    },
+    "B8.2.3.1.2": {
+      "title": "Solve simple linear inequalities",
+      "class": "B8",
+      "strand": "Algebra",
+      "sub_strand": "Variables and Equations",
+      "candidates": [
+        {
+          "chunk_id": "73d82124ea981768",
+          "score": 0.2513,
+          "heading": "Worked Example 7.16: Solving quadratic equations > Solve by inspection."
+        }
+      ],
+      "covered": true
+    },
+    "B8.2.3.1.3": {
+      "title": "Determine solution sets of simple linear inequalities in given domains Find solution sets for the following linear inequalities",
+      "class": "B8",
+      "strand": "Algebra",
+      "sub_strand": "Variables and Equations",
+      "candidates": [],
+      "covered": false
+    },
+    "B8.3.1.1.1": {
+      "title": "Draw and determine the values of alternate and corresponding angles",
+      "class": "B8",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Shapes and Space",
+      "candidates": [
+        {
+          "chunk_id": "7ebc1a465126e03b",
+          "score": 0.3034,
+          "heading": "12.4 Angles formed by lines intersected by a transversal > Angles formed when parallel lines are cut by a transversal"
+        },
+        {
+          "chunk_id": "c2ea2e3b36e3849b",
+          "score": 0.2815,
+          "heading": "Angle relationships > Lines and angles"
+        },
+        {
+          "chunk_id": "72e97c73be1a0ae9",
+          "score": 0.2523,
+          "heading": "12.4 Angles formed by lines intersected by a transversal"
+        }
+      ],
+      "covered": true
+    },
+    "B8.3.1.1.2": {
+      "title": "Determine the values of angles in a triangle using knowledge of the sum of interior angles in a triangle and other properties",
+      "class": "B8",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Shapes and Space",
+      "candidates": [
+        {
+          "chunk_id": "6076b102c219b087",
+          "score": 0.368,
+          "heading": "Worked Example 10.17: Calculating the size of a missing angle in a triangle > Write an expression for the sum of angles in a triangle."
+        },
+        {
+          "chunk_id": "f61e9e3a5d94c2cd",
+          "score": 0.3654,
+          "heading": "Worked Example 11.5: Finding the size of unknown angles in a triangle > Exterior angles of a triangle"
+        },
+        {
+          "chunk_id": "cb99de2feafcc3b4",
+          "score": 0.3167,
+          "heading": "10.8 Properties of geometric figures"
+        },
+        {
+          "chunk_id": "77c55e97e1480bfb",
+          "score": 0.3089,
+          "heading": "Worked Example 11.5: Finding the size of unknown angles in a triangle > Use the given information to identify the type of triangle."
+        },
+        {
+          "chunk_id": "e2681150c950dd7e",
+          "score": 0.3084,
+          "heading": "Worked Example 11.2: Classifying triangles using the given information > Use the given information to classify the triangle."
+        }
+      ],
+      "covered": true
+    },
+    "B8.3.1.2.1": {
+      "title": "Construct and bisect angles of 120\u02da, 105\u02da, 135\u02da and 150\u02da",
+      "class": "B8",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Shapes and Space",
+      "candidates": [
+        {
+          "chunk_id": "617e9e16cbb8600d",
+          "score": 0.3462,
+          "heading": "Worked Example 10.10: Constructing a \\(45^{\\circ}\\) angle > Constructing other angles using \\(90^{\\circ}\\) and \\(45^{\\circ}\\)"
+        },
+        {
+          "chunk_id": "1b63d335d4ff325b",
+          "score": 0.3414,
+          "heading": "Worked Example 10.8: Constructing a \\(30^{\\circ}\\) angle > Constructing other angles using \\(60^{\\circ}\\) and \\(30^{\\circ}\\)"
+        },
+        {
+          "chunk_id": "3ea25e4fcbf4eff3",
+          "score": 0.3135,
+          "heading": "Worked Example 10.4: Bisecting a given angle > Bisecting angles"
+        },
+        {
+          "chunk_id": "d36f35f0b56bcd0a",
+          "score": 0.2664,
+          "heading": "Test yourself now"
+        }
+      ],
+      "covered": true
+    },
+    "B8.3.1.2.2": {
+      "title": "Construct scalene triangles, isosceles triangles, equilateral triangles, obtuse-angled triangle, and acute-angled triangles in different orientations under given conditions",
+      "class": "B8",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Shapes and Space",
+      "candidates": [
+        {
+          "chunk_id": "8fbefabe381d2a66",
+          "score": 0.4445,
+          "heading": "Different types of triangles > Equilateral, isosceles, scalene and right-angled triangles"
+        },
+        {
+          "chunk_id": "ca0b01e8ccae8d8f",
+          "score": 0.4023,
+          "heading": "Different types of triangles > Equilateral, isosceles, scalene and right-angled triangles"
+        },
+        {
+          "chunk_id": "e476305f0914fe34",
+          "score": 0.3509,
+          "heading": "Worked Example 11.1: Finding the missing angle of a triangle > Classifying triangles according to their angles"
+        },
+        {
+          "chunk_id": "cb99de2feafcc3b4",
+          "score": 0.3409,
+          "heading": "10.8 Properties of geometric figures"
+        },
+        {
+          "chunk_id": "58e727f3d3090f29",
+          "score": 0.3387,
+          "heading": "Triangles, quadrilaterals, circles and others > Decide which is which and draw some figures"
+        }
+      ],
+      "covered": true
+    },
+    "B8.3.1.2.3": {
+      "title": "Construct loci under given conditions including: (i) the locus of sets of points from a fixed point; (ii) the locus of points equidistant from two fixed points; (iii) the locus of points equidistant from two intersecting straight lines, and (iv) the locus of points equidistant from two parallel line",
+      "class": "B8",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Shapes and Space",
+      "candidates": [
+        {
+          "chunk_id": "0b693c0392b0c0c1",
+          "score": 0.3677,
+          "heading": "Parallel and perpendicular lines with circles > Extension"
+        },
+        {
+          "chunk_id": "0c68874b83708de4",
+          "score": 0.2889,
+          "heading": "Test yourself now > 10.3 Constructing perpendicular lines"
+        },
+        {
+          "chunk_id": "f1ec3d64069024b0",
+          "score": 0.274,
+          "heading": "Parallel and perpendicular lines > Parallel lines"
+        },
+        {
+          "chunk_id": "f43efaf6b8e4b62f",
+          "score": 0.2696,
+          "heading": "Worked Example 10.15: Constructing parallel lines > Construct two arcs at points \\(A\\) and \\(D\\)."
+        },
+        {
+          "chunk_id": "fbb46b3c408df208",
+          "score": 0.2598,
+          "heading": "12.4 Angles formed by lines intersected by a transversal > Parallel lines intersected by a transversal"
+        }
+      ],
+      "covered": true
+    },
+    "B8.3.2.1.1": {
+      "title": "Use the relationship between the diameter and circumference of a circle to deduce the formula for finding its area, and use this to solve problems",
+      "class": "B8",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Measurement",
+      "candidates": [
+        {
+          "chunk_id": "c30ca283a1c49831",
+          "score": 0.5141,
+          "heading": "Worked Example 21.5: Working with the area of a circle formula > Use the radius to determine the circumference of the circle."
+        },
+        {
+          "chunk_id": "42ed850d940c8e07",
+          "score": 0.4682,
+          "heading": "Worked example 16.13: Calculating the circumference of a circle > Substitute the known values into the formula for circumference."
+        },
+        {
+          "chunk_id": "5452eab4e9a2f923",
+          "score": 0.4314,
+          "heading": "16.6 Area and perimeter of circles > Question 2"
+        },
+        {
+          "chunk_id": "a81146630b427b71",
+          "score": 0.4068,
+          "heading": "Worked Example 21.4: Working with area of rectangle formula > Use the area and the length to find the width."
+        },
+        {
+          "chunk_id": "bc618c40c360a3a0",
+          "score": 0.3425,
+          "heading": "16.6 Area and perimeter of circles > The relationship between the circumference and the diameter of a circle"
+        }
+      ],
+      "covered": true
+    },
+    "B8.3.2.1.2": {
+      "title": "Establish the relationship between the hypotenuse \u2018c\u2019 and a2 the two other sides \u2018a\u2019 and \u2018b\u2019 of a right-angled triangle (i.e. + b2 c2) = and use it to solve problems",
+      "class": "B8",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Measurement",
+      "candidates": [
+        {
+          "chunk_id": "0dc105d8cd09d6a7",
+          "score": 0.4818,
+          "heading": "Worked Example 15.8: Calculating the length of the hypotenuse in a right-angled triangle"
+        },
+        {
+          "chunk_id": "6576eb49f3fcb118",
+          "score": 0.4062,
+          "heading": "15.4 Theorem of Pythagoras"
+        },
+        {
+          "chunk_id": "ba6bd51eba61e2ed",
+          "score": 0.3312,
+          "heading": "15.4 Theorem of Pythagoras > Using the theorem of Pythagoras to prove a triangle is a right-angled triangle"
+        },
+        {
+          "chunk_id": "e476305f0914fe34",
+          "score": 0.3253,
+          "heading": "Worked Example 11.1: Finding the missing angle of a triangle > Classifying triangles according to their angles"
+        },
+        {
+          "chunk_id": "77c55e97e1480bfb",
+          "score": 0.3026,
+          "heading": "Worked Example 11.5: Finding the size of unknown angles in a triangle > Use the given information to identify the type of triangle."
+        }
+      ],
+      "covered": true
+    },
+    "B8.3.2.1.3": {
+      "title": "Use the Pythagorean theorem to solve problems on right- angled triangle",
+      "class": "B8",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Measurement",
+      "candidates": [
+        {
+          "chunk_id": "e75962a7725d8a20",
+          "score": 0.4253,
+          "heading": "Chapter 14: Pythagoras' theorem"
+        },
+        {
+          "chunk_id": "ba6bd51eba61e2ed",
+          "score": 0.3737,
+          "heading": "15.4 Theorem of Pythagoras > Using the theorem of Pythagoras to prove a triangle is a right-angled triangle"
+        },
+        {
+          "chunk_id": "f2f1e5b1e15d6fb7",
+          "score": 0.3191,
+          "heading": "Worked Example 15.7: Using the theorem of Pythagoras to prove a triangle is a right-angled triangle > Write the final answer."
+        },
+        {
+          "chunk_id": "0dc105d8cd09d6a7",
+          "score": 0.2947,
+          "heading": "Worked Example 15.8: Calculating the length of the hypotenuse in a right-angled triangle"
+        },
+        {
+          "chunk_id": "6576eb49f3fcb118",
+          "score": 0.269,
+          "heading": "15.4 Theorem of Pythagoras"
+        }
+      ],
+      "covered": true
+    },
+    "B8.3.2.1.4": {
+      "title": "Use the Pythagoras theorem to calculate the area of a triangle in real life problems",
+      "class": "B8",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Measurement",
+      "candidates": [
+        {
+          "chunk_id": "ba6bd51eba61e2ed",
+          "score": 0.4037,
+          "heading": "15.4 Theorem of Pythagoras > Using the theorem of Pythagoras to prove a triangle is a right-angled triangle"
+        },
+        {
+          "chunk_id": "2e6e101372ee8069",
+          "score": 0.3893,
+          "heading": "Worked example 16.18: Calculating the area of a polygon > Calculate the area of \\(\\triangle WXY\\)."
+        },
+        {
+          "chunk_id": "f2f1e5b1e15d6fb7",
+          "score": 0.3071,
+          "heading": "Worked Example 15.7: Using the theorem of Pythagoras to prove a triangle is a right-angled triangle > Write the final answer."
+        },
+        {
+          "chunk_id": "6576eb49f3fcb118",
+          "score": 0.297,
+          "heading": "15.4 Theorem of Pythagoras"
+        },
+        {
+          "chunk_id": "cfada83c73db4a66",
+          "score": 0.2917,
+          "heading": "Test yourself now"
+        }
+      ],
+      "covered": true
+    },
+    "B8.3.2.1.5": {
+      "title": "Establish the relationship between the basic trigonometric ratios and solve problems involving right-angled triangles",
+      "class": "B8",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Measurement",
+      "candidates": [],
+      "covered": false
+    },
+    "B8.3.2.2.1": {
+      "title": "Add, subtract and find the scalar multiplication of vectors in the component form",
+      "class": "B8",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Measurement",
+      "candidates": [],
+      "covered": false
+    },
+    "B8.3.2.2.2": {
+      "title": "Demonstrate understanding of vector equality",
+      "class": "B8",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Measurement",
+      "candidates": [],
+      "covered": false
+    },
+    "B8.3.3.1.1": {
+      "title": "Understand rotation and identify real-life situations involving rotation",
+      "class": "B8",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Position and Transformation",
+      "candidates": [],
+      "covered": false
+    },
+    "B8.3.3.1.2": {
+      "title": "Draw rotation image in a coordinate plane and determine the angle of rotation",
+      "class": "B8",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Position and Transformation",
+      "candidates": [
+        {
+          "chunk_id": "58dc73915c72f5c8",
+          "score": 0.3397,
+          "heading": "Worked example 24.5: Rotating a triangle on the Cartesian plane > Draw the Cartesian plane and plot the points"
+        },
+        {
+          "chunk_id": "7f2db2d6ded580fc",
+          "score": 0.2923,
+          "heading": "24.5 Reflection transformations > Reflecting a point on the Cartesian plane"
+        },
+        {
+          "chunk_id": "8605c2297a22085c",
+          "score": 0.2751,
+          "heading": "Test yourself now"
+        },
+        {
+          "chunk_id": "3402c2390be07438",
+          "score": 0.2536,
+          "heading": "Worked example 24.4: Reflecting a point on the Cartesian plane > Reflecting a shape on the Cartesian plane"
+        }
+      ],
+      "covered": true
+    },
+    "B8.3.3.1.3": {
+      "title": "Investigate the concept of congruent shapes",
+      "class": "B8",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Position and Transformation",
+      "candidates": [
+        {
+          "chunk_id": "8906f9d3497c0c8b",
+          "score": 0.2512,
+          "heading": "11.4 Similar and congruent shapes > Congruent shapes"
+        }
+      ],
+      "covered": true
+    },
+    "B8.4.1.1.1": {
+      "title": "Identify types of given data including numerical, categorical, ungrouped and grouped data",
+      "class": "B8",
+      "strand": "Handling Data",
+      "sub_strand": "Data",
+      "candidates": [
+        {
+          "chunk_id": "b62619c41cad6b6c",
+          "score": 0.356,
+          "heading": "Worked Example 18.4: Grouping data into intervals > Mark a tally for each data point and determine the frequency."
+        },
+        {
+          "chunk_id": "e95b0fccf6154108",
+          "score": 0.3224,
+          "heading": "Worked Example 19.5: Drawing a histogram from a table of values"
+        },
+        {
+          "chunk_id": "c47aa52014ba43ab",
+          "score": 0.3152,
+          "heading": "Worked Example 22.9: Calculating with data bundles > Set up the equation."
+        }
+      ],
+      "covered": true
+    },
+    "B8.4.1.1.2": {
+      "title": "- Select and justify a method to collect data (quantitative and qualitative) to answer a given question",
+      "class": "B8",
+      "strand": "Handling Data",
+      "sub_strand": "Data",
+      "candidates": [],
+      "covered": false
+    },
+    "B8.4.1.1.3": {
+      "title": "- Organise data (grouped/ungrouped), present it in frequency tables, line graphs, pie graphs, bar graphs and/or pictographs (representations include info graphics, waffle diagrams, box and whisker plots and stem and leaf plots) and analyse it to solve and/or pose problems",
+      "class": "B8",
+      "strand": "Handling Data",
+      "sub_strand": "Data",
+      "candidates": [
+        {
+          "chunk_id": "fa5ab77fc7b33411",
+          "score": 0.3791,
+          "heading": "Worked Example 18.3: Organising data in a stem-and-leaf plot > Record each data point on a stem-and-leaf plot."
+        },
+        {
+          "chunk_id": "0f67c29c83ddd79b",
+          "score": 0.3402,
+          "heading": "Worked Example 18.2: Using tallies to complete a frequency table > Use tallies to record the frequency of each colour of car in the parking lot."
+        },
+        {
+          "chunk_id": "bce704160d115df3",
+          "score": 0.3162,
+          "heading": "18.3 Organise data"
+        },
+        {
+          "chunk_id": "be14b4b274c33591",
+          "score": 0.2933,
+          "heading": "Worked Example 18.3: Organising data in a stem-and-leaf plot > Arrange the leaf values in ascending order."
+        },
+        {
+          "chunk_id": "85a8f7a7e9d013c6",
+          "score": 0.2566,
+          "heading": "Test yourself now"
+        }
+      ],
+      "covered": true
+    },
+    "B8.4.1.2.1": {
+      "title": "Calculate the mean, median and mode for a given set of ungrouped data, and explain why these values may be the same or different",
+      "class": "B8",
+      "strand": "Handling Data",
+      "sub_strand": "Data",
+      "candidates": [
+        {
+          "chunk_id": "52432d2033419617",
+          "score": 0.5758,
+          "heading": "Worked Example 18.6: Finding the median of a data set with an odd number of values > Find the median."
+        },
+        {
+          "chunk_id": "4b29de7ed13cc15e",
+          "score": 0.5594,
+          "heading": "Worked Example 18.7: Finding the median of a data set with an even number of values > Find the median."
+        },
+        {
+          "chunk_id": "8ef381c4f52f2a88",
+          "score": 0.4806,
+          "heading": "18.4 Summarise data > Measures of central tendency"
+        },
+        {
+          "chunk_id": "bdba4456d3f5998f",
+          "score": 0.4305,
+          "heading": "Worked Example 20.4: Analysing the effects of outliers on the mean and median of a data set > Find the median height of the \\(10\\) learners."
+        },
+        {
+          "chunk_id": "cd3fee85d6b8086f",
+          "score": 0.3374,
+          "heading": "Worked Example 18.8: Finding the mode of a data set > Measures of dispersion"
+        }
+      ],
+      "covered": true
+    },
+    "B8.4.1.2.2": {
+      "title": "Justify a context in which the mean, median or mode is the most appropriate measure of central tendency to use when reporting findings",
+      "class": "B8",
+      "strand": "Handling Data",
+      "sub_strand": "Data",
+      "candidates": [
+        {
+          "chunk_id": "8ef381c4f52f2a88",
+          "score": 0.4818,
+          "heading": "18.4 Summarise data > Measures of central tendency"
+        },
+        {
+          "chunk_id": "4b29de7ed13cc15e",
+          "score": 0.2889,
+          "heading": "Worked Example 18.7: Finding the median of a data set with an even number of values > Find the median."
+        },
+        {
+          "chunk_id": "52432d2033419617",
+          "score": 0.2864,
+          "heading": "Worked Example 18.6: Finding the median of a data set with an odd number of values > Find the median."
+        }
+      ],
+      "covered": true
+    },
+    "B8.4.2.1.1": {
+      "title": "Perform a probability experiment involving two independent events such as drawing coloured bottle tops from a bag with replacement and list the elements of the sample space",
+      "class": "B8",
+      "strand": "Handling Data",
+      "sub_strand": "Chance or Probability",
+      "candidates": [
+        {
+          "chunk_id": "35bb468bebc955c7",
+          "score": 0.3255,
+          "heading": "Worked example 26.1: Calculating simple probabilities > Calculating the probability of an event"
+        },
+        {
+          "chunk_id": "73898381f78aade3",
+          "score": 0.2772,
+          "heading": "26.2 Probability terminology > Examples of experiments"
+        },
+        {
+          "chunk_id": "23566ae5bc7175dc",
+          "score": 0.2557,
+          "heading": "Worked example 26.2: Calculating probabilities for rolling a dice"
+        }
+      ],
+      "covered": true
+    },
+    "B8.4.2.1.2": {
+      "title": "Express the probabilities of the events as fractions, decimals, percentages and/or ratios. e.g.by using a tree diagram, table or other graphic organiser",
+      "class": "B8",
+      "strand": "Handling Data",
+      "sub_strand": "Chance or Probability",
+      "candidates": [
+        {
+          "chunk_id": "7c8351875f35a7f4",
+          "score": 0.2664,
+          "heading": "26.3 Theoretical probabilities"
+        },
+        {
+          "chunk_id": "cf7d4b3165f5c6e3",
+          "score": 0.26,
+          "heading": "Worked example 26.1: Calculating simple probabilities > Calculate the probability of getting a red button."
+        }
+      ],
+      "covered": true
+    },
+    "B9.1.1.1.1": {
+      "title": "Express integers to a given number of significant and decimal places",
+      "class": "B9",
+      "strand": "Number",
+      "sub_strand": "Number and Numeration System",
+      "candidates": [
+        {
+          "chunk_id": "da4c9be4a5c13362",
+          "score": 0.3105,
+          "heading": "Properties of numbers > Different types of numbers"
+        },
+        {
+          "chunk_id": "6eb1621c2098004a",
+          "score": 0.2911,
+          "heading": "Worked Example 14.7: Multiplying and dividing decimals > Divide the whole numbers (decimals without a comma)."
+        },
+        {
+          "chunk_id": "4c55e15cc23f4af7",
+          "score": 0.2591,
+          "heading": "Worked Example 14.5: Adding and subtracting decimals > Multiplying and dividing decimals"
+        },
+        {
+          "chunk_id": "696fe39794eb8fba",
+          "score": 0.2516,
+          "heading": "Chapter 5: Exponents > Scientific notation"
+        }
+      ],
+      "covered": true
+    },
+    "B9.1.1.1.2": {
+      "title": "Use knowledge and understanding of place value to solve real life problems",
+      "class": "B9",
+      "strand": "Number",
+      "sub_strand": "Number and Numeration System",
+      "candidates": [],
+      "covered": false
+    },
+    "B9.1.1.2.1": {
+      "title": "Solve problems on relationship between members of the rational number system using knowledge and understanding of the concept of union and intersection of two sets",
+      "class": "B9",
+      "strand": "Number",
+      "sub_strand": "Number and Numeration System",
+      "candidates": [
+        {
+          "chunk_id": "da4c9be4a5c13362",
+          "score": 0.2616,
+          "heading": "Properties of numbers > Different types of numbers"
+        }
+      ],
+      "covered": true
+    },
+    "B9.1.1.2.2": {
+      "title": "Apply the concept of sets to solve problems on relationship between members of rational number system and solve real life problems involving union and intersection of two sets",
+      "class": "B9",
+      "strand": "Number",
+      "sub_strand": "Number and Numeration System",
+      "candidates": [],
+      "covered": false
+    },
+    "B9.1.2.1.1": {
+      "title": "Multiply and divide given numbers by powers of 10 including decimals and benchmark fractions",
+      "class": "B9",
+      "strand": "Number",
+      "sub_strand": "Number Operations",
+      "candidates": [
+        {
+          "chunk_id": "df7361b11f8b2c1f",
+          "score": 0.3446,
+          "heading": "Equivalent forms > Common fractions, decimal fractions and percentages"
+        },
+        {
+          "chunk_id": "d71ec2e14d0c5d33",
+          "score": 0.3344,
+          "heading": "14.2 Ordering, comparing and place value of decimal fractions > Decimal fraction notation"
+        },
+        {
+          "chunk_id": "78268fd3f99b66a6",
+          "score": 0.3255,
+          "heading": "Worked Example 14.8: Powers and roots of decimal numbers > Equivalent forms between common fraction, decimal fraction and percentages"
+        },
+        {
+          "chunk_id": "4c55e15cc23f4af7",
+          "score": 0.3252,
+          "heading": "Worked Example 14.5: Adding and subtracting decimals > Multiplying and dividing decimals"
+        },
+        {
+          "chunk_id": "444bbc069619c271",
+          "score": 0.3031,
+          "heading": "14.4 Calculations with decimal fractions"
+        }
+      ],
+      "covered": true
+    },
+    "B9.1.2.1.2": {
+      "title": "Demonstrate the ability to determine commutative properties of addition and multiplication",
+      "class": "B9",
+      "strand": "Number",
+      "sub_strand": "Number Operations",
+      "candidates": [
+        {
+          "chunk_id": "f3475b3984d0f9fa",
+          "score": 0.3823,
+          "heading": "Properties of operations > The commutative property of addition and multiplication"
+        },
+        {
+          "chunk_id": "f18ac05e3764944c",
+          "score": 0.3625,
+          "heading": "1.3 Properties of whole numbers > The commutative property of addition and multiplication"
+        },
+        {
+          "chunk_id": "bf3ed9cee7155664",
+          "score": 0.2721,
+          "heading": "1.3 Properties of whole numbers > The associative (grouping) property of addition and multiplication"
+        },
+        {
+          "chunk_id": "c5215b1bbba9927d",
+          "score": 0.2702,
+          "heading": "Chapter 8: Algebraic expressions > Properties of operations"
+        }
+      ],
+      "covered": true
+    },
+    "B9.1.2.1.3": {
+      "title": "Use the associative property of addition and multiplication",
+      "class": "B9",
+      "strand": "Number",
+      "sub_strand": "Number Operations",
+      "candidates": [
+        {
+          "chunk_id": "bf3ed9cee7155664",
+          "score": 0.594,
+          "heading": "1.3 Properties of whole numbers > The associative (grouping) property of addition and multiplication"
+        },
+        {
+          "chunk_id": "ec8eed96ea4714f1",
+          "score": 0.4487,
+          "heading": "2.4 Properties of integers > The associative properties of operations with integers"
+        },
+        {
+          "chunk_id": "cdf3cad52047b05b",
+          "score": 0.41,
+          "heading": "Properties of operations > Order of operations and the associative property"
+        },
+        {
+          "chunk_id": "c5215b1bbba9927d",
+          "score": 0.3892,
+          "heading": "Chapter 8: Algebraic expressions > Properties of operations"
+        },
+        {
+          "chunk_id": "b5a19c761bc55c69",
+          "score": 0.3145,
+          "heading": "Properties of operations > More conventions and the distributive property"
+        }
+      ],
+      "covered": true
+    },
+    "B9.1.2.1.4": {
+      "title": "Use the distributive property in solving problems",
+      "class": "B9",
+      "strand": "Number",
+      "sub_strand": "Number Operations",
+      "candidates": [
+        {
+          "chunk_id": "c0214c97770adf5b",
+          "score": 0.3381,
+          "heading": "1.3 Properties of whole numbers > The distributive property of multiplication over addition and subtraction"
+        },
+        {
+          "chunk_id": "c5215b1bbba9927d",
+          "score": 0.3097,
+          "heading": "Chapter 8: Algebraic expressions > Properties of operations"
+        },
+        {
+          "chunk_id": "b5a19c761bc55c69",
+          "score": 0.3092,
+          "heading": "Properties of operations > More conventions and the distributive property"
+        },
+        {
+          "chunk_id": "bf3ed9cee7155664",
+          "score": 0.2867,
+          "heading": "1.3 Properties of whole numbers > The associative (grouping) property of addition and multiplication"
+        },
+        {
+          "chunk_id": "3564b5fa9a80d7cf",
+          "score": 0.2652,
+          "heading": "Chapter 2: Integers"
+        }
+      ],
+      "covered": true
+    },
+    "B9.1.2.2.1": {
+      "title": "Solve operations involving addition, subtraction, multiplication and division using word problems. E.g. Create and solve story problems involving a combination of two or more of the basic operations. (\u00d7, \u00f7, \u2500,+). i) A trader sells oranges from two baskets, A and B. Basket A contained 85 oranges and",
+      "class": "B9",
+      "strand": "Number",
+      "sub_strand": "Number Operations",
+      "candidates": [],
+      "covered": false
+    },
+    "B9.1.2.2.2": {
+      "title": "Solve word problems involving the four basic operations and round the answers to the nearest two decimal figures or to some significant figures. ii) The price of a jacket is three times that of a shirt. The price of a jacket is GH\u20b5560.65. Mr Mensa bought two of the jackets and four shirts for his tw",
+      "class": "B9",
+      "strand": "Number",
+      "sub_strand": "Number Operations",
+      "candidates": [
+        {
+          "chunk_id": "00333d2adf80dc6b",
+          "score": 0.2559,
+          "heading": "Basic operations > A process called long division"
+        }
+      ],
+      "covered": true
+    },
+    "B9.1.2.4.1": {
+      "title": "Identify simple and compound surds. E.g. i.\u221a2, ii.7\u221a3, iii. 2\u221a5 iBv9.(.1\u221a.32.+4.\u221a2 7E\u2212xp\u221ala5i)n the identities/rules of surds Rule 1 Rule 4 5\ud835\udc4e\ud835\udc4e \u221a\ud835\udc4e\ud835\udc4e\u00b1\ud835\udc4e\ud835\udc4e\u221a\ud835\udc4e\ud835\udc4e = (\ud835\udc4e\ud835\udc4e\u00b1\ud835\udc4e\ud835\udc4e)\u221a\ud835\udc4e\ud835\udc4e \u221aR\ud835\udc4e\ud835\udc4eul\u00d7e \ud835\udc4e\ud835\udc4e2 = \u221a\ud835\udc4e\ud835\udc4e\u00d7\u221a\ud835\udc4e\ud835\udc4e Rule \ud835\udc4e\ud835\udc4e \ud835\udc4e\ud835\udc4e \ud835\udc4e\ud835\udc4e\u2212\ud835\udc4e\ud835\udc4e\u221a\ud835\udc5a\ud835\udc5a \ud835\udc4e\ud835\udc4e \u221a\ud835\udc4e\ud835\udc4e \u221a = = \u00d7 R\ud835\udc4e\ud835\udc4eule Rul\ud835\udc4e\ud835\udc4ee +6 \ud835\udc4e\ud835\udc4e\u221a\ud835\udc5a\ud835\udc5a \ud835\udc4e\ud835\udc4e+\ud835\udc4e\ud835\udc4e\u221a\ud835\udc5a\ud835\udc5a \ud835\udc4e\ud835\udc4e\u2212\ud835\udc4e\ud835\udc4e\u221a\ud835\udc5a\ud835\udc5a 3\u221a \ud835\udc4e\ud835\udc4e \ud835\udc4e\ud835\udc4e \ud835\udc4e\ud835\udc4e \ud835\udc4e\ud835\udc4e+\ud835\udc4e\ud835\udc4e\u221a\ud835\udc5a\ud835\udc5a \ud835\udc4e\ud835\udc4e \ud835\udc4e\ud835\udc4e \u221a\ud835\udc4e\ud835\udc4e \ud835\udc4e\ud835\udc4e\u221a",
+      "class": "B9",
+      "strand": "Number",
+      "sub_strand": "Number Operations",
+      "candidates": [
+        {
+          "chunk_id": "e31c26d2072ff428",
+          "score": 0.2551,
+          "heading": "15.3 Surds"
+        }
+      ],
+      "covered": true
+    },
+    "B9.1.2.4.3": {
+      "title": "Simplify given surds",
+      "class": "B9",
+      "strand": "Number",
+      "sub_strand": "Number Operations",
+      "candidates": [
+        {
+          "chunk_id": "e31c26d2072ff428",
+          "score": 0.4426,
+          "heading": "15.3 Surds"
+        },
+        {
+          "chunk_id": "d3150d65f7b0acfa",
+          "score": 0.2914,
+          "heading": "Worked Example 15.4: Simplifying expressions with square root signs > Write down the factors of the radicand."
+        }
+      ],
+      "covered": true
+    },
+    "B9.1.2.4.4": {
+      "title": "Approximate the square roots of non-perfect squares with calculators/tables",
+      "class": "B9",
+      "strand": "Number",
+      "sub_strand": "Number Operations",
+      "candidates": [
+        {
+          "chunk_id": "96e85241b8dd917e",
+          "score": 0.328,
+          "heading": "15.2 Perfect squares and square roots > Perfect squares"
+        },
+        {
+          "chunk_id": "e31c26d2072ff428",
+          "score": 0.302,
+          "heading": "15.3 Surds"
+        },
+        {
+          "chunk_id": "2ad8f72166ce4057",
+          "score": 0.2806,
+          "heading": "Worked example 6.15: Algebraic expressions with square roots > Evaluate the square root."
+        },
+        {
+          "chunk_id": "662d4948871f6392",
+          "score": 0.2702,
+          "heading": "Chapter 2: Exponents > The square root and the cube root"
+        },
+        {
+          "chunk_id": "a95186f7199be0a4",
+          "score": 0.255,
+          "heading": "3.3 Square roots and cube roots > Squares and square roots"
+        }
+      ],
+      "covered": true
+    },
+    "B9.1.3.1.1": {
+      "title": "Review fractions and solve problems involving basic operations on fractions",
+      "class": "B9",
+      "strand": "Number",
+      "sub_strand": "Fractions, Decimals and Percentages",
+      "candidates": [
+        {
+          "chunk_id": "78268fd3f99b66a6",
+          "score": 0.3173,
+          "heading": "Worked Example 14.8: Powers and roots of decimal numbers > Equivalent forms between common fraction, decimal fraction and percentages"
+        },
+        {
+          "chunk_id": "db55b9bc8e3223e2",
+          "score": 0.2919,
+          "heading": "Worked Example 14.8: Powers and roots of decimal numbers > Rewrite the expression as a fraction."
+        },
+        {
+          "chunk_id": "02eb1e32abc0ed04",
+          "score": 0.2582,
+          "heading": "Test yourself now"
+        }
+      ],
+      "covered": true
+    },
+    "B9.1.3.1.2": {
+      "title": "Add and/or subtract, multiply and/or divide given fractions, using the principle of order of operations including the use of the BODMAS or PEMDAS rule, and apply the understanding of these to solve problems",
+      "class": "B9",
+      "strand": "Number",
+      "sub_strand": "Fractions, Decimals and Percentages",
+      "candidates": [],
+      "covered": false
+    },
+    "B9.1.3.1.3": {
+      "title": "Review word problems involving basic operations on fractions",
+      "class": "B9",
+      "strand": "Number",
+      "sub_strand": "Fractions, Decimals and Percentages",
+      "candidates": [
+        {
+          "chunk_id": "78268fd3f99b66a6",
+          "score": 0.3013,
+          "heading": "Worked Example 14.8: Powers and roots of decimal numbers > Equivalent forms between common fraction, decimal fraction and percentages"
+        },
+        {
+          "chunk_id": "db55b9bc8e3223e2",
+          "score": 0.2797,
+          "heading": "Worked Example 14.8: Powers and roots of decimal numbers > Rewrite the expression as a fraction."
+        }
+      ],
+      "covered": true
+    },
+    "B9.1.4.1.1": {
+      "title": "Represent proportional relationships by equations",
+      "class": "B9",
+      "strand": "Number",
+      "sub_strand": "Number: Ratios and Proportion",
+      "candidates": [
+        {
+          "chunk_id": "a5f9cdbb7d399060",
+          "score": 0.2964,
+          "heading": "Worked Example 1.26: Increasing a number in the given ratio > Find the number that represents \\(1\\) part."
+        }
+      ],
+      "covered": true
+    },
+    "B9.1.4.1.2": {
+      "title": "Use proportional relationships to solve multistep ratio and percent problems, examples: simple interest, tax, discount and commissions, NHIL, depreciation, insurance, etc",
+      "class": "B9",
+      "strand": "Number",
+      "sub_strand": "Number: Ratios and Proportion",
+      "candidates": [],
+      "covered": false
+    },
+    "B9.1.4.1.3": {
+      "title": "Use knowledge of rates and proportional reasoning to solve problems involving SSNIT benefits and contributions",
+      "class": "B9",
+      "strand": "Number",
+      "sub_strand": "Number: Ratios and Proportion",
+      "candidates": [],
+      "covered": false
+    },
+    "B9.1.4.1.4": {
+      "title": "Recognise and graph proportional relationships, interpreting the unit rate as the slope of the graph and use these to solve problems",
+      "class": "B9",
+      "strand": "Number",
+      "sub_strand": "Number: Ratios and Proportion",
+      "candidates": [],
+      "covered": false
+    },
+    "B9.2.1.1.1": {
+      "title": "Construct a table of values for two linear relations and graph the relation",
+      "class": "B9",
+      "strand": "Algebra",
+      "sub_strand": "Patterns and Relations",
+      "candidates": [],
+      "covered": false
+    },
+    "B9.2.1.1.2": {
+      "title": "Use graphs of two linear relations to determine subsequent missing elements in ordered pairs of the relation",
+      "class": "B9",
+      "strand": "Algebra",
+      "sub_strand": "Patterns and Relations",
+      "candidates": [],
+      "covered": false
+    },
+    "B9.2.1.1.3": {
+      "title": "Use graphs to solve equations involving two linear relations. Solve two linear equations simultaneously",
+      "class": "B9",
+      "strand": "Algebra",
+      "sub_strand": "Patterns and Relations",
+      "candidates": [
+        {
+          "chunk_id": "73d82124ea981768",
+          "score": 0.3016,
+          "heading": "Worked Example 7.16: Solving quadratic equations > Solve by inspection."
+        },
+        {
+          "chunk_id": "687459c02d1cd7f6",
+          "score": 0.2658,
+          "heading": "Worked Example 7.10: Solving equations with exponents > Find the power of \\(x\\) that matches the equation."
+        },
+        {
+          "chunk_id": "966fadbfe6424468",
+          "score": 0.2629,
+          "heading": "Worked Example 7.14: Solving equations with roots > Solve for \\(n\\) by inspection."
+        },
+        {
+          "chunk_id": "e5499b9173ae8179",
+          "score": 0.2596,
+          "heading": "Worked example 23.5: Plotting a line graph from a table of ordered pairs > Complete the table of ordered pairs for the linear equation \\(y = 2x\\),"
+        }
+      ],
+      "covered": true
+    },
+    "B9.2.2.1.1": {
+      "title": "Perform change of subject of a given formula and use it to solve problems. Perform change of subject for given formulae",
+      "class": "B9",
+      "strand": "Algebra",
+      "sub_strand": "Algebraic Expressions",
+      "candidates": [
+        {
+          "chunk_id": "f0fa240d1c9401f1",
+          "score": 0.2711,
+          "heading": "Worked Example 21.4: Working with area of rectangle formula > Use the area and the width to calculate the length."
+        },
+        {
+          "chunk_id": "e3fe7a60e18567bf",
+          "score": 0.2601,
+          "heading": "22.4 Working with formulas"
+        }
+      ],
+      "covered": true
+    },
+    "B9.2.2.1.2": {
+      "title": "Substitute values into given formulae to evaluate it and use it to solve problems",
+      "class": "B9",
+      "strand": "Algebra",
+      "sub_strand": "Algebraic Expressions",
+      "candidates": [
+        {
+          "chunk_id": "26ab2c3f8b32ef11",
+          "score": 0.3377,
+          "heading": "Worked example 6.11: Evaluating expressions"
+        },
+        {
+          "chunk_id": "f13e3cdfaad75f5b",
+          "score": 0.2982,
+          "heading": "Worked Example 8.14: Finding roots of a quotient > Evaluate."
+        },
+        {
+          "chunk_id": "e12c832f6272a7d7",
+          "score": 0.2912,
+          "heading": "6.4 Evaluating algebraic expressions"
+        },
+        {
+          "chunk_id": "da11270b0329b18b",
+          "score": 0.2895,
+          "heading": "Chapter 8: Algebraic expressions > Substitution into algebraic expressions"
+        },
+        {
+          "chunk_id": "a2c67b5070e05da6",
+          "score": 0.2682,
+          "heading": "Worked Example 8.22: Solving critical thinking problems with algebraic expressions > Work out the answer."
+        }
+      ],
+      "covered": true
+    },
+    "B9.2.2.1.3": {
+      "title": "Factorise expressions that have simple binomial. E.g. Factorise the following expressions. i. 3x + 4xy = x (3 +4y) ii. 12ab + 16b = 4b (3a + 4) iii. -13xy + 39x= -13x(y-3) 5y-2y2+3y=-3y+3y iv. 8y-2y2= v. 2y(4-y) vi. -6x+12=-3(2x-4) 186",
+      "class": "B9",
+      "strand": "Algebra",
+      "sub_strand": "Algebraic Expressions",
+      "candidates": [
+        {
+          "chunk_id": "d4bdf458943d9100",
+          "score": 0.4133,
+          "heading": "Algebraic language > Words, diagrams and expressions"
+        },
+        {
+          "chunk_id": "d78cb91a493b23fe",
+          "score": 0.3899,
+          "heading": "Chapter 8: Algebraic expressions > Products and squares of binomials"
+        },
+        {
+          "chunk_id": "da11270b0329b18b",
+          "score": 0.3638,
+          "heading": "Chapter 8: Algebraic expressions > Substitution into algebraic expressions"
+        },
+        {
+          "chunk_id": "f508ef648a71d605",
+          "score": 0.332,
+          "heading": "Algebraic language > Some words we use in algebra"
+        },
+        {
+          "chunk_id": "cf92a484274575aa",
+          "score": 0.2641,
+          "heading": "Worked Example 8.4: Simplifying algebraic fractions > Use the simplified expression and substitute."
+        }
+      ],
+      "covered": true
+    },
+    "B9.2.2.1.4": {
+      "title": "Use the knowledge of simplifying and factorising expressions to solve real world problems",
+      "class": "B9",
+      "strand": "Algebra",
+      "sub_strand": "Algebraic Expressions",
+      "candidates": [
+        {
+          "chunk_id": "da11270b0329b18b",
+          "score": 0.2955,
+          "heading": "Chapter 8: Algebraic expressions > Substitution into algebraic expressions"
+        },
+        {
+          "chunk_id": "93ba88eca965b1be",
+          "score": 0.2604,
+          "heading": "Worked example 6.21: Adding algebraic terms > Write and simplify the expression."
+        }
+      ],
+      "covered": true
+    },
+    "B9.2.3.1.1": {
+      "title": "Solve single variable linear inequalities with rational coefficients. i. v. \ud835\udfd3\ud835\udfd3 \ud835\udfcf\ud835\udfcf \ud835\udfd3\ud835\udfd3 \ud835\udfd0\ud835\udfd0\ud835\udc99\ud835\udc99+\ud835\udfd5\ud835\udfd5 > \ud835\udfd1\ud835\udfd1> \ud835\udc65\ud835\udc65\u2212\ud835\udfd3\ud835\udfd3 \ud835\udfd0\ud835\udfd0 ii. vi. \ud835\udfd3\ud835\udfd3 \ud835\udfcf\ud835\udfcf \ud835\udfd0\ud835\udfd0 \ud835\udfcf\ud835\udfcf \ud835\udfd0\ud835\udfd0(\ud835\udfd0\ud835\udfd0\ud835\udc99\ud835\udc99+\ud835\udfd1\ud835\udfd1)\u2264 \ud835\udfd3\ud835\udfd3\u2212\ud835\udfd3\ud835\udfd3\ud835\udc99\ud835\udc99 > \ud835\udc99\ud835\udc99+\ud835\udfcf\ud835\udfcf \ud835\udfd5\ud835\udfd5 iii. vii. \ud835\udfd1\ud835\udfd1 \ud835\udfd0\ud835\udfd0 \ud835\udfd3\ud835\udfd3 \ud835\udfcf\ud835\udfcf \ud835\udfd1\ud835\udfd1 \ud835\udfd0\ud835\udfd0\ud835\udc9a\ud835\udc9a\u2212\ud835\udfd3\ud835\udfd3< \ud835\udc99\ud835\udc99+\ud835\udfd0\ud835\udfd0\u2265 \u2212\ud835\udfd0\ud835\udfd0 \ud835\udfd3\ud835\udfd3 viii. iv. \ud835\udfd0\ud835\udfd0 \ud835\udfcf\ud835\udfcf \ud835\udfcf\ud835\udfcf\ud835\udfcf\ud835\udfcf \ud835\udfd0\ud835\udfd0(\ud835\udfd3\ud835\udfd3\ud835\udc99\ud835\udc99\u2212\ud835\udfd3\ud835\udfd3)< \u2212\ud835\udfd1\ud835\udfd1\ud835\udc99\ud835\udc99+\ud835\udfd1\ud835\udfd1 \u2265 \ud835\udfd1\ud835\udfd1 \ud835\udc65\ud835\udc65+\ud835\udfd0\ud835\udfd0\ud835\udfd3\ud835\udfd3",
+      "class": "B9",
+      "strand": "Algebra",
+      "sub_strand": "Variables and Equations",
+      "candidates": [
+        {
+          "chunk_id": "817a5d54ed11999f",
+          "score": 0.2725,
+          "heading": "Worked example 9.4: Solving two-step linear equations > Get the variable on its own."
+        }
+      ],
+      "covered": true
+    },
+    "B9.2.3.1.2": {
+      "title": "Illustrate solution sets of linear inequalities on the number line Illustrate and explain the inequality signs",
+      "class": "B9",
+      "strand": "Algebra",
+      "sub_strand": "Variables and Equations",
+      "candidates": [],
+      "covered": false
+    },
+    "B9.2.3.1.3": {
+      "title": "Solve real-life problems involving linear equations and inequalities. Solve real-life problems involving linear equations",
+      "class": "B9",
+      "strand": "Algebra",
+      "sub_strand": "Variables and Equations",
+      "candidates": [
+        {
+          "chunk_id": "d1c4838be61a2dd7",
+          "score": 0.309,
+          "heading": "Test yourself now"
+        }
+      ],
+      "covered": true
+    },
+    "B9.3.1.1.1": {
+      "title": "Derive the formula for calculating the sum of angles in any polygon and use this to calculate the value of missing angles in polygons Identify and name the various polygons such as a triangle,",
+      "class": "B9",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Shapes and Space",
+      "candidates": [
+        {
+          "chunk_id": "8ebdd87ce8e2d780",
+          "score": 0.3333,
+          "heading": "Test yourself now"
+        },
+        {
+          "chunk_id": "2e6e101372ee8069",
+          "score": 0.2599,
+          "heading": "Worked example 16.18: Calculating the area of a polygon > Calculate the area of \\(\\triangle WXY\\)."
+        }
+      ],
+      "covered": true
+    },
+    "B9.3.1.1.2": {
+      "title": "Identify similar and congruent triangles and use the knowledge to solve related problems",
+      "class": "B9",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Shapes and Space",
+      "candidates": [
+        {
+          "chunk_id": "074d1aea1d608c5a",
+          "score": 0.3267,
+          "heading": "Chapter 5: Geometry of shapes > Similar and congruent shapes"
+        },
+        {
+          "chunk_id": "0291a2fb25319194",
+          "score": 0.3161,
+          "heading": "Geometry of shapes > Similar and congruent shapes"
+        },
+        {
+          "chunk_id": "8906f9d3497c0c8b",
+          "score": 0.2709,
+          "heading": "11.4 Similar and congruent shapes > Congruent shapes"
+        }
+      ],
+      "covered": true
+    },
+    "B9.3.1.2.1": {
+      "title": "Draw inscribed and circumscribed circles for triangles under given conditions",
+      "class": "B9",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Shapes and Space",
+      "candidates": [],
+      "covered": false
+    },
+    "B9.3.1.2.2": {
+      "title": "Construct parallelograms (i.e. square, rectangle, rhombus) under given conditions",
+      "class": "B9",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Shapes and Space",
+      "candidates": [
+        {
+          "chunk_id": "4fdf74b339c84474",
+          "score": 0.3301,
+          "heading": "Worked Example 10.16: Constructing a parallelogram > Construct quadrilaterals"
+        }
+      ],
+      "covered": true
+    },
+    "B9.3.2.1.1": {
+      "title": "Identify cuboids and triangular prisms; draw their nets to construct the 3-D shapes and use it to determine the surface area",
+      "class": "B9",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Measurement",
+      "candidates": [
+        {
+          "chunk_id": "3882026e20d366cd",
+          "score": 0.3386,
+          "heading": "17.5 Surface area and volume of triangular prisms"
+        },
+        {
+          "chunk_id": "289776ba12862540",
+          "score": 0.3283,
+          "heading": "25.6 Building 3D models > Nets of prisms"
+        },
+        {
+          "chunk_id": "88728f9b4b4ee899",
+          "score": 0.3184,
+          "heading": "Worked Example 17.7: Finding the surface area of a triangular prism > Use the theorem of Pythagoras to find the length of the hypotenuse."
+        },
+        {
+          "chunk_id": "465237b9aa366fe8",
+          "score": 0.2948,
+          "heading": "17.4 Surface area and volume of rectangular prisms"
+        },
+        {
+          "chunk_id": "ef84a25aaafa3c94",
+          "score": 0.266,
+          "heading": "Chapter 11: Surface area and volume of objects"
+        }
+      ],
+      "covered": true
+    },
+    "B9.3.2.1.2": {
+      "title": "Use the net of a and triangular prism) and use to solve problems",
+      "class": "B9",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Measurement",
+      "candidates": [
+        {
+          "chunk_id": "3882026e20d366cd",
+          "score": 0.4124,
+          "heading": "17.5 Surface area and volume of triangular prisms"
+        },
+        {
+          "chunk_id": "88728f9b4b4ee899",
+          "score": 0.3483,
+          "heading": "Worked Example 17.7: Finding the surface area of a triangular prism > Use the theorem of Pythagoras to find the length of the hypotenuse."
+        },
+        {
+          "chunk_id": "289776ba12862540",
+          "score": 0.262,
+          "heading": "25.6 Building 3D models > Nets of prisms"
+        }
+      ],
+      "covered": true
+    },
+    "B9.3.2.1.3": {
+      "title": "Use the net of area",
+      "class": "B9",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Measurement",
+      "candidates": [
+        {
+          "chunk_id": "c0c2afa265823b8f",
+          "score": 0.2975,
+          "heading": "17.3 Surface area and volume of cubes"
+        },
+        {
+          "chunk_id": "4dca23028b2aa391",
+          "score": 0.2948,
+          "heading": "21.3 Using formulas"
+        },
+        {
+          "chunk_id": "385cf0957facec1d",
+          "score": 0.2712,
+          "heading": "Surface area of cubes and rectangular prisms > Using nets of rectangular prisms and cubes"
+        },
+        {
+          "chunk_id": "3391bd9025f64b97",
+          "score": 0.2592,
+          "heading": "Test yourself now"
+        }
+      ],
+      "covered": true
+    },
+    "B9.3.2.1.4": {
+      "title": "Express points in the Cartesian plane as position vectors",
+      "class": "B9",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Measurement",
+      "candidates": [
+        {
+          "chunk_id": "6084caf8572fd6a3",
+          "score": 0.441,
+          "heading": "Worked example 23.3: Reading the coordinates of points on the Cartesian plane"
+        },
+        {
+          "chunk_id": "44a3c0caa9cc5c6d",
+          "score": 0.4251,
+          "heading": "24.2 The Cartesian plane"
+        },
+        {
+          "chunk_id": "0ecd594a8a9c3d26",
+          "score": 0.3769,
+          "heading": "24.4 Translation transformations > Translating a point on the Cartesian plane"
+        },
+        {
+          "chunk_id": "c01068c6b4f11fba",
+          "score": 0.3738,
+          "heading": "23.5 The Cartesian plane"
+        },
+        {
+          "chunk_id": "1102fe3bf835c7b9",
+          "score": 0.3606,
+          "heading": "Worked example 24.1: Finding the coordinates of a given point > Read the coordinates from the axes."
+        }
+      ],
+      "covered": true
+    },
+    "B9.3.2.2.1": {
+      "title": "Show an understanding of parallel vectors and perpendicular vectors",
+      "class": "B9",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Measurement",
+      "candidates": [
+        {
+          "chunk_id": "f1ec3d64069024b0",
+          "score": 0.3049,
+          "heading": "Parallel and perpendicular lines > Parallel lines"
+        },
+        {
+          "chunk_id": "e533931037746675",
+          "score": 0.2871,
+          "heading": "Chapter 4: Construction of geometric figures > Parallel and perpendicular lines"
+        }
+      ],
+      "covered": true
+    },
+    "B9.3.2.2.2": {
+      "title": "Apply the triangular and parallelogram laws of addition to resolve vectors",
+      "class": "B9",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Measurement",
+      "candidates": [],
+      "covered": false
+    },
+    "B9.3.3.1.1": {
+      "title": "Know examples of situations understanding of how to enlargement situations in everyday perform an enlargement on",
+      "class": "B9",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Position",
+      "candidates": [],
+      "covered": false
+    },
+    "B9.3.3.1.2": {
+      "title": "Understand enlargement and identify real-life situations involving enlargement",
+      "class": "B9",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Position",
+      "candidates": [],
+      "covered": false
+    },
+    "B9.3.3.1.3": {
+      "title": "Investigate the concept of congruent and similar shapes",
+      "class": "B9",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Position",
+      "candidates": [
+        {
+          "chunk_id": "074d1aea1d608c5a",
+          "score": 0.3963,
+          "heading": "Chapter 5: Geometry of shapes > Similar and congruent shapes"
+        },
+        {
+          "chunk_id": "0291a2fb25319194",
+          "score": 0.3835,
+          "heading": "Geometry of shapes > Similar and congruent shapes"
+        },
+        {
+          "chunk_id": "8906f9d3497c0c8b",
+          "score": 0.293,
+          "heading": "11.4 Similar and congruent shapes > Congruent shapes"
+        }
+      ],
+      "covered": true
+    },
+    "B9.4.1.1.1": {
+      "title": "Select and justify a method to collect data (quantitative and qualitative) to answer a given question",
+      "class": "B9",
+      "strand": "Handling Data",
+      "sub_strand": "Data",
+      "candidates": [],
+      "covered": false
+    },
+    "B9.4.1.1.2": {
+      "title": "Organise data (grouped/ungrouped) present it in frequency tables, line graphs, pie graphs, bar graphs and/or pictographs (representations include infographics, waffle diagrams, box and whisker plots and stem and leaf plots) and analyse it to solve and/or pose problems",
+      "class": "B9",
+      "strand": "Handling Data",
+      "sub_strand": "Data",
+      "candidates": [
+        {
+          "chunk_id": "fa5ab77fc7b33411",
+          "score": 0.3938,
+          "heading": "Worked Example 18.3: Organising data in a stem-and-leaf plot > Record each data point on a stem-and-leaf plot."
+        },
+        {
+          "chunk_id": "0f67c29c83ddd79b",
+          "score": 0.3533,
+          "heading": "Worked Example 18.2: Using tallies to complete a frequency table > Use tallies to record the frequency of each colour of car in the parking lot."
+        },
+        {
+          "chunk_id": "bce704160d115df3",
+          "score": 0.3284,
+          "heading": "18.3 Organise data"
+        },
+        {
+          "chunk_id": "be14b4b274c33591",
+          "score": 0.3047,
+          "heading": "Worked Example 18.3: Organising data in a stem-and-leaf plot > Arrange the leaf values in ascending order."
+        },
+        {
+          "chunk_id": "85a8f7a7e9d013c6",
+          "score": 0.2665,
+          "heading": "Test yourself now"
+        }
+      ],
+      "covered": true
+    },
+    "B9.4.1.1.3": {
+      "title": "Use a histogram to determine the mode of a given data to solve and/or pose real life cases",
+      "class": "B9",
+      "strand": "Handling Data",
+      "sub_strand": "Data",
+      "candidates": [
+        {
+          "chunk_id": "4b29de7ed13cc15e",
+          "score": 0.3438,
+          "heading": "Worked Example 18.7: Finding the median of a data set with an even number of values > Find the median."
+        },
+        {
+          "chunk_id": "52432d2033419617",
+          "score": 0.3034,
+          "heading": "Worked Example 18.6: Finding the median of a data set with an odd number of values > Find the median."
+        },
+        {
+          "chunk_id": "52f8ed1ab68466de",
+          "score": 0.2941,
+          "heading": "19.4 Histograms"
+        },
+        {
+          "chunk_id": "e95b0fccf6154108",
+          "score": 0.2624,
+          "heading": "Worked Example 19.5: Drawing a histogram from a table of values"
+        }
+      ],
+      "covered": true
+    },
+    "B9.4.1.2.1": {
+      "title": "- Select a method for collecting data (quantitative and qualitative), taking into consideration how bias (use of language, ethics, cost, time and timing, privacy or cultural sensitivity) may influence data",
+      "class": "B9",
+      "strand": "Handling Data",
+      "sub_strand": "Data",
+      "candidates": [],
+      "covered": false
+    },
+    "B9.4.1.2.2": {
+      "title": "Organise and analyse data and interpret the results using the descriptive statistics (i.e. minimum, maximum, measures of central tendency and range) to answer a given question. Refer to",
+      "class": "B9",
+      "strand": "Handling Data",
+      "sub_strand": "Data",
+      "candidates": [
+        {
+          "chunk_id": "8ef381c4f52f2a88",
+          "score": 0.3647,
+          "heading": "18.4 Summarise data > Measures of central tendency"
+        },
+        {
+          "chunk_id": "9390999aa756a808",
+          "score": 0.312,
+          "heading": "20.3 Analyse data"
+        },
+        {
+          "chunk_id": "cd3fee85d6b8086f",
+          "score": 0.2666,
+          "heading": "Worked Example 18.8: Finding the mode of a data set > Measures of dispersion"
+        },
+        {
+          "chunk_id": "d3321da7e1250066",
+          "score": 0.2532,
+          "heading": "Test yourself now"
+        }
+      ],
+      "covered": true
+    },
+    "B9.4.1.2.3": {
+      "title": "Demonstrate the effect on the mean, median, and mode when extreme data is included in a data set",
+      "class": "B9",
+      "strand": "Handling Data",
+      "sub_strand": "Data",
+      "candidates": [
+        {
+          "chunk_id": "4b29de7ed13cc15e",
+          "score": 0.5033,
+          "heading": "Worked Example 18.7: Finding the median of a data set with an even number of values > Find the median."
+        },
+        {
+          "chunk_id": "52432d2033419617",
+          "score": 0.5032,
+          "heading": "Worked Example 18.6: Finding the median of a data set with an odd number of values > Find the median."
+        },
+        {
+          "chunk_id": "bdba4456d3f5998f",
+          "score": 0.4662,
+          "heading": "Worked Example 20.4: Analysing the effects of outliers on the mean and median of a data set > Find the median height of the \\(10\\) learners."
+        },
+        {
+          "chunk_id": "8ef381c4f52f2a88",
+          "score": 0.4077,
+          "heading": "18.4 Summarise data > Measures of central tendency"
+        },
+        {
+          "chunk_id": "cd3fee85d6b8086f",
+          "score": 0.4009,
+          "heading": "Worked Example 18.8: Finding the mode of a data set > Measures of dispersion"
+        }
+      ],
+      "covered": true
+    },
+    "B9.4.2.1.1": {
+      "title": "Perform a probability experiment involving two dependent events e.g. drawing coloured bottle tops from a bag without replacement",
+      "class": "B9",
+      "strand": "Handling Data",
+      "sub_strand": "Chance or Probability",
+      "candidates": [
+        {
+          "chunk_id": "35bb468bebc955c7",
+          "score": 0.2719,
+          "heading": "Worked example 26.1: Calculating simple probabilities > Calculating the probability of an event"
+        },
+        {
+          "chunk_id": "cf7d4b3165f5c6e3",
+          "score": 0.2543,
+          "heading": "Worked example 26.1: Calculating simple probabilities > Calculate the probability of getting a red button."
+        }
+      ],
+      "covered": true
+    },
+    "B9.4.2.1.2": {
+      "title": "Express the probabilities of the events as fractions, decimals, percentages and/or ratios; e.g. using a tree diagram, table or another graphic organiser",
+      "class": "B9",
+      "strand": "Handling Data",
+      "sub_strand": "Chance or Probability",
+      "candidates": [
+        {
+          "chunk_id": "7c8351875f35a7f4",
+          "score": 0.2617,
+          "heading": "26.3 Theoretical probabilities"
+        },
+        {
+          "chunk_id": "cf7d4b3165f5c6e3",
+          "score": 0.2554,
+          "heading": "Worked example 26.1: Calculating simple probabilities > Calculate the probability of getting a red button."
+        }
+      ],
+      "covered": true
+    }
+  }
+}
