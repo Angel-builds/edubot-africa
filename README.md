@@ -3,7 +3,8 @@
 An AI maths tutor grounded in the Ghanaian JHS curriculum (NaCCA Common Core
 Programme, B7–B9), built for students on shared Android phones and metered data.
 
-> **Status:** Phase 1 — corpus and skill graph. No AI code yet, by design.
+> **Status:** working end to end. Ask it a maths question and it coaches you
+> through, grounded in the curriculum. See [docs/HOW_IT_WORKS.md](docs/HOW_IT_WORKS.md).
 
 ## What makes it different
 
@@ -56,7 +57,13 @@ curl localhost:8000/health                # {"ok": true, ...}
 uv run python -m ingest.nacca_taxonomy    # rebuild the skill graph
 uv run python -m ingest.siyavula          # fetch + chunk the CC BY corpus
 uv run python -m ingest.map_indicators    # map chunks to indicators, report gaps
+
+uv run python -m core.cli "3x + 5 = 20"   # talk to the tutor
 ```
+
+The tutor runs with **no API key** — replies show the coaching step instead of
+prose, which is the quickest way to see the machinery. Set `ANTHROPIC_API_KEY`
+for natural language.
 
 The extractor needs `corpus/raw/MATHEMATICS-CCP-B7-B9.pdf`, which is gitignored —
 see `corpus/MANIFEST.json` for the source URL and checksum. The generated
@@ -85,7 +92,7 @@ docs/     pre-registration, eval results, safety, consent
 | 2 | Supabase and hybrid retrieval |
 | 3 | The eval gate — golden set, recall@k/MRR/nDCG in CI |
 | 4 | Retrieval improvement loop |
-| 5 | The tutor — hint ladder, SymPy solver |
+| 5 | The tutor — hint ladder, SymPy solver ✅ (minimal) |
 | 6 | Practice items |
 | 7 | Frontend |
 | 8 | Safety and consent |

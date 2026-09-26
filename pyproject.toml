@@ -9,6 +9,8 @@ dependencies = [
     "pydantic>=2.9",
     "pydantic-settings>=2.6",
     "pdfplumber>=0.11.10",
+    "sympy>=1.14.0",
+    "anthropic>=1.8.0",
 ]
 
 [dependency-groups]
