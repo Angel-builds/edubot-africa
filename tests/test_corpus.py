@@ -80,7 +80,7 @@ def test_grades_align_with_jhs(chunks):
 
 def test_coverage_accounts_for_every_indicator(coverage):
     nodes = [json.loads(line) for line in GRAPH.read_text(encoding="utf-8").splitlines() if line]
-    indicators = {n["code"] for n in nodes if n["level"] == "indicator"}
+    indicators = {n["code"] for n in nodes if n["kind"] == "indicator"}
     assert set(coverage["indicators"]) == indicators
     assert coverage["indicators_total"] == len(indicators)
     assert coverage["indicators_covered"] + coverage["indicators_uncovered"] == len(indicators)

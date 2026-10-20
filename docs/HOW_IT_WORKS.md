@@ -13,6 +13,9 @@ It works with **no API key**. Without one, replies show the coaching step
 itself instead of friendly prose, which is the fastest way to see the machinery.
 With `ANTHROPIC_API_KEY` set, the same step is phrased by the model.
 
+Terms capitalised below — Chunk, Hint Ladder, Reveal — are defined in
+[GLOSSARY.md](../GLOSSARY.md), and the code uses the same words.
+
 ## The one idea
 
 Almost everything is ordinary deterministic Python. The language model has
@@ -49,13 +52,13 @@ normalised to unit length, so the dot product *is* the cosine similarity.
 
 Read `fit()` and `cosine()`. That is the whole idea.
 
-### `core/retrieve.py` — finding relevant passages
+### `core/retrieve.py` — finding relevant Chunks
 
 Loads `corpus/chunks.jsonl` into memory, vectorises once, then scores the
 question against all 708 chunks. Instant at this size, and needs no database.
 
 Phase 2 replaces this with Supabase + pgvector. The interface — `search(question, k)`
-returning `Result` objects — is what stays.
+returning `RetrievedChunk` objects — is what stays.
 
 ### `core/solver.py` — the private side
 
@@ -101,9 +104,9 @@ whole thing runs before you spend anything.
 
 ## Where the state lives
 
-Nowhere. `respond(question, level, student_answer)` is a pure function of its
-arguments, and the caller remembers `level`. The HTTP API works the same way:
-`POST /chat` takes a level and returns the next one.
+Nowhere. `respond(question, hint_level, student_answer)` is a pure function of its
+arguments, and the caller remembers the Hint Level. The HTTP API works the same
+way: `POST /chat` takes a hint level and returns the next one.
 
 That is deliberate — it is the same choice the Messages API makes, and it means
 there is no session store to reason about yet.

@@ -226,10 +226,10 @@ def build(records: list[dict], sub_titles: dict) -> tuple[list[CurriculumNode], 
                 Reject(page=r["page"], reason="no title recoverable before exemplar text", raw=code)
             )
             continue
-        level = "standard" if len(parts) == 4 else "indicator"
+        kind = "standard" if len(parts) == 4 else "indicator"
         parent = None
 
-        if level == "indicator":
+        if kind == "indicator":
             printed = ".".join(parts[:4])
             if printed in standards:
                 parent = printed
@@ -261,7 +261,7 @@ def build(records: list[dict], sub_titles: dict) -> tuple[list[CurriculumNode], 
         try:
             node = CurriculumNode(
                 code=code,
-                level=level,
+                kind=kind,
                 **{"class": code[:2]},
                 strand=StrandRef(number=strand_n, title=MATHS_STRANDS.get(strand_n)),
                 sub_strand=StrandRef(
@@ -307,8 +307,8 @@ def main(argv: list[str] | None = None) -> int:
         for reject in rejects:
             fh.write(json.dumps(reject.model_dump(mode="json")) + "\n")
 
-    standards = [n for n in nodes if n.level == "standard"]
-    indicators = [n for n in nodes if n.level == "indicator"]
+    standards = [n for n in nodes if n.kind == "standard"]
+    indicators = [n for n in nodes if n.kind == "indicator"]
     by_class: dict[str, int] = defaultdict(int)
     for n in standards:
         by_class[n.class_] += 1

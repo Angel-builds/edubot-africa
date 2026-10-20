@@ -21,7 +21,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 
 from core import llm
-from core.retrieve import Result, Retriever
+from core.retrieve import RetrievedChunk, Retriever
 from core.solver import Solution, matches, solve
 
 LADDER = [
@@ -53,13 +53,13 @@ class Turn:
     """What the tutor says back, plus the state the caller needs to keep."""
 
     reply: str
-    level: int
-    sources: list[Result] = field(default_factory=list)
+    hint_level: int
+    citations: list[RetrievedChunk] = field(default_factory=list)
     student_was_correct: bool | None = None
 
     @property
-    def gave_answer(self) -> bool:
-        return self.level >= TOP_LEVEL
+    def revealed(self) -> bool:
+        return self.hint_level >= TOP_LEVEL
 
 
 class Tutor:
@@ -69,27 +69,32 @@ class Tutor:
     def respond(
         self,
         question: str,
-        level: int = 0,
+        hint_level: int = 0,
         student_answer: str | None = None,
     ) -> Turn:
-        """One turn. `level` is the caller's memory of how far the student has climbed."""
+        """One Turn. The caller remembers how far up the Hint Ladder the student is."""
         worked = solve(question)
-        sources = self.retriever.search(question, k=2)
+        citations = self.retriever.search(question, k=2)
 
         correct = None
         if student_answer and worked:
             correct = matches(student_answer, worked.answer)
             # Getting it right ends the ladder; getting it wrong advances it.
-            level = 0 if correct else min(level + 1, TOP_LEVEL)
+            hint_level = 0 if correct else min(hint_level + 1, TOP_LEVEL)
 
-        reply = self._phrase(question, level, sources, correct)
-        return Turn(reply=reply, level=level, sources=sources, student_was_correct=correct)
+        reply = self._phrase(question, hint_level, citations, correct)
+        return Turn(
+            reply=reply,
+            hint_level=hint_level,
+            citations=citations,
+            student_was_correct=correct,
+        )
 
     def _phrase(
         self,
         question: str,
-        level: int,
-        sources: list[Result],
+        hint_level: int,
+        citations: list[RetrievedChunk],
         correct: bool | None,
     ) -> str:
         """Build the prompt and hand it to the model.
@@ -98,7 +103,7 @@ class Tutor:
         only whether the student was right, so it cannot leak a solution it was
         never given.
         """
-        passages = "\n\n".join(f"{s.cite()}\n{s.text}" for s in sources)
+        passages = "\n\n".join(f"{c.cite()}\n{c.text}" for c in citations)
         extract = passages or "(nothing relevant found)"
         verdict = {
             True: "The student's answer was CORRECT. Confirm it and offer a harder one.",
@@ -108,26 +113,26 @@ class Tutor:
 
         user = (
             f"STUDENT SAID:\n{question}\n\n"
-            f"COACHING STEP (step {level + 1} of {len(LADDER)}):\n{LADDER[level]}\n\n"
+            f"COACHING STEP (step {hint_level + 1} of {len(LADDER)}):\n{LADDER[hint_level]}\n\n"
             f"ATTEMPT SO FAR:\n{verdict}\n\n"
             f"CURRICULUM EXTRACT:\n{extract}"
         )
 
         if not llm.available():
-            return _without_a_model(level, sources, correct)
+            return _without_a_model(hint_level, citations, correct)
         return llm.say(SYSTEM, user)
 
 
-def _without_a_model(level: int, sources: list[Result], correct: bool | None) -> str:
+def _without_a_model(hint_level: int, citations: list[RetrievedChunk], correct: bool | None) -> str:
     """Runs with no API key, so the mechanism is visible before you spend anything."""
     lines = ["[no ANTHROPIC_API_KEY set - showing the coaching step itself]", ""]
     if correct is True:
         lines.append("That is correct.")
     elif correct is False:
         lines.append("That is not right yet - let us look again.")
-    lines.append(f"Step {level + 1} of {len(LADDER)}: {LADDER[level]}")
-    if sources:
-        lines += ["", "Grounded in:"] + [f"  {s.cite()}  (score {s.score})" for s in sources]
+    lines.append(f"Step {hint_level + 1} of {len(LADDER)}: {LADDER[hint_level]}")
+    if citations:
+        lines += ["", "Grounded in:"] + [f"  {c.cite()}  (score {c.score})" for c in citations]
     return "\n".join(lines)
 
 

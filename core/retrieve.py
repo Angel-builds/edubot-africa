@@ -17,8 +17,8 @@ CHUNKS = Path("corpus/chunks.jsonl")
 
 
 @dataclass
-class Result:
-    """One retrieved passage, with everything needed to cite it."""
+class RetrievedChunk:
+    """A Chunk that matched a question, with everything needed to cite it."""
 
     text: str
     heading: str
@@ -50,17 +50,17 @@ class Retriever:
         ]
         self.vectors, self.idf = fit(documents)
 
-    def search(self, question: str, k: int = 3) -> list[Result]:
+    def search(self, question: str, k: int = 3) -> list[RetrievedChunk]:
         query = project(tokenise(question), self.idf)
         scored = sorted(
             ((cosine(query, vec), i) for i, vec in enumerate(self.vectors)),
             reverse=True,
         )[:k]
-        return [self._result(i, score) for score, i in scored if score > 0]
+        return [self._retrieved(i, score) for score, i in scored if score > 0]
 
-    def _result(self, index: int, score: float) -> Result:
+    def _retrieved(self, index: int, score: float) -> RetrievedChunk:
         chunk = self.chunks[index]
-        return Result(
+        return RetrievedChunk(
             text=chunk["text"],
             heading=" > ".join(chunk["heading_path"][-2:]),
             grade=chunk["grade"],

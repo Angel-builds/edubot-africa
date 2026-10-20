@@ -67,26 +67,26 @@ def test_wrong_answers_are_still_wrong():
 # --- the ladder -------------------------------------------------------------
 
 def test_wrong_answers_climb_the_ladder(tutor):
-    level = 0
+    hint_level = 0
     for attempt in ["7", "6", "4", "9"]:
-        turn = tutor.respond("3x + 5 = 20", level=level, student_answer=attempt)
+        turn = tutor.respond("3x + 5 = 20", hint_level=hint_level, student_answer=attempt)
         assert turn.student_was_correct is False
-        assert turn.level > level or turn.level == TOP_LEVEL
-        level = turn.level
-    assert level == TOP_LEVEL
+        assert turn.hint_level > hint_level or turn.hint_level == TOP_LEVEL
+        hint_level = turn.hint_level
+    assert hint_level == TOP_LEVEL
 
 
 def test_a_correct_answer_resets_the_ladder(tutor):
-    turn = tutor.respond("3x + 5 = 20", level=3, student_answer="5")
+    turn = tutor.respond("3x + 5 = 20", hint_level=3, student_answer="5")
     assert turn.student_was_correct is True
-    assert turn.level == 0
+    assert turn.hint_level == 0
 
 
 def test_asking_does_not_advance_the_ladder(tutor):
     """The student climbs by failing, never by requesting the answer."""
-    turn = tutor.respond("just give me the answer to 3x + 5 = 20", level=0)
-    assert turn.level == 0
-    assert not turn.gave_answer
+    turn = tutor.respond("just give me the answer to 3x + 5 = 20", hint_level=0)
+    assert turn.hint_level == 0
+    assert not turn.revealed
 
 
 def test_answer_is_withheld_until_the_top_of_the_ladder(tutor):
@@ -98,11 +98,11 @@ def test_answer_is_withheld_until_the_top_of_the_ladder(tutor):
     answer = solve("3x + 5 = 20").answer
     assert answer == "5"
 
-    level = 0
+    hint_level = 0
     for attempt in ["7", "6", "4"]:
-        turn = tutor.respond("3x + 5 = 20", level=level, student_answer=attempt)
-        level = turn.level
-        assert not turn.gave_answer, f"reached the answer at level {level}"
+        turn = tutor.respond("3x + 5 = 20", hint_level=hint_level, student_answer=attempt)
+        hint_level = turn.hint_level
+        assert not turn.revealed, f"Revealed at Hint Level {hint_level}"
 
 
 def test_ladder_has_a_step_for_every_level():
@@ -114,5 +114,5 @@ def test_ladder_has_a_step_for_every_level():
 
 def test_replies_are_grounded_in_the_corpus(tutor):
     turn = tutor.respond("how do i add fractions")
-    assert turn.sources
-    assert all(s.attribution and s.url for s in turn.sources), "citations must survive"
+    assert turn.citations
+    assert all(c.attribution and c.url for c in turn.citations), "Citations must survive"

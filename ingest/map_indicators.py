@@ -112,7 +112,7 @@ def main(argv: list[str] | None = None) -> int:
 
     nodes = load(GRAPH)
     chunks = load(CHUNKS)
-    indicators = [n for n in nodes if n["level"] == "indicator"]
+    indicators = [n for n in nodes if n["kind"] == "indicator"]
 
     # Chunks are the fitted corpus; indicator titles are projected into it.
     chunk_tokens = [tokenise(f"{' '.join(c['heading_path'])} {c['text']}") for c in chunks]

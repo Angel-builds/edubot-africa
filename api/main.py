@@ -32,13 +32,13 @@ def health() -> Health:
 
 class Ask(BaseModel):
     question: str
-    # The API is stateless: the client owns how far the student has climbed,
-    # the same way the Messages API makes the caller own the conversation.
-    level: int = Field(default=0, ge=0, le=4)
+    # The API is stateless: the caller owns how far up the Hint Ladder the
+    # student is, the same way the Messages API makes the caller own history.
+    hint_level: int = Field(default=0, ge=0, le=4)
     student_answer: str | None = None
 
 
-class Source(BaseModel):
+class Citation(BaseModel):
     heading: str
     grade: int
     url: str
@@ -48,9 +48,9 @@ class Source(BaseModel):
 
 class Reply(BaseModel):
     reply: str
-    level: int
+    hint_level: int
     student_was_correct: bool | None
-    sources: list[Source]
+    citations: list[Citation]
 
 
 @lru_cache
@@ -62,20 +62,20 @@ def get_tutor() -> Tutor:
 @app.post("/chat", response_model=Reply, tags=["tutor"])
 def chat(ask: Ask) -> Reply:
     turn = get_tutor().respond(
-        ask.question, level=ask.level, student_answer=ask.student_answer
+        ask.question, hint_level=ask.hint_level, student_answer=ask.student_answer
     )
     return Reply(
         reply=turn.reply,
-        level=turn.level,
+        hint_level=turn.hint_level,
         student_was_correct=turn.student_was_correct,
-        sources=[
-            Source(
-                heading=s.heading,
-                grade=s.grade,
-                url=s.url,
-                attribution=s.attribution,
-                score=s.score,
+        citations=[
+            Citation(
+                heading=c.heading,
+                grade=c.grade,
+                url=c.url,
+                attribution=c.attribution,
+                score=c.score,
             )
-            for s in turn.sources
+            for c in turn.citations
         ],
     )

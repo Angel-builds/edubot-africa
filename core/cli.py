@@ -27,8 +27,7 @@ def main(argv: list[str] | None = None) -> int:
     if not question:
         return 0
 
-    level = 0
-    turn = tutor.respond(question, level=level)
+    turn = tutor.respond(question)
     print(f"\n{turn.reply}\n")
 
     while True:
@@ -40,7 +39,7 @@ def main(argv: list[str] | None = None) -> int:
         if not reply or reply.lower() in {"quit", "exit"}:
             return 0
 
-        turn = tutor.respond(question, level=turn.level, student_answer=reply)
+        turn = tutor.respond(question, hint_level=turn.hint_level, student_answer=reply)
         print(f"\n{turn.reply}\n")
         if turn.student_was_correct:
             question = input("next question> ").strip()

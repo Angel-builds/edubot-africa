@@ -38,12 +38,12 @@ def nodes() -> list[dict]:
 
 @pytest.fixture(scope="module")
 def standards(nodes) -> list[dict]:
-    return [n for n in nodes if n["level"] == "standard"]
+    return [n for n in nodes if n["kind"] == "standard"]
 
 
 @pytest.fixture(scope="module")
 def indicators(nodes) -> list[dict]:
-    return [n for n in nodes if n["level"] == "indicator"]
+    return [n for n in nodes if n["kind"] == "indicator"]
 
 
 def test_standard_counts_per_class(standards):

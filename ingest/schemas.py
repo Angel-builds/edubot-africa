@@ -11,7 +11,7 @@ from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
-NodeLevel = Literal["standard", "indicator"]
+NodeKind = Literal["standard", "indicator"]
 
 # Strand numbers are stable across B7-B9 in the mathematics curriculum.
 MATHS_STRANDS: dict[int, str] = {
@@ -45,7 +45,7 @@ class CurriculumNode(BaseModel):
 
     code: str
     subject: str = "mathematics"
-    level: NodeLevel
+    kind: NodeKind
     class_: str = Field(alias="class")
     strand: StrandRef
     sub_strand: StrandRef
