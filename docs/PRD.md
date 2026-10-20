@@ -78,7 +78,7 @@ Honest about what a 15-student Pilot can and cannot show.
 | Interface | **Web page and CLI.** 3.2 KB over the wire, 464 bytes a Turn |
 | Deployment | **Not deployed.** Image builds and runs; host chosen (decision 17) |
 | Safety and consent | **Not started.** Blocks the Pilot |
-| Extraction audit | **Not started.** Needs a human |
+| Extraction audit | **Not started.**  |
 
 Runs today with no API key: replies show the coaching step instead of prose.
 
