@@ -42,4 +42,7 @@ USER edubot
 
 EXPOSE 8000
 
-CMD ["uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Shell form so ${PORT} expands. Most platforms inject a port and expect the
+# app to bind it -- Cloud Run sends 8080, Hugging Face Spaces expects 7860 --
+# and a hardcoded port fails silently as a failed health check.
+CMD ["sh", "-c", "exec uvicorn api.main:app --host 0.0.0.0 --port ${PORT:-8000}"]
