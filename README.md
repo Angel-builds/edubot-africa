@@ -39,7 +39,7 @@ conditioned on indicator code and BECE question style.
 
 | Layer | Choice |
 |---|---|
-| API | FastAPI on Fly.io `jnb` (Johannesburg — the only Africa region) |
+| API | FastAPI in a container, ~388 MB image, 76 MB resident |
 | Store | Supabase Postgres + pgvector, HNSW index |
 | Retrieval | Hybrid: vector + tsvector + `pg_trgm`, fused by RRF |
 | Model | Claude Haiku 4.5, Anthropic SDK behind a thin `Model` protocol |

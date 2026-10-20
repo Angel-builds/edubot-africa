@@ -1,7 +1,13 @@
-# Johannesburg is the only Fly region on the African continent. Accra -> jnb is
-# ~5,500km, but it still beats Accra -> Frankfurt for round-trips.
+# Kept as a fallback target; Heroku is the primary host (PRD decision 17).
+#
+# NOTE: primary_region was "jnb" on the assumption that Johannesburg, being the
+# only African region, beats Europe for Ghana. That assumption is unverified and
+# probably wrong: West African traffic is routinely backhauled to London or
+# Amsterdam over submarine cable, so Accra -> Johannesburg often transits Europe
+# anyway. Frankfurt is the safer default until someone measures RTT from an
+# actual Accra connection.
 app = "edubot-africa"
-primary_region = "jnb"
+primary_region = "fra"
 
 [build]
 

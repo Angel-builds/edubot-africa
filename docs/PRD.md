@@ -76,7 +76,7 @@ Honest about what a 15-student Pilot can and cannot show.
 | Retrieval | **Minimal.** In-memory, lexical. Bare equations now retrieve, topically |
 | API | `/health`, `/chat` |
 | Interface | **Web page and CLI.** 3.2 KB over the wire, 464 bytes a Turn |
-| Deployment | Not deployed |
+| Deployment | **Not deployed.** Image builds and runs; host chosen (decision 17) |
 | Safety and consent | **Not started.** Blocks the Pilot |
 | Extraction audit | **Not started.** Needs a human |
 
@@ -195,6 +195,29 @@ and maths errors in teacher-reviewed claims, are defensible numbers.
 clearer explanations or a disengaged student. If reported, it is reported with
 that caveat and a confidence interval.
 
+**17. Heroku on the GitHub Student Pack, in Europe — not a free tier, and not Johannesburg.**
+The Student Pack gives $13/month of Heroku credit for 24 months. A Basic dyno is
+$7/month and **never sleeps**, so the credit covers an always-on container with
+room to spare and nothing leaves the student's pocket.
+*Gave up:* permanence. The credit expires and cannot be renewed, so a migration
+has to happen before month 24. Heroku also wants a card on file even while
+credits pay the bill.
+*Bought:* no cold start. The genuinely free alternative, Render, sleeps after 15
+minutes and takes **50–60 seconds** to wake — disqualifying for a student with
+one evening and a data bundle. Keeping Render warm is possible but consumes 744
+of its 750 monthly instance-hours, which is using a free tier as an always-on
+tier.
+*Also corrected here:* the plan assumed Fly's Johannesburg region because it is
+the only one in Africa. That is probably wrong. West African traffic is commonly
+backhauled to London or Amsterdam over submarine cable, so Accra → Johannesburg
+often transits Europe anyway. **Frankfurt is the safer default until someone
+measures RTT from an Accra connection**, and that measurement is a real open
+question, not a formality.
+*Notes:* Hugging Face Spaces stopped offering free Docker hosting around July
+2026 and now requires PRO, so the common "just use Spaces" advice is dead.
+DigitalOcean has been removed from the Student Pack. Verify Heroku's credit term
+at signup — their help page says 24 months, an older launch post said 12.
+
 **16. The Hint Ladder is shown to the student.**
 Five rungs and "hint 2 of 5" sit above every reply.
 *Gave up:* a little screen space, and some of the illusion of a free-form chat.
@@ -242,7 +265,11 @@ into the wrong Class. Both were caught because failures were recorded.
 
 Ordered by what unblocks the most.
 
-1. **Deploy** — a URL, so the Pilot can happen at all. Needs a Fly account
+1. **Deploy to Heroku** — needs Student Pack verification (SheerID; allow
+   1–7 days if your university domain is not pre-recognised, and have a dated
+   enrolment letter ready). Then claim the free Namecheap `.me` domain from the
+   Pack and point it at the dyno, so the portfolio URL survives the migration
+   when the credit expires
 2. **Golden set and evaluation** — makes every later change measurable, and
    would tell us whether expansion helps precision or only recall
 3. **Safety and consent** — hard blocker on the Pilot
@@ -257,3 +284,4 @@ Ordered by what unblocks the most.
 | 2026-10-20 | First version. Captures decisions made through the working tutor |
 | 2026-10-20 | Decision 15: query expansion for word-poor questions. Bare equations now retrieve |
 | 2026-10-20 | Decision 16: the web page, with the Hint Ladder made visible |
+| 2026-10-20 | Decision 17: Heroku via Student Pack, Europe. Johannesburg assumption corrected |

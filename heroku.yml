@@ -1,0 +1,6 @@
+# Deploy the existing Dockerfile as a container, rather than letting Heroku's
+# Python buildpack guess. Heroku injects $PORT, which the Dockerfile's CMD
+# already honours.
+build:
+  docker:
+    web: Dockerfile
