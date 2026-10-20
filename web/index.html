@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0f1115">
+<meta name="description" content="Maths help for JHS students, grounded in the Ghanaian curriculum.">
+<title>EduBot — JHS Maths</title>
+<style>
+/* System fonts only: a webfont is a round trip and ~30KB a student pays for. */
+:root{
+  --bg:#fbfbfd; --surface:#fff; --ink:#15171c; --muted:#5d6472; --line:#e3e6ec;
+  --accent:#1c4f8b; --accent-soft:#eaf1fa; --good:#1b6b45; --good-soft:#e6f4ec;
+  --radius:12px;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#0f1115; --surface:#171a21; --ink:#e9ecf2; --muted:#9aa3b2; --line:#272c36;
+    --accent:#7fb2f0; --accent-soft:#17243a; --good:#6ed49f; --good-soft:#12271d;
+  }
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  display:flex;flex-direction:column;
+  -webkit-text-size-adjust:100%;
+}
+header{
+  padding:10px 16px;border-bottom:1px solid var(--line);background:var(--surface);
+  display:flex;align-items:baseline;gap:8px;flex:0 0 auto;
+}
+header b{font-size:16px;letter-spacing:-.01em}
+header span{font-size:12px;color:var(--muted)}
+#usage{margin-left:auto;font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}
+
+main{flex:1 1 auto;min-width:0;overflow-y:auto;overflow-x:hidden;
+  padding:16px;display:flex;flex-direction:column;gap:14px}
+.turn{width:100%;max-width:min(40rem,100%);align-self:center;min-width:0}
+.bubble{max-width:100%;padding:11px 14px;border-radius:var(--radius);
+  white-space:pre-wrap;overflow-wrap:anywhere}
+.me .bubble{background:var(--accent-soft);margin-left:auto;max-width:85%;width:fit-content}
+.bot .bubble{background:var(--surface);border:1px solid var(--line)}
+.bot.right .bubble{background:var(--good-soft);border-color:transparent}
+
+/* The ladder is the product. If a student cannot see they are being coached
+   through five steps, being asked "what have you tried?" reads as a refusal. */
+.ladder{display:flex;align-items:center;gap:6px;margin:0 0 7px;font-size:11px;color:var(--muted)}
+.rungs{display:flex;gap:3px}
+.rung{width:18px;height:4px;border-radius:2px;background:var(--line)}
+.rung.on{background:var(--accent)}
+.ladder.solved{color:var(--good);font-weight:600}
+
+.why{margin-top:8px;font-size:12px}
+.why summary{color:var(--muted);cursor:pointer}
+.why ul{margin:6px 0 0;padding-left:16px;color:var(--muted);overflow-wrap:anywhere}
+.why li{margin:3px 0}
+.why a{color:var(--accent)}
+
+footer{flex:0 0 auto;border-top:1px solid var(--line);background:var(--surface);
+  padding:10px 16px calc(10px + env(safe-area-inset-bottom))}
+form{display:flex;gap:8px;max-width:min(40rem,100%);margin:0 auto}
+input{
+  flex:1;min-width:0;font:inherit;padding:11px 13px;color:var(--ink);
+  background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);
+}
+input:focus{outline:2px solid var(--accent);outline-offset:-1px}
+button{
+  font:inherit;font-weight:600;padding:11px 16px;border:0;border-radius:var(--radius);
+  background:var(--accent);color:#fff;cursor:pointer;
+}
+button:disabled{opacity:.5}
+.hint{max-width:40rem;margin:7px auto 0;font-size:12px;color:var(--muted)}
+.err{color:#b4452f}
+@media (prefers-color-scheme:dark){ button{color:#0f1115} .err{color:#f0907a} }
+</style>
+</head>
+<body>
+
+<header>
+  <b>EduBot</b><span>JHS Maths · B7–B9</span><span id="usage"></span>
+</header>
+
+<main id="feed">
+  <div class="turn bot">
+    <div class="bubble">Hello! Ask me a maths question — type it just as you would say it.
+
+I will not hand you the answer straight away. I will help you find it yourself.</div>
+  </div>
+</main>
+
+<footer>
+  <form id="form" autocomplete="off">
+    <input id="box" placeholder="e.g. 3x + 5 = 20" enterkeyhint="send"
+           autocapitalize="off" autocorrect="off" aria-label="Your message">
+    <button id="send">Send</button>
+  </form>
+  <p class="hint" id="hint">Ask a question to begin.</p>
+</footer>
+
+<script>
+(function(){
+  var feed=document.getElementById('feed'), form=document.getElementById('form'),
+      box=document.getElementById('box'), send=document.getElementById('send'),
+      hint=document.getElementById('hint'), usage=document.getElementById('usage');
+
+  // The API is stateless, so the page owns these. Same shape as POST /chat.
+  var question=null, hintLevel=0, bytes=0, RUNGS=5;
+
+  function el(tag,cls,text){var n=document.createElement(tag);
+    if(cls)n.className=cls; if(text!=null)n.textContent=text; return n;}
+
+  function show(node){feed.appendChild(node); node.scrollIntoView({block:'end'});}
+
+  function student(text){
+    var t=el('div','turn me'); t.appendChild(el('div','bubble',text)); show(t);
+  }
+
+  function ladder(level,correct){
+    if(correct) return el('div','ladder solved','Solved');
+    var wrap=el('div','ladder'), rungs=el('div','rungs');
+    for(var i=0;i<RUNGS;i++){
+      var r=el('span','rung'); if(i<=level) r.className='rung on';
+      rungs.appendChild(r);
+    }
+    wrap.appendChild(rungs);
+    wrap.appendChild(el('span',null,'hint '+(level+1)+' of '+RUNGS));
+    return wrap;
+  }
+
+  function tutor(data){
+    var t=el('div','turn bot'+(data.student_was_correct?' right':''));
+    t.appendChild(ladder(data.hint_level, data.student_was_correct));
+    t.appendChild(el('div','bubble',data.reply));
+
+    if(data.citations && data.citations.length){
+      var d=el('details','why'), s=el('summary',null,'Where this comes from'), ul=el('ul');
+      data.citations.forEach(function(c){
+        var li=el('li'), a=el('a',null,c.heading);
+        a.href=c.url; a.rel='noopener'; a.target='_blank';
+        li.appendChild(a);
+        li.appendChild(el('span',null,' — Grade '+c.grade+'. '+c.attribution));
+        ul.appendChild(li);
+      });
+      d.appendChild(s); d.appendChild(ul); t.appendChild(d);
+    }
+    show(t);
+  }
+
+  function setBusy(on){
+    send.disabled=on; box.disabled=on; send.textContent=on?'…':'Send';
+  }
+
+  function track(n){ // students pay for every byte; show them what it costs
+    bytes+=n; usage.textContent=(bytes<1024?bytes+' B':(bytes/1024).toFixed(1)+' KB');
+  }
+
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var text=box.value.trim(); if(!text) return;
+    box.value=''; student(text); setBusy(true);
+
+    var asking = question===null;
+    var body = asking
+      ? {question:text, hint_level:0}
+      : {question:question, hint_level:hintLevel, student_answer:text};
+    var payload=JSON.stringify(body);
+    track(payload.length);
+
+    fetch('/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:payload})
+      .then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); return r.text(); })
+      .then(function(raw){
+        track(raw.length);
+        var data=JSON.parse(raw);
+        if(asking) question=text;
+        hintLevel=data.hint_level;
+        tutor(data);
+        if(data.student_was_correct){
+          question=null; hintLevel=0;
+          hint.textContent='Well done. Ask your next question.';
+          box.placeholder='Your next question';
+        }else{
+          hint.textContent='Type what you think the answer is.';
+          box.placeholder='Your answer';
+        }
+      })
+      .catch(function(err){
+        var t=el('div','turn bot');
+        t.appendChild(el('div','bubble err',
+          'I could not reach the tutor just now. Check your connection and try again.'));
+        show(t);
+        hint.textContent=String(err.message||err);
+      })
+      .finally(function(){ setBusy(false); box.focus(); });
+  });
+
+  box.focus();
+})();
+</script>
+</body>
+</html>

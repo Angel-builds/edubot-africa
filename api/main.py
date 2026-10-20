@@ -1,6 +1,9 @@
 from functools import lru_cache
+from pathlib import Path
 
 from fastapi import FastAPI
+from fastapi.middleware.gzip import GZipMiddleware
+from fastapi.responses import HTMLResponse
 from pydantic import BaseModel, Field
 
 from api.config import get_settings
@@ -11,6 +14,19 @@ app = FastAPI(
     description="AI maths tutor grounded in the Ghanaian JHS (B7-B9) curriculum",
     version="0.1.0",
 )
+
+# Students pay for every byte. The page is 7.6 KB of text that compresses to
+# about 3 KB, and JSON replies compress well too.
+app.add_middleware(GZipMiddleware, minimum_size=500)
+
+
+PAGE = Path("web/index.html")
+
+
+@app.get("/", response_class=HTMLResponse, include_in_schema=False)
+def index() -> HTMLResponse:
+    """The whole interface: one file, no build step, no external requests."""
+    return HTMLResponse(PAGE.read_text(encoding="utf-8"))
 
 
 class Health(BaseModel):
