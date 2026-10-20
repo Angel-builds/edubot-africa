@@ -3,7 +3,7 @@
 Twenty indicators sampled across every strand and year group, to be checked by
 hand against `corpus/raw/MATHEMATICS-CCP-B7-B9.pdf`.
 
-This is the one check automation cannot do. Every structural assertion in
+This needs engineer review rather than another test. Every structural assertion in
 `tests/test_taxonomy.py` passes on output that is internally consistent but
 wrong, and that failure mode has already occurred twice in this project: an
 over-eager parent repair rewrote `B7.4.1.1.1` as `B8.4.1.1.1`, and nested-table
@@ -22,9 +22,8 @@ For each row, open the PDF at the given page and confirm:
    and not exemplar text.
 3. The strand and sub-strand match the page's section headers.
 
-Tick the box if all three hold. If any fail, write what you saw in Notes and
-open an issue -- a single genuine mismatch means the extractor needs another
-look, not a patched row.
+Tick the box if all three hold. If any fail, note what you saw -- a single
+genuine mismatch means the extractor needs another look, not a patched row.
 
 | Code | Page | Strand | Title | OK | Notes |
 |---|---|---|---|---|---|

@@ -107,11 +107,12 @@ _Avoid_: sourced, backed, supported
 ### The pilot
 
 **Pilot**:
-The supervised trial with roughly 15 students from a family and community
-network. A feasibility study, not a controlled experiment.
-_Avoid_: study, trial, experiment, RCT
+The handful of people — five so far, from a family and community network — who
+have actually used it. A sanity check that it works for real students, not a
+study of whether it teaches.
+_Avoid_: study, trial, experiment, RCT, cohort
 
-**Follow-up Clarification**:
-A student asking again because the tutor's previous reply did not land.
-Its direction is ambiguous — fewer can mean clearer, or can mean disengaged.
-_Avoid_: repeat question, confusion signal
+**Engineer Review**:
+A step the pipeline cannot settle on its own, needing someone to look at the
+output and judge it. Extraction accuracy and Citation quality both need one.
+_Avoid_: manual check, human pass, QA

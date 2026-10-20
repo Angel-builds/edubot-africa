@@ -27,9 +27,9 @@ JHS students in Ghana, Classes B7 to B9, roughly ages 12 to 15, studying for the
 BECE. Most reach it on a shared Android phone, in the evening, over congested
 mobile data they pay for by the megabyte.
 
-They are **minors**, which sets the safety floor: parental consent, student
-assent, pseudonymous identifiers, short retention, a named human for anything
-that looks like a crisis, and maths-only scope with no companionship behaviour.
+They are **minors**, which sets a floor even on a project this small: ask the
+parent first, let the student say no, keep no names, and stay on maths. Nothing
+elaborate — just not doing the obviously wrong thing with someone's child.
 
 ## 3. The problem
 
@@ -43,7 +43,8 @@ performance (see decision 2).
 
 ## 4. What success looks like
 
-Honest about what a 15-student Pilot can and cannot show.
+This is a personal project that five people have used. The measures below are
+about whether the thing behaves correctly, not whether it moves test scores.
 
 | Measure | Target | Why this one |
 |---|---|---|
@@ -51,16 +52,18 @@ Honest about what a 15-student Pilot can and cannot show.
 | Grounded replies with a valid Citation | high, measured | A tutor citing nothing is just a chatbot |
 | Maths errors in teacher-reviewed numeric claims | 0 | Teaching wrong maths to a child is the worst failure available |
 | Uncovered Indicators | known and shrinking | An Uncovered Indicator is one the tutor cannot teach |
-| Session completion, unprompted return | measured | Engagement is the demonstrated failure mode in this market |
+| Does a student come back unprompted | anecdote is fine at this size | Five users cannot produce a rate, only a signal |
 
-**Not a success measure:** anything causal about learning. See decision 13.
+**Not a success measure:** anything causal about learning. With five users
+that question is not answerable and is not being asked. See decision 13.
 
 ## 5. Non-goals
 
 - Subjects beyond maths during the Pilot. The architecture carries `subject` on
   every record so Science is an ingest run, but it is not in scope now.
-- Replacing a teacher. Every positive result in this field came from a
-  supervised, timetabled deployment with an adult present.
+- Replacing a teacher, or claiming to.
+- Being a product. No users beyond people who know Angel, no accounts, no
+  payments, no growth. If that changes, most of section 8 reopens.
 - Open-ended conversation, companionship or persona. That is the surface current
   child-safety law targets, and it is deliberately absent.
 - Serving curriculum documents. See decision 1.
@@ -77,8 +80,8 @@ Honest about what a 15-student Pilot can and cannot show.
 | API | `/health`, `/chat` |
 | Interface | **Web page and CLI.** 3.2 KB over the wire, 464 bytes a Turn |
 | Deployment | **Not deployed.** Image builds and runs; host chosen (decision 17) |
-| Safety and consent | **Not started.** Blocks the Pilot |
-| Extraction audit | **Not started.**  |
+| Safety basics | **Not started.** Small: a disclosure line, no names stored |
+| Extraction audit | **Not started.** Awaiting engineer review |
 
 Runs today with no API key: replies show the coaching step instead of prose.
 
@@ -96,8 +99,8 @@ NaCCA's curriculum is marked all-rights-reserved, and Ghana's Copyright Act does
 not exempt curricula. So the Skill Graph stores Indicator Codes and short
 titles; teaching prose comes from openly licensed sources instead.
 *Gave up:* the curriculum's own worked examples, which are good.
-*Bought:* a project that can be public, and later commercial, without a
-licensing problem. A schema check enforces it rather than trusting discipline.
+*Bought:* a project that can sit in a public repo without a licensing problem.
+A schema check enforces it rather than trusting discipline.
 *Revisit if:* NaCCA grants written permission.
 
 **2. The tutor withholds answers structurally, not by prompting.**
@@ -136,16 +139,17 @@ interface stays.
 
 **6. Chunk-to-Indicator mapping is lexical, and says so.**
 No LLM judge, because no API key exists and CI must stay deterministic and free.
-*Gave up:* mapping quality. Every mapping is a candidate needing human review.
+*Gave up:* mapping quality. Every mapping is a candidate pending engineer review.
 *Bought:* an honest Coverage report. At a permissive threshold every Indicator
 appeared Covered, which was false confidence — a method reporting no gaps
 against another country's curriculum is broken, not thorough.
 
 **7. Siyavula CC BY, not Khan Academy or OpenStax.**
-Grades 7–9 line up with B7–B9, and the licence permits adaptation and commercial
-use. Khan Academy and most OpenStax titles are CC BY-**NC**.
+Grades 7–9 line up with B7–B9, and CC BY permits adaptation. Khan Academy and
+most OpenStax titles are CC BY-**NC**.
 *Gave up:* volume, and South African sequencing that does not match Ghana's.
-*Bought:* a corpus with no licence ceiling on what the project can become.
+*Bought:* a corpus that can be redistributed and adapted, with the attribution
+line carried on every Chunk.
 
 **8. Generated corpus files are committed.**
 *Gave up:* a clean diff; `chunks.jsonl` is about 1 MB.
@@ -185,59 +189,17 @@ for.
 
 ### 7.3 Measurement and honesty
 
-**13. The Pilot is a feasibility study, and we will say so.**
-Fifteen students cannot support a causal claim about learning. The statistics
-live in the offline evaluation, where n is 200–400 items rather than 15 people.
-*Gave up:* the headline. "Improved learning outcomes by X%" is not available.
-*Bought:* claims that survive being questioned. Reveal rate across logged Turns,
-and maths errors in teacher-reviewed claims, are defensible numbers.
-*Note:* Follow-up Clarification rate is ambiguous in direction — fewer can mean
-clearer explanations or a disengaged student. If reported, it is reported with
-that caveat and a confidence interval.
-
-**17. Heroku on the GitHub Student Pack, in Europe — not a free tier, and not Johannesburg.**
-The Student Pack gives $13/month of Heroku credit for 24 months. A Basic dyno is
-$7/month and **never sleeps**, so the credit covers an always-on container with
-room to spare and nothing leaves the student's pocket.
-*Gave up:* permanence. The credit expires and cannot be renewed, so a migration
-has to happen before month 24. Heroku also wants a card on file even while
-credits pay the bill.
-*Bought:* no cold start. The genuinely free alternative, Render, sleeps after 15
-minutes and takes **50–60 seconds** to wake — disqualifying for a student with
-one evening and a data bundle. Keeping Render warm is possible but consumes 744
-of its 750 monthly instance-hours, which is using a free tier as an always-on
-tier.
-*Also corrected here:* the plan assumed Fly's Johannesburg region because it is
-the only one in Africa. That is probably wrong. West African traffic is commonly
-backhauled to London or Amsterdam over submarine cable, so Accra → Johannesburg
-often transits Europe anyway. **Frankfurt is the safer default until someone
-measures RTT from an Accra connection**, and that measurement is a real open
-question, not a formality.
-*Notes:* Hugging Face Spaces stopped offering free Docker hosting around July
-2026 and now requires PRO, so the common "just use Spaces" advice is dead.
-DigitalOcean has been removed from the Student Pack. Verify Heroku's credit term
-at signup — their help page says 24 months, an older launch post said 12.
-
-**16. The Hint Ladder is shown to the student.**
-Five rungs and "hint 2 of 5" sit above every reply.
-*Gave up:* a little screen space, and some of the illusion of a free-form chat.
-*Bought:* the refusal becomes legible. Being asked "what have you tried?" reads
-as stonewalling unless the student can see they are being coached through a
-finite sequence that ends in a full solution. A solved Turn shows no rungs at
-all, because five filled rungs would read as "you used all five hints".
-
-**15. Word-poor questions are expanded from their own structure.**
-An equals sign beside a letter means solving for an unknown; a slash between
-digits means fractions. Those words are added to the query when the student's
-question has almost none of its own.
-*Gave up:* precision. The added terms are topical, so the Citation is about the
-right area rather than the right paragraph.
-*Bought:* Grounded replies for the most common question a student asks — a bare
-equation — with no database and no embeddings. Expansion only fires below two
-indexable words, so ordinary questions score exactly as before.
-*Guarded by:* a test asserting every term it can emit exists in the corpus. A
-term the corpus has never seen contributes nothing, and silently achieving
-nothing is the failure this is most at risk of.
+**13. Five users is an anecdote, and saying so is the point.**
+Five people have used this. That supports "it works and they came back", and
+nothing beyond it.
+*Gave up:* every outcome claim. No learning gain, no percentage improvement, no
+before-and-after.
+*Bought:* claims that survive the first follow-up question. The numbers worth
+quoting are the ones from the offline checks — Reveal rate across logged Turns,
+maths errors found in review, Indicator Coverage — because those are properties
+of the system, measurable without users at all.
+*Specifically avoid:* follow-up-question rate. Its direction is ambiguous even
+with a real sample, and with five users it means nothing.
 
 ### 7.4 Process
 
@@ -252,14 +214,17 @@ into the wrong Class. Both were caught because failures were recorded.
 
 ## 8. Open questions
 
-| Question | Blocks | Owner |
-|---|---|---|
-| Written permission from NaCCA | commercial use, not the Pilot | Angel |
-| Who reviews the 124 candidate mappings | citation quality | Angel |
-| Extraction audit of 20 Indicators | trust in the Skill Graph | Angel, needs a human |
-| Consent wording, and the named safeguarding adult | the Pilot, hard blocker | Angel |
-| Ghana Data Protection Act registration | deployment beyond a consented family Pilot | needs local advice |
-| Supabase account and region | phase 2 | Angel |
+| Question | Blocks |
+|---|---|
+| Extraction audit of 20 Indicators | trust in the Skill Graph — engineer review |
+| Spot-check the 124 candidate mappings | Citation quality — engineer review |
+| Real RTT from an Accra connection: Frankfurt vs Johannesburg | nothing yet; settles decision 17's region |
+| Student Pack verification | deployment |
+
+Not currently in scope, and recorded so the decision is visible rather than
+forgotten: written permission from NaCCA, and anything to do with Ghana's Data
+Protection Act. Both would matter if this were offered publicly or charged for.
+It is a personal project used by five people, so neither is being pursued.
 
 ## 9. What comes next
 
@@ -272,7 +237,7 @@ Ordered by what unblocks the most.
    when the credit expires
 2. **Golden set and evaluation** — makes every later change measurable, and
    would tell us whether expansion helps precision or only recall
-3. **Safety and consent** — hard blocker on the Pilot
+3. **Basic safety wording** — tell students it is a bot, keep no names
 4. **Practice questions** — generated per Indicator, verified offline
 5. **Offline support** — a service worker, so a downloaded session survives the
    walk home
@@ -285,3 +250,4 @@ Ordered by what unblocks the most.
 | 2026-10-20 | Decision 15: query expansion for word-poor questions. Bare equations now retrieve |
 | 2026-10-20 | Decision 16: the web page, with the Hint Ladder made visible |
 | 2026-10-20 | Decision 17: Heroku via Student Pack, Europe. Johannesburg assumption corrected |
+| 2026-10-20 | Rescoped: five users not fifteen, personal project not a product, engineer review not "needs a human" |

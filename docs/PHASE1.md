@@ -173,7 +173,7 @@ Normalise to canonical `B{class}.{strand}.{sub}.{standard}[.{indicator}]`:
 
 **Rule 0, which overrides all of the above: column position wins over the printed code.** The left-hand column establishes the true parent for every indicator on the page. Where the printed indicator code disagrees with its column parent, the code is repaired and the repair is logged to `rejects.jsonl` for review — never applied silently.
 
-Rules 5 and 6 are what catch merged-cell damage. Anything that fails goes to a `rejects.jsonl` with its page number, for the human pass — never silently dropped.
+Rules 5 and 6 are what catch merged-cell damage. Anything that fails goes to a `rejects.jsonl` with its page number, for engineer review — never silently dropped.
 
 ### A7. Human verification
 
