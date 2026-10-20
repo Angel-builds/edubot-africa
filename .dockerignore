@@ -1,4 +1,5 @@
 .git/
+.github/
 .venv/
 __pycache__/
 .pytest_cache/
@@ -6,8 +7,11 @@ __pycache__/
 .env
 .env.*
 tests/
-evals/
 docs/
-web/
-corpus/
+tools/
 *.md
+
+# Source documents only; the app reads the generated corpus, never these.
+# corpus/raw holds the all-rights-reserved NaCCA PDF and the Siyavula page
+# cache, neither of which may be redistributed in an image.
+corpus/raw/

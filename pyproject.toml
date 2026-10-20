@@ -8,12 +8,16 @@ dependencies = [
     "uvicorn[standard]>=0.32",
     "pydantic>=2.9",
     "pydantic-settings>=2.6",
-    "pdfplumber>=0.11.10",
     "sympy>=1.14.0",
     "anthropic>=1.8.0",
 ]
 
 [dependency-groups]
+# Building the corpus needs a PDF parser; serving it does not. Keeping these
+# out of the runtime image saves about 50 MB of pdfminer, pillow and pypdfium2.
+ingest = [
+    "pdfplumber>=0.11.10",
+]
 dev = [
     "pytest>=8.3",
     "httpx2>=0.28",
@@ -22,6 +26,7 @@ dev = [
 
 [tool.uv]
 package = false
+default-groups = ["dev", "ingest"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests", "evals"]
