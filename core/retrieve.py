@@ -11,6 +11,7 @@ import json
 from dataclasses import dataclass
 from pathlib import Path
 
+from core.expand import MIN_OWN_TOKENS, maths_terms
 from core.tfidf import cosine, fit, project, tokenise
 
 CHUNKS = Path("corpus/chunks.jsonl")
@@ -51,7 +52,11 @@ class Retriever:
         self.vectors, self.idf = fit(documents)
 
     def search(self, question: str, k: int = 3) -> list[RetrievedChunk]:
-        query = project(tokenise(question), self.idf)
+        tokens = tokenise(question)
+        if len(tokens) < MIN_OWN_TOKENS:
+            # A bare equation has no words of its own; read them off its shape.
+            tokens += tokenise(" ".join(maths_terms(question)))
+        query = project(tokens, self.idf)
         scored = sorted(
             ((cosine(query, vec), i) for i, vec in enumerate(self.vectors)),
             reverse=True,

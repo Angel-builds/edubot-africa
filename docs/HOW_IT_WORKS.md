@@ -44,6 +44,13 @@ determined 14-year-old across several turns; withholding structurally does.
 
 ## The files
 
+### `core/expand.py` — giving a bare equation some words
+
+`3x + 5 = 20` is a clear question containing nothing searchable. This reads the
+shape — equals sign plus a letter means solving for an unknown, a slash between
+digits means fractions — and adds those words before scoring. It only fires when
+the question has fewer than two words of its own.
+
 ### `core/tfidf.py` — how text is scored
 
 Term frequency × inverse document frequency, ~60 lines. A word that appears in
@@ -115,9 +122,10 @@ there is no session store to reason about yet.
 
 Honest list, so nothing here surprises you later:
 
-- **Bare equations retrieve nothing.** `3x + 5 = 20` has no words of three or
-  more letters, so the query vector is empty. The solver still handles it; the
-  reply is just ungrounded. Hybrid search in phase 2 is what fixes this.
+- **Citations are topical, not precise.** `x^2 = 49` lands on solving equations
+  rather than on powers. Bare equations do now retrieve — `core/expand.py` reads
+  topic words off the shape of the expression — but lexical matching only gets
+  you the right area. Hybrid search in phase 2 is what sharpens it.
 - **Only linear equations and plain arithmetic.** No word problems, no geometry.
 - **No conversation memory** beyond the level integer.
 - **The 124 chunk→indicator mappings are unreviewed**, so citations point at

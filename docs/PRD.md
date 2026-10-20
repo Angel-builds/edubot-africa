@@ -73,7 +73,7 @@ Honest about what a 15-student Pilot can and cannot show.
 | Content corpus | **Done.** 708 Chunks, 104k words, CC BY 3.0 |
 | Coverage | **Partial.** 124 of 178 Indicators Covered; 54 Uncovered |
 | Tutor | **Minimal but working.** Hint Ladder, private Worked Answer, Symbolic Equivalence marking |
-| Retrieval | **Minimal.** In-memory, lexical. Returns nothing for a bare equation |
+| Retrieval | **Minimal.** In-memory, lexical. Bare equations now retrieve, topically |
 | API | `/health`, `/chat` |
 | Interface | CLI only. No web app yet |
 | Deployment | Not deployed |
@@ -124,9 +124,12 @@ stronger interview answer than adopting it blind.
 
 **5. Retrieval is in-memory and lexical, for now.**
 708 Chunks fit in memory and score instantly with TF-IDF.
-*Gave up:* semantic matching, and anything resembling scale. A bare equation
-like `3x + 5 = 20` contains no indexable words, so it retrieves nothing and the
-reply is ungrounded.
+*Gave up:* semantic matching, and anything resembling scale. Matches are
+topical rather than precise — `x^2 = 49` currently lands on solving equations
+rather than on powers.
+*Note:* a bare equation contains no searchable words at all, so the shape of the
+expression is read for topic words before scoring (decision 15). That closed the
+ungrounded-reply gap without a database.
 *Bought:* no database, no API key, no network — it runs on a laptop today.
 *Revisit:* phase 2, which replaces it with Postgres and hybrid search. The
 interface stays.
@@ -189,6 +192,21 @@ and maths errors in teacher-reviewed claims, are defensible numbers.
 clearer explanations or a disengaged student. If reported, it is reported with
 that caveat and a confidence interval.
 
+**15. Word-poor questions are expanded from their own structure.**
+An equals sign beside a letter means solving for an unknown; a slash between
+digits means fractions. Those words are added to the query when the student's
+question has almost none of its own.
+*Gave up:* precision. The added terms are topical, so the Citation is about the
+right area rather than the right paragraph.
+*Bought:* Grounded replies for the most common question a student asks — a bare
+equation — with no database and no embeddings. Expansion only fires below two
+indexable words, so ordinary questions score exactly as before.
+*Guarded by:* a test asserting every term it can emit exists in the corpus. A
+term the corpus has never seen contributes nothing, and silently achieving
+nothing is the failure this is most at risk of.
+
+### 7.4 Process
+
 **14. Nothing the pipeline cannot trust is dropped silently.**
 Every extraction failure is written to a rejects file with its page number.
 *Gave up:* clean output.
@@ -213,15 +231,16 @@ into the wrong Class. Both were caught because failures were recorded.
 
 Ordered by what unblocks the most.
 
-1. **Fix the retrieval gap for bare equations** — currently ungrounded
-2. **A web interface** — students cannot use a CLI
-3. **Deploy** — a URL, so the Pilot can happen at all
-4. **Golden set and evaluation** — makes every later change measurable
-5. **Safety and consent** — hard blocker on the Pilot
-6. **Practice questions** — generated per Indicator, verified offline
+1. **A web interface** — students cannot use a CLI
+2. **Deploy** — a URL, so the Pilot can happen at all
+3. **Golden set and evaluation** — makes every later change measurable, and
+   would tell us whether expansion helps precision or only recall
+4. **Safety and consent** — hard blocker on the Pilot
+5. **Practice questions** — generated per Indicator, verified offline
 
 ## 10. Changelog
 
 | Date | Change |
 |---|---|
 | 2026-10-20 | First version. Captures decisions made through the working tutor |
+| 2026-10-20 | Decision 15: query expansion for word-poor questions. Bare equations now retrieve |
