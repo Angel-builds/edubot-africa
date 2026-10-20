@@ -58,7 +58,8 @@ uv run python -m ingest.nacca_taxonomy    # rebuild the skill graph
 uv run python -m ingest.siyavula          # fetch + chunk the CC BY corpus
 uv run python -m ingest.map_indicators    # map chunks to indicators, report gaps
 
-uv run python -m core.cli "3x + 5 = 20"   # talk to the tutor
+uv run python -m core.cli "3x + 5 = 20"   # talk to the tutor in a terminal
+uv run uvicorn api.main:app --reload       # then open http://localhost:8000
 ```
 
 The tutor runs with **no API key** — replies show the coaching step instead of

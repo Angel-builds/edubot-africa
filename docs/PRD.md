@@ -75,7 +75,7 @@ Honest about what a 15-student Pilot can and cannot show.
 | Tutor | **Minimal but working.** Hint Ladder, private Worked Answer, Symbolic Equivalence marking |
 | Retrieval | **Minimal.** In-memory, lexical. Bare equations now retrieve, topically |
 | API | `/health`, `/chat` |
-| Interface | CLI only. No web app yet |
+| Interface | **Web page and CLI.** 3.2 KB over the wire, 464 bytes a Turn |
 | Deployment | Not deployed |
 | Safety and consent | **Not started.** Blocks the Pilot |
 | Extraction audit | **Not started.** Needs a human |
@@ -178,7 +178,10 @@ Pidgin and code-switched input are understood and never corrected.
 Target under 100 KB first paint, under 20 KB per Turn, on a shared Android over
 3G. That rules out heavy frameworks before the first line of frontend.
 *Gave up:* rich interaction, diagrams, anything video.
-*Bought:* a tutor a family can afford to let a child use daily.
+*Bought:* a tutor a family can afford to let a child use daily. Measured: the
+page is 3.2 KB gzipped with zero external requests, a Turn is 464 bytes, and a
+ten-Turn session costs about GH¢0.00006 at GH¢6/GB. Asserted in tests, not hoped
+for.
 
 ### 7.3 Measurement and honesty
 
@@ -191,6 +194,14 @@ and maths errors in teacher-reviewed claims, are defensible numbers.
 *Note:* Follow-up Clarification rate is ambiguous in direction — fewer can mean
 clearer explanations or a disengaged student. If reported, it is reported with
 that caveat and a confidence interval.
+
+**16. The Hint Ladder is shown to the student.**
+Five rungs and "hint 2 of 5" sit above every reply.
+*Gave up:* a little screen space, and some of the illusion of a free-form chat.
+*Bought:* the refusal becomes legible. Being asked "what have you tried?" reads
+as stonewalling unless the student can see they are being coached through a
+finite sequence that ends in a full solution. A solved Turn shows no rungs at
+all, because five filled rungs would read as "you used all five hints".
 
 **15. Word-poor questions are expanded from their own structure.**
 An equals sign beside a letter means solving for an unknown; a slash between
@@ -231,12 +242,13 @@ into the wrong Class. Both were caught because failures were recorded.
 
 Ordered by what unblocks the most.
 
-1. **A web interface** — students cannot use a CLI
-2. **Deploy** — a URL, so the Pilot can happen at all
-3. **Golden set and evaluation** — makes every later change measurable, and
+1. **Deploy** — a URL, so the Pilot can happen at all. Needs a Fly account
+2. **Golden set and evaluation** — makes every later change measurable, and
    would tell us whether expansion helps precision or only recall
-4. **Safety and consent** — hard blocker on the Pilot
-5. **Practice questions** — generated per Indicator, verified offline
+3. **Safety and consent** — hard blocker on the Pilot
+4. **Practice questions** — generated per Indicator, verified offline
+5. **Offline support** — a service worker, so a downloaded session survives the
+   walk home
 
 ## 10. Changelog
 
@@ -244,3 +256,4 @@ Ordered by what unblocks the most.
 |---|---|
 | 2026-10-20 | First version. Captures decisions made through the working tutor |
 | 2026-10-20 | Decision 15: query expansion for word-poor questions. Bare equations now retrieve |
+| 2026-10-20 | Decision 16: the web page, with the Hint Ladder made visible |
