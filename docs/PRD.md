@@ -1,6 +1,6 @@
 # EduBot Africa — Product Requirements
 
-**Living document.** Last updated 20 October 2026. Amend it in the same commit
+**Living document.** Last updated 29 October 2026. Amend it in the same commit
 as the change it describes; if a decision below stops being true, edit it rather
 than appending a correction.
 
@@ -79,7 +79,7 @@ that question is not answerable and is not being asked. See decision 13.
 | Retrieval | **Minimal.** In-memory, lexical. Bare equations now retrieve, topically |
 | API | `/health`, `/chat` |
 | Interface | **Web page and CLI.** 3.2 KB over the wire, 464 bytes a Turn |
-| Deployment | **Live** on Heroku (EU, Basic dyno, never sleeps) — https://edubot-africa-8d5457dcf548.herokuapp.com |
+| Deployment | **Live** at https://edubot-africa.me — Heroku, EU, Basic dyno, never sleeps |
 | Safety basics | **Not started.** Small: a disclosure line, no names stored |
 | Extraction audit | **Not started.** Awaiting engineer review |
 
@@ -219,7 +219,7 @@ into the wrong Class. Both were caught because failures were recorded.
 | Extraction audit of 20 Indicators | trust in the Skill Graph — engineer review |
 | Spot-check the 124 candidate mappings | Citation quality — engineer review |
 | Real RTT from an Accra connection: Frankfurt vs Johannesburg | nothing yet; settles decision 17's region |
-| Student Pack verification | deployment |
+| Should plain `http://` redirect to `https://`? | nothing; the dyno answers both |
 
 Not currently in scope, and recorded so the decision is visible rather than
 forgotten: written permission from NaCCA, and anything to do with Ghana's Data
@@ -230,12 +230,11 @@ It is a personal project used by five people, so neither is being pursued.
 
 Ordered by what unblocks the most.
 
-1. **Claim the free Namecheap `.me` domain** from the Student Pack and point
-   it at the dyno, so the URL survives the migration when the credit expires in
-   24 months. Diarise month 20
-2. **Golden set and evaluation** — makes every later change measurable, and
+1. **Golden set and evaluation** — makes every later change measurable, and
    would tell us whether expansion helps precision or only recall
-3. **Basic safety wording** — tell students it is a bot, keep no names
+2. **Basic safety wording** — tell students it is a bot, keep no names
+3. **Force HTTPS.** Heroku terminates TLS at its edge but serves plain `http://`
+   too. A student typing the domain gets an unencrypted session
 4. **Practice questions** — generated per Indicator, verified offline
 5. **Offline support** — a service worker, so a downloaded session survives the
    walk home
@@ -250,3 +249,4 @@ Ordered by what unblocks the most.
 | 2026-10-20 | Decision 17: Heroku via Student Pack, Europe. Johannesburg assumption corrected |
 | 2026-10-20 | Rescoped: five users not fifteen, personal project not a product, engineer review not "needs a human" |
 | 2026-10-29 | Deployed to Heroku, EU, Basic dyno |
+| 2026-10-29 | Custom domain `edubot-africa.me` live, with managed TLS. Closes section 9 item 1 |

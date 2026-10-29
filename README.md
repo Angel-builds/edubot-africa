@@ -1,6 +1,6 @@
 # EduBot Africa
 
-**Live: https://edubot-africa-8d5457dcf548.herokuapp.com**
+**Live: https://edubot-africa.me**
 
 An AI maths tutor grounded in the Ghanaian JHS curriculum (NaCCA Common Core
 Programme, B7–B9), built for students on shared Android phones and metered data.
