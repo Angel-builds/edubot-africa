@@ -79,7 +79,7 @@ that question is not answerable and is not being asked. See decision 13.
 | Retrieval | **Minimal.** In-memory, lexical. Bare equations now retrieve, topically |
 | API | `/health`, `/chat` |
 | Interface | **Web page and CLI.** 3.2 KB over the wire, 464 bytes a Turn |
-| Deployment | **Not deployed.** Image builds and runs; host chosen (decision 17) |
+| Deployment | **Live** on Heroku (EU, Basic dyno, never sleeps) — https://edubot-africa-8d5457dcf548.herokuapp.com |
 | Safety basics | **Not started.** Small: a disclosure line, no names stored |
 | Extraction audit | **Not started.** Awaiting engineer review |
 
@@ -230,11 +230,9 @@ It is a personal project used by five people, so neither is being pursued.
 
 Ordered by what unblocks the most.
 
-1. **Deploy to Heroku** — needs Student Pack verification (SheerID; allow
-   1–7 days if your university domain is not pre-recognised, and have a dated
-   enrolment letter ready). Then claim the free Namecheap `.me` domain from the
-   Pack and point it at the dyno, so the portfolio URL survives the migration
-   when the credit expires
+1. **Claim the free Namecheap `.me` domain** from the Student Pack and point
+   it at the dyno, so the URL survives the migration when the credit expires in
+   24 months. Diarise month 20
 2. **Golden set and evaluation** — makes every later change measurable, and
    would tell us whether expansion helps precision or only recall
 3. **Basic safety wording** — tell students it is a bot, keep no names
@@ -251,3 +249,4 @@ Ordered by what unblocks the most.
 | 2026-10-20 | Decision 16: the web page, with the Hint Ladder made visible |
 | 2026-10-20 | Decision 17: Heroku via Student Pack, Europe. Johannesburg assumption corrected |
 | 2026-10-20 | Rescoped: five users not fifteen, personal project not a product, engineer review not "needs a human" |
+| 2026-10-29 | Deployed to Heroku, EU, Basic dyno |
