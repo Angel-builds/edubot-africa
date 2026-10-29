@@ -60,6 +60,7 @@ uv run python -m ingest.nacca_taxonomy    # rebuild the skill graph
 uv run python -m ingest.siyavula          # fetch + chunk the CC BY corpus
 uv run python -m ingest.map_indicators    # map chunks to indicators, report gaps
 
+uv run python -m evaluation.report        # score retrieval on the golden set
 uv run python -m core.cli "3x + 5 = 20"   # talk to the tutor in a terminal
 uv run uvicorn api.main:app --reload       # then open http://localhost:8000
 ```
@@ -77,23 +78,25 @@ Copy `.env.example` to `.env` for local configuration.
 ## Layout
 
 ```
-api/      FastAPI service — routes, config
-core/     tutor, solver, retrieval, model protocol
-ingest/   curriculum -> skill graph, open corpora -> chunks
-db/       SQL migrations (pgvector, HNSW, hybrid search, RLS)
-evals/    golden datasets + retrieval metrics, gated in CI
-web/      static PWA
-docs/     pre-registration, eval results, safety, consent
+api/         FastAPI service — routes, config, forced HTTPS
+core/        tutor, solver, retrieval, query expansion, model client
+ingest/      curriculum -> skill graph, Siyavula -> chunks
+corpus/      the generated skill graph, chunks and coverage (committed)
+evaluation/  the golden set and retrieval metrics, gated in CI
+web/         the whole interface, one file
+tests/       95 tests
+docs/        PRD, how it works, extraction audit
+db/          SQL migrations — empty until phase 2
 ```
 
 ## Roadmap
 
 | Phase | |
 |---|---|
-| 0 | Foundations — FastAPI, Docker, Fly, pytest, CI ✅ |
+| 0 | Foundations — FastAPI, Docker, Heroku, pytest, CI ✅ |
 | 1 | Corpus and skill graph ✅ — 57 standards, 178 indicators, 708 CC BY chunks |
 | 2 | Supabase and hybrid retrieval |
-| 3 | The eval gate — golden set, recall@k/MRR/nDCG in CI |
+| 3 | The eval gate ✅ — 70 golden pairs, hit@k/recall@k/MRR/nDCG in CI |
 | 4 | Retrieval improvement loop |
 | 5 | The tutor — hint ladder, SymPy solver ✅ (minimal) |
 | 6 | Practice items |

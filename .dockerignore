@@ -9,6 +9,7 @@ __pycache__/
 tests/
 docs/
 tools/
+evaluation/
 *.md
 
 # Source documents only; the app reads the generated corpus, never these.

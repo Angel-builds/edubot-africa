@@ -104,6 +104,31 @@ _Avoid_: fuzzy match, normalisation
 A tutor reply is Grounded when what it claims is traceable to a retrieved Chunk.
 _Avoid_: sourced, backed, supported
 
+### The evaluation
+
+**Golden Set**:
+A fixed list of questions paired with the Chunks that ought to answer them,
+written by hand so that a change to retrieval can be measured instead of
+guessed at. Seventy Golden Pairs.
+_Avoid_: test set, benchmark, eval set
+
+**Golden Pair**:
+One question in the Golden Set, together with every Chunk judged relevant to
+it and how relevant each one is. A Golden Pair with no relevant Chunk is a
+question the corpus cannot answer, and the correct behaviour there is to cite
+nothing at all.
+_Avoid_: example, case, sample
+
+**Relevance Grade**:
+How useful a Chunk is to a Golden Pair's question: 2 if it teaches the skill
+being asked about, 1 if it is the same topic and genuinely useful.
+_Avoid_: label, rating, score (a score is the Retriever's, not a judgement)
+
+**Score Floor**:
+A minimum retrieval score below which a Chunk is not cited at all. There is
+none yet; deciding where one should sit is part of what the Golden Set is for.
+_Avoid_: cutoff, threshold (threshold belongs to Indicator mapping)
+
 ### The pilot
 
 **Pilot**:

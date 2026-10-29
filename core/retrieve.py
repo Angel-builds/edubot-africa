@@ -21,6 +21,10 @@ CHUNKS = Path("corpus/chunks.jsonl")
 class RetrievedChunk:
     """A Chunk that matched a question, with everything needed to cite it."""
 
+    # The corpus's own identifier. Students never see it; the Golden Set needs
+    # something stable to name a Chunk by, and a heading is neither unique nor
+    # fixed across an ingest run.
+    id: str
     text: str
     heading: str
     grade: int
@@ -66,6 +70,7 @@ class Retriever:
     def _retrieved(self, index: int, score: float) -> RetrievedChunk:
         chunk = self.chunks[index]
         return RetrievedChunk(
+            id=chunk["id"],
             text=chunk["text"],
             heading=" > ".join(chunk["heading_path"][-2:]),
             grade=chunk["grade"],

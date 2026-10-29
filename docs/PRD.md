@@ -50,6 +50,7 @@ about whether the thing behaves correctly, not whether it moves test scores.
 |---|---|---|
 | Reveal rate | ~2% of Turns | The benchmark from the Sierra Leone trial. Directly measures the core guardrail |
 | Grounded replies with a valid Citation | high, measured | A tutor citing nothing is just a chatbot |
+| hit@3 on the Golden Set | rising from 0.74 | Whether the Citation a student sees is actually relevant |
 | Maths errors in teacher-reviewed numeric claims | 0 | Teaching wrong maths to a child is the worst failure available |
 | Uncovered Indicators | known and shrinking | An Uncovered Indicator is one the tutor cannot teach |
 | Does a student come back unprompted | anecdote is fine at this size | Five users cannot produce a rate, only a signal |
@@ -76,10 +77,11 @@ that question is not answerable and is not being asked. See decision 13.
 | Content corpus | **Done.** 708 Chunks, 104k words, CC BY 3.0 |
 | Coverage | **Partial.** 124 of 178 Indicators Covered; 54 Uncovered |
 | Tutor | **Minimal but working.** Hint Ladder, private Worked Answer, Symbolic Equivalence marking |
-| Retrieval | **Minimal.** In-memory, lexical. Bare equations now retrieve, topically |
+| Retrieval | **Minimal and now measured.** In-memory, lexical. hit@3 is 0.74 across the Golden Set |
 | API | `/health`, `/chat` |
 | Interface | **Web page and CLI.** 3.2 KB over the wire, 464 bytes a Turn |
-| Deployment | **Live** at https://edubot-africa.me — Heroku, EU, Basic dyno, never sleeps |
+| Deployment | **Live** at https://edubot-africa.me — Heroku, EU, Basic dyno, HTTPS forced |
+| Evaluation | **Done.** 70 Golden Pairs, five metrics, gated in CI |
 | Safety basics | **Not started.** Small: a disclosure line, no names stored |
 | Extraction audit | **Not started.** Awaiting engineer review |
 
@@ -201,6 +203,49 @@ of the system, measurable without users at all.
 *Specifically avoid:* follow-up-question rate. Its direction is ambiguous even
 with a real sample, and with five users it means nothing.
 
+**18. Retrieval quality is measured against a hand-written Golden Set.**
+Seventy Golden Pairs, written from the NaCCA Strands rather than from the
+Retriever's output — a golden set built by accepting what the system already
+returns measures nothing. Targets were chosen by reading Chunk headings and
+text; five metrics are computed by hand in about sixty lines.
+*Gave up:* a day of tedious work, and any claim that the judgements are
+authoritative. One person wrote them, so they need engineer review exactly as
+the Indicator mappings do.
+*Bought:* the first honest numbers in the project, including four that are
+unflattering:
+
+| | hit@3 | What it means |
+|---|---|---|
+| Overall | 0.74 | A quarter of answerable questions get no relevant Citation |
+| Algebra | 0.43 | The weakest Strand, and the core of JHS maths |
+| Bare equations | 0.50 | nDCG 0.06 — they retrieve, but almost never the right thing |
+| B8 | 0.61 | Worse than B7 (0.83) and B9 (0.86), despite holding 463 of 708 Chunks |
+
+*Qualifies decision 15:* query expansion closed the ungrounded-reply gap in the
+sense that a bare equation now returns something. It did not make that
+something right. The claim is narrowed accordingly.
+*Qualifies decision 5:* B8 scoring worst while holding the most Chunks points at
+near-duplicate Worked Examples competing with one another, not at too little
+material. More corpus would not fix it.
+
+**19. The tutor has no Score Floor, and the Golden Set shows why that is hard.**
+All five no-answer questions — bearings, sets, number bases, pictograms — were
+answered with three confident Citations. A floor is the obvious fix, but the
+score ranges overlap: unanswerable questions scored 0.13–0.30 and answerable
+ones 0.21–0.69.
+
+| Floor | False groundings cut | Answerable questions lost |
+|---|---|---|
+| 0.20 | 1 of 5 | 0 of 65 |
+| 0.30 | 4 of 5 | 6 of 65 |
+| 0.35 | 5 of 5 | 19 of 65 |
+
+*Decided:* no floor yet. The free one at 0.20 buys almost nothing, and the
+useful ones cost real coverage.
+*Revisit:* once ranking is better, because the overlap is a symptom of weak
+ranking rather than a law of nature. This is the clearest argument yet for the
+phase 2 semantic retrieval in decision 5.
+
 ### 7.4 Process
 
 **14. Nothing the pipeline cannot trust is dropped silently.**
@@ -219,7 +264,8 @@ into the wrong Class. Both were caught because failures were recorded.
 | Extraction audit of 20 Indicators | trust in the Skill Graph — engineer review |
 | Spot-check the 124 candidate mappings | Citation quality — engineer review |
 | Real RTT from an Accra connection: Frankfurt vs Johannesburg | nothing yet; settles decision 17's region |
-| Should plain `http://` redirect to `https://`? | nothing; the dyno answers both |
+| Spot-check the 70 Golden Pairs | trust in every number in decision 18 — engineer review |
+| Why Algebra scores 0.43: LaTeX markup diluting the text, or near-duplicate Worked Examples? | the first retrieval fix worth making |
 
 Not currently in scope, and recorded so the decision is visible rather than
 forgotten: written permission from NaCCA, and anything to do with Ghana's Data
@@ -230,13 +276,11 @@ It is a personal project used by five people, so neither is being pursued.
 
 Ordered by what unblocks the most.
 
-1. **Golden set and evaluation** — makes every later change measurable, and
-   would tell us whether expansion helps precision or only recall
+1. **Fix Algebra retrieval**, now that decision 18 names it the weakest Strand
+   at hit@3 0.43. The Golden Set will say whether a fix actually worked
 2. **Basic safety wording** — tell students it is a bot, keep no names
-3. **Force HTTPS.** Heroku terminates TLS at its edge but serves plain `http://`
-   too. A student typing the domain gets an unencrypted session
-4. **Practice questions** — generated per Indicator, verified offline
-5. **Offline support** — a service worker, so a downloaded session survives the
+3. **Practice questions** — generated per Indicator, verified offline
+4. **Offline support** — a service worker, so a downloaded session survives the
    walk home
 
 ## 10. Changelog
@@ -249,4 +293,6 @@ Ordered by what unblocks the most.
 | 2026-10-20 | Decision 17: Heroku via Student Pack, Europe. Johannesburg assumption corrected |
 | 2026-10-20 | Rescoped: five users not fifteen, personal project not a product, engineer review not "needs a human" |
 | 2026-10-29 | Deployed to Heroku, EU, Basic dyno |
-| 2026-10-29 | Custom domain `edubot-africa.me` live, with managed TLS. Closes section 9 item 1 |
+| 2026-10-29 | Custom domain `edubot-africa.me` live, with managed TLS |
+| 2026-10-29 | HTTPS forced in production, with HSTS |
+| 2026-10-29 | Decisions 18 and 19: the Golden Set, the numbers it produced, and why there is still no Score Floor |
