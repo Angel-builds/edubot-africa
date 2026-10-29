@@ -39,13 +39,16 @@ conditioned on indicator code and BECE question style.
 
 ## Stack
 
-| Layer | Choice |
-|---|---|
-| API | FastAPI in a container, ~388 MB image, 76 MB resident |
-| Store | Supabase Postgres + pgvector, HNSW index |
-| Retrieval | Hybrid: vector + tsvector + `pg_trgm`, fused by RRF |
-| Model | Claude Haiku 4.5, Anthropic SDK behind a thin `Model` protocol |
-| Frontend | Static PWA on Cloudflare Pages, <100KB first paint |
+| Layer | Choice | |
+|---|---|---|
+| API | FastAPI in a container, ~388 MB image | built |
+| Hosting | Heroku, EU, Basic dyno, HTTPS forced | built |
+| Corpus | 708 CC BY chunks on disk, loaded into memory | built |
+| Retrieval | TF-IDF cosine with query expansion, hit@3 0.74 | built |
+| Model | Fireworks or Anthropic, chosen by which key is set | built |
+| Frontend | One HTML file, 3.2 KB gzipped, zero external requests | built |
+| Store | Supabase Postgres + pgvector, HNSW index | phase 2 |
+| Retrieval | Hybrid: vector + tsvector + `pg_trgm`, fused by RRF | phase 2 |
 
 ## Development
 
@@ -61,13 +64,28 @@ uv run python -m ingest.siyavula          # fetch + chunk the CC BY corpus
 uv run python -m ingest.map_indicators    # map chunks to indicators, report gaps
 
 uv run python -m evaluation.report        # score retrieval on the golden set
+uv run python -m core.models              # list models the configured key can serve
 uv run python -m core.cli "3x + 5 = 20"   # talk to the tutor in a terminal
 uv run uvicorn api.main:app --reload       # then open http://localhost:8000
 ```
 
 The tutor runs with **no API key** — replies show the coaching step instead of
-prose, which is the quickest way to see the machinery. Set `ANTHROPIC_API_KEY`
-for natural language.
+prose, which is the quickest way to see the machinery.
+
+For natural language, set one provider key. Phrasing a hint is not reasoning,
+so the cheapest instruction-following model is the right one:
+
+```bash
+export FIREWORKS_API_KEY=...        # or ANTHROPIC_API_KEY
+uv run python -m core.models        # confirm the model id is still served
+```
+
+Leave `EDUBOT_PROVIDER` unset and the cheapest configured key wins.
+`EDUBOT_MODEL` overrides the model for whichever provider is in force.
+
+A key written into `.env` reaches `api/config.py` but **not** `core/llm.py`,
+which reads plain environment variables — start the process with
+`uv run --env-file .env ...`, or export the key in your shell.
 
 The extractor needs `corpus/raw/MATHEMATICS-CCP-B7-B9.pdf`, which is gitignored —
 see `corpus/MANIFEST.json` for the source URL and checksum. The generated
@@ -79,12 +97,12 @@ Copy `.env.example` to `.env` for local configuration.
 
 ```
 api/         FastAPI service — routes, config, forced HTTPS
-core/        tutor, solver, retrieval, query expansion, model client
+core/        tutor, solver, retrieval, query expansion, model providers
 ingest/      curriculum -> skill graph, Siyavula -> chunks
 corpus/      the generated skill graph, chunks and coverage (committed)
 evaluation/  the golden set and retrieval metrics, gated in CI
 web/         the whole interface, one file
-tests/       95 tests
+tests/       109 tests
 docs/        PRD, how it works, extraction audit
 db/          SQL migrations — empty until phase 2
 ```

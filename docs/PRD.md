@@ -77,6 +77,7 @@ that question is not answerable and is not being asked. See decision 13.
 | Content corpus | **Done.** 708 Chunks, 104k words, CC BY 3.0 |
 | Coverage | **Partial.** 124 of 178 Indicators Covered; 54 Uncovered |
 | Tutor | **Minimal but working.** Hint Ladder, private Worked Answer, Symbolic Equivalence marking |
+| Model | **Two providers.** Fireworks or Anthropic, by whichever key is set. Live dyno still has neither |
 | Retrieval | **Minimal and now measured.** In-memory, lexical. hit@3 is 0.74 across the Golden Set |
 | API | `/health`, `/chat` |
 | Interface | **Web page and CLI.** 3.2 KB over the wire, 464 bytes a Turn |
@@ -86,6 +87,7 @@ that question is not answerable and is not being asked. See decision 13.
 | Extraction audit | **Not started.** Awaiting engineer review |
 
 Runs today with no API key: replies show the coaching step instead of prose.
+The deployed dyno is in exactly that state until a key is set on it.
 
 ---
 
@@ -246,6 +248,40 @@ useful ones cost real coverage.
 ranking rather than a law of nature. This is the clearest argument yet for the
 phase 2 semantic retrieval in decision 5.
 
+**20. The model provider is configuration, not architecture.**
+The model's only job is to phrase a hint. Retrieval, solving, marking and
+choosing the Hint Level are all deterministic Python, so the model is close to
+a commodity here — which means the provider should be a one-line change, not a
+rewrite. `core/llm.py` supports Fireworks and Anthropic behind the same two
+functions, picked by whichever key is set, cheapest first.
+*Gave up:* provider-specific features. Nothing beyond a system prompt, a user
+message and a token cap is available through this seam.
+*Bought:* a roughly tenfold cost reduction, and the freedom to move again. The
+cheapest Fireworks serverless model is about \$0.05 in and \$0.20 out per
+million tokens against Haiku's \$1.00 and \$5.00. At 464 bytes a Turn the
+difference is not large in absolute terms; the point is that the constraint of
+near-zero API cost is now met by configuration.
+*Fireworks is called over plain HTTP,* not through a second SDK: the surface we
+use is one endpoint and four fields, and `httpx2` is already present as an
+`anthropic` dependency.
+*Found while doing it:* Mistral, the obvious open-weights choice, no longer
+appears on Fireworks' serverless pricing page, and the Mixtral variants are
+marked deprecated or not serverless. Model ids are therefore treated as
+unverifiable offline — `python -m core.models` lists what a key can actually
+serve, and a retired id produces an error that says so rather than a generic
+400.
+
+**21. The test suite must not be able to spend money.**
+`core.tutor.respond` calls the model whenever a key is configured, so simply
+exporting a key turned `uv run pytest` into dozens of billed, non-deterministic
+API calls. This was latent from the start and invisible only because nobody had
+a key set.
+*Gave up:* nothing.
+*Bought:* a suite that stays free and offline. `tests/conftest.py` clears every
+provider variable for every test, so the tutor tests always exercise the
+template fallback, and the Fireworks request shape is pinned against a stubbed
+transport instead.
+
 ### 7.4 Process
 
 **14. Nothing the pipeline cannot trust is dropped silently.**
@@ -296,3 +332,4 @@ Ordered by what unblocks the most.
 | 2026-10-29 | Custom domain `edubot-africa.me` live, with managed TLS |
 | 2026-10-29 | HTTPS forced in production, with HSTS |
 | 2026-10-29 | Decisions 18 and 19: the Golden Set, the numbers it produced, and why there is still no Score Floor |
+| 2026-10-29 | Decisions 20 and 21: Fireworks alongside Anthropic, and a test suite that cannot bill |

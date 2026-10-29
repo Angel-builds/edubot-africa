@@ -10,6 +10,10 @@ dependencies = [
     "pydantic-settings>=2.6",
     "sympy>=1.14.0",
     "anthropic>=1.8.0",
+    # httpx 2.x renamed both distribution and import. It arrives anyway as an
+    # anthropic dependency, but core.llm calls Fireworks with it directly, so
+    # it is declared rather than borrowed.
+    "httpx2>=2.0",
 ]
 
 [dependency-groups]
@@ -20,7 +24,6 @@ ingest = [
 ]
 dev = [
     "pytest>=8.3",
-    "httpx2>=0.28",
     "ruff>=0.8",
 ]
 
@@ -29,7 +32,7 @@ package = false
 default-groups = ["dev", "ingest"]
 
 [tool.pytest.ini_options]
-testpaths = ["tests", "evals"]
+testpaths = ["tests"]
 addopts = "-q"
 
 [tool.ruff]

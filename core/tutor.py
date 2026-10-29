@@ -125,7 +125,7 @@ class Tutor:
 
 def _without_a_model(hint_level: int, citations: list[RetrievedChunk], correct: bool | None) -> str:
     """Runs with no API key, so the mechanism is visible before you spend anything."""
-    lines = ["[no ANTHROPIC_API_KEY set - showing the coaching step itself]", ""]
+    lines = ["[no model API key set - showing the coaching step itself]", ""]
     if correct is True:
         lines.append("That is correct.")
     elif correct is False:
