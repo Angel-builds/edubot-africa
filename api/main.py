@@ -1,9 +1,9 @@
 from functools import lru_cache
 from pathlib import Path
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.gzip import GZipMiddleware
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, RedirectResponse
 from pydantic import BaseModel, Field
 
 from api.config import get_settings
@@ -18,6 +18,38 @@ app = FastAPI(
 # Students pay for every byte. The page is 7.6 KB of text that compresses to
 # about 3 KB, and JSON replies compress well too.
 app.add_middleware(GZipMiddleware, minimum_size=500)
+
+
+# Heroku terminates TLS at its router, then forwards the request to the dyno
+# over plain HTTP, so the scheme the student actually used survives only in
+# this header. Trusting a client-supplied header is normally a mistake; here
+# the router overwrites it on every request, and the check does nothing
+# outside production anyway.
+FORWARDED_PROTO = "x-forwarded-proto"
+
+# Thirty days. Long enough that a returning student skips the redirect
+# altogether -- one saved round trip on congested mobile data is worth more
+# than the header costs to send -- and short enough that moving to a host
+# without TLS would not lock anyone out for a year. See PRD decision 12.
+HSTS = "max-age=2592000"
+
+
+# Added after GZipMiddleware, which makes it the outer layer: a redirect is
+# decided before the compressor ever sees the response.
+@app.middleware("http")
+async def require_https(request: Request, call_next):
+    """Redirect plain HTTP to HTTPS, and ask the browser not to try HTTP again."""
+    if get_settings().environment != "production":
+        return await call_next(request)
+
+    if request.headers.get(FORWARDED_PROTO) == "http":
+        # 301, not 302: the browser remembers it and stops paying for the
+        # round trip. Safe here because the redirect is unconditional.
+        return RedirectResponse(request.url.replace(scheme="https"), status_code=301)
+
+    response = await call_next(request)
+    response.headers["Strict-Transport-Security"] = HSTS
+    return response
 
 
 PAGE = Path("web/index.html")
