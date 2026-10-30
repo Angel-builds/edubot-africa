@@ -23,6 +23,9 @@ TIMEOUT = 30.0
 
 FIREWORKS_URL = "https://api.fireworks.ai/inference/v1"
 
+# Sent on every Fireworks call. See the comment in `_fireworks`.
+NO_REASONING = "none"
+
 # Ordered cheapest first, because that is the order auto-detection uses when
 # more than one key is present -- see `provider()`. The per-provider default
 # model is each one's cheapest instruction-following option: phrasing a hint
@@ -109,6 +112,16 @@ def _fireworks(system: str, user: str) -> str:
         json={
             "model": chosen,
             "max_tokens": MAX_TOKENS,
+            # Most of the cheap serverless models now think before answering,
+            # and the thinking is billed as output and returned in a separate
+            # field the caller never sees. Left on, the default model spent all
+            # 400 tokens reasoning about a one-sentence question and returned
+            # an empty string. Phrasing a hint is not reasoning, so turn it off
+            # and pay for the sentence: 16 output tokens instead of 400.
+            #
+            # A few models are thinking-only and reject this outright -- see the
+            # 400 below. See PRD decision 22.
+            "reasoning_effort": NO_REASONING,
             # The OpenAI shape carries the system prompt as a message, where
             # the Messages API takes it as its own argument.
             "messages": [
@@ -119,12 +132,18 @@ def _fireworks(system: str, user: str) -> str:
         timeout=TIMEOUT,
     )
     if response.status_code in (400, 404):
-        # The usual cause is a retired model id, and the default error text
-        # does not say so.
+        # Two likely causes: a retired model id, or a thinking-only model that
+        # will not accept reasoning_effort. Fireworks says which, so pass its
+        # message through rather than guessing on its behalf.
         raise RuntimeError(
-            f"Fireworks rejected model {chosen!r} ({response.status_code}). "
-            "Run `python -m core.models` to list what this key can serve, "
-            "then set EDUBOT_MODEL."
+            f"Fireworks rejected model {chosen!r} ({response.status_code}): "
+            f"{response.text}\nRun `python -m core.models` to list what this "
+            "key can serve, then set EDUBOT_MODEL."
         )
     response.raise_for_status()
-    return response.json()["choices"][0]["message"]["content"].strip()
+    reply = response.json()["choices"][0]["message"]["content"].strip()
+    if not reply:
+        # An empty string is worse than an error: the student gets a blank
+        # screen and nothing says why. The caller degrades to the template.
+        raise RuntimeError(f"Fireworks returned no text for model {chosen!r}")
+    return reply

@@ -102,7 +102,7 @@ ingest/      curriculum -> skill graph, Siyavula -> chunks
 corpus/      the generated skill graph, chunks and coverage (committed)
 evaluation/  the golden set and retrieval metrics, gated in CI
 web/         the whole interface, one file
-tests/       109 tests
+tests/       114 tests
 docs/        PRD, how it works, extraction audit
 db/          SQL migrations — empty until phase 2
 ```

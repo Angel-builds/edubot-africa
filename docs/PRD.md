@@ -1,6 +1,6 @@
 # EduBot Africa — Product Requirements
 
-**Living document.** Last updated 29 October 2026. Amend it in the same commit
+**Living document.** Last updated 30 October 2026. Amend it in the same commit
 as the change it describes; if a decision below stops being true, edit it rather
 than appending a correction.
 
@@ -282,6 +282,27 @@ provider variable for every test, so the tutor tests always exercise the
 template fallback, and the Fireworks request shape is pinned against a stubbed
 transport instead.
 
+**22. Reasoning is switched off, and a failed model call is not an outage.**
+The first live call with a real key returned an empty string. HTTP 200, no
+error: the model had spent all 400 tokens of its budget thinking, returned the
+thinking in a `reasoning_content` field nothing reads, and left `content` empty.
+Every cheap serverless model on Fireworks now behaves this way by default.
+*Gave up:* reasoning, which this project was never buying. The model's job is to
+phrase one sentence; the solving is SymPy's and the grading is ours.
+*Bought:* a reply at all, and a 25x cost reduction on output — 16 tokens instead
+of 400, where the thinking tokens are billed at the output rate and discarded.
+`reasoning_effort: "none"` is sent on every call.
+*Cost:* two of the models a key can reach are thinking-only and reject the flag
+with a 400 (`glm-5p3-flash`, `gpt-oss-120b`). They are therefore unusable here
+until someone wants them enough to make the flag conditional. The error quotes
+Fireworks' own message so the cause is readable rather than guessed at.
+*Found while doing it:* `core.tutor` called the model with no error handling, so
+any provider failure — a retired id, a rate limit, a timeout on a bad line —
+was a 500 for a student halfway through a problem. It now falls back to the
+same template the tutor uses with no key at all, logs the traceback to the dyno,
+and keeps the citations. A degraded lesson beats a broken one, and the
+guardrail holds on that path because it is the same path.
+
 ### 7.4 Process
 
 **14. Nothing the pipeline cannot trust is dropped silently.**
@@ -333,3 +354,4 @@ Ordered by what unblocks the most.
 | 2026-10-29 | HTTPS forced in production, with HSTS |
 | 2026-10-29 | Decisions 18 and 19: the Golden Set, the numbers it produced, and why there is still no Score Floor |
 | 2026-10-29 | Decisions 20 and 21: Fireworks alongside Anthropic, and a test suite that cannot bill |
+| 2026-10-30 | Decision 22: reasoning switched off after a live empty reply, and the tutor degrades instead of 500ing |

@@ -13,9 +13,10 @@ from core import llm
 
 
 class FakeResponse:
-    def __init__(self, payload: dict, status_code: int = 200):
+    def __init__(self, payload: dict, status_code: int = 200, text: str = ""):
         self._payload = payload
         self.status_code = status_code
+        self.text = text
 
     def json(self) -> dict:
         return self._payload
@@ -116,6 +117,10 @@ def test_fireworks_sends_the_openai_chat_shape(monkeypatch):
     body = sent["json"]
     assert body["model"] == llm.PROVIDERS["fireworks"]["model"]
     assert body["max_tokens"] == llm.MAX_TOKENS
+    # Without this the cheap models spend the whole budget thinking and return
+    # an empty string. Pinned because it is the difference between a reply and
+    # a blank screen, and nothing else in the payload would hint at it.
+    assert body["reasoning_effort"] == llm.NO_REASONING
     # The system prompt travels as a message here, not as its own argument.
     assert body["messages"] == [
         {"role": "system", "content": "be a tutor"},
@@ -134,10 +139,36 @@ def test_fireworks_uses_the_overridden_model(monkeypatch):
 
 
 @pytest.mark.parametrize("status", [400, 404])
-def test_a_retired_model_id_gets_an_error_that_says_so(monkeypatch, status):
-    """Fireworks retires serverless models, and its own message does not explain."""
+def test_a_rejected_model_id_gets_an_error_that_says_so(monkeypatch, status):
+    """Either the model was retired, or it is thinking-only and refuses the flag."""
     monkeypatch.setenv("FIREWORKS_API_KEY", "fw-test")
-    monkeypatch.setattr("httpx2.post", lambda url, **kw: FakeResponse({}, status))
+    monkeypatch.setattr(
+        "httpx2.post",
+        lambda url, **kw: FakeResponse({}, status, text="thinking-only model"),
+    )
 
     with pytest.raises(RuntimeError, match="core.models"):
+        llm.say("s", "u")
+
+
+@pytest.mark.parametrize("status", [400, 404])
+def test_the_rejection_quotes_what_fireworks_actually_said(monkeypatch, status):
+    """The two causes need different fixes, and only Fireworks knows which it is."""
+    monkeypatch.setenv("FIREWORKS_API_KEY", "fw-test")
+    monkeypatch.setattr(
+        "httpx2.post",
+        lambda url, **kw: FakeResponse({}, status, text="disabling thinking is not supported"),
+    )
+
+    with pytest.raises(RuntimeError, match="disabling thinking is not supported"):
+        llm.say("s", "u")
+
+
+def test_an_empty_reply_is_an_error_not_a_blank_screen(monkeypatch):
+    """A reasoning model that overruns its budget returns content="" with HTTP 200."""
+    empty = {"choices": [{"message": {"content": ""}}]}
+    monkeypatch.setenv("FIREWORKS_API_KEY", "fw-test")
+    monkeypatch.setattr("httpx2.post", lambda url, **kw: FakeResponse(empty))
+
+    with pytest.raises(RuntimeError, match="no text"):
         llm.say("s", "u")

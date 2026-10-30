@@ -18,6 +18,7 @@ performance and leaves students worse on their own (Bastani et al., PNAS 2025).
 
 from __future__ import annotations
 
+import logging
 from dataclasses import dataclass, field
 
 from core import llm
@@ -120,7 +121,16 @@ class Tutor:
 
         if not llm.available():
             return _without_a_model(hint_level, citations, correct)
-        return llm.say(SYSTEM, user)
+        try:
+            return llm.say(SYSTEM, user)
+        except Exception:
+            # A retired model id, a rate limit, a timeout on a bad line: all of
+            # it is the provider's problem, and none of it should be a 500 for
+            # a student mid-question. The template below is the same one the
+            # tutor runs on with no key at all, so the lesson continues and the
+            # citations still show. The traceback goes to the dyno log.
+            logging.exception("model call failed; falling back to the coaching step")
+            return _without_a_model(hint_level, citations, correct)
 
 
 def _without_a_model(hint_level: int, citations: list[RetrievedChunk], correct: bool | None) -> str:

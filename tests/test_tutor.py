@@ -116,3 +116,25 @@ def test_replies_are_grounded_in_the_corpus(tutor):
     turn = tutor.respond("how do i add fractions")
     assert turn.citations
     assert all(c.attribution and c.url for c in turn.citations), "Citations must survive"
+
+
+# --- when the provider fails ------------------------------------------------
+
+def test_a_failing_model_degrades_instead_of_breaking_the_turn(tutor, monkeypatch):
+    """A provider outage must not be a 500 for a student halfway through a problem."""
+    monkeypatch.setenv("FIREWORKS_API_KEY", "fw-test")
+    monkeypatch.setattr("core.llm.say", lambda system, user: 1 / 0)
+
+    turn = tutor.respond("how do i add fractions")
+
+    assert "coaching step" in turn.reply
+    assert turn.citations, "The grounding survives the model going down"
+
+
+def test_the_fallback_still_withholds_the_answer(tutor, monkeypatch):
+    """The degraded path is the no-key template, so the guardrail holds there too."""
+    monkeypatch.setenv("FIREWORKS_API_KEY", "fw-test")
+    monkeypatch.setattr("core.llm.say", lambda system, user: 1 / 0)
+
+    turn = tutor.respond("3x + 5 = 20")
+    assert not turn.revealed

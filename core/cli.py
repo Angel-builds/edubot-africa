@@ -20,7 +20,7 @@ def main(argv: list[str] | None = None) -> int:
 
     print("EduBot - JHS maths tutor.  Ctrl-C or 'quit' to leave.")
     if not llm.available():
-        print("No ANTHROPIC_API_KEY set: replies show the coaching step instead of prose.")
+        print("No model API key set: replies show the coaching step instead of prose.")
     print()
 
     question = " ".join(argv) if argv else input("question> ").strip()
